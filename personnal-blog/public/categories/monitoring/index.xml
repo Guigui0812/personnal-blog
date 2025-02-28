@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Monitoring on grohee</title>
+    <link>http://localhost:1313/categories/monitoring/</link>
+    <description>Recent content in Monitoring on grohee</description>
+    <generator>Hugo -- 0.145.0</generator>
+    <language>fr</language>
+    <lastBuildDate>Sat, 28 Dec 2024 00:00:00 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/monitoring/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Le monitoring avec Prometheus et Grafana</title>
+      <link>http://localhost:1313/posts/prometheus/</link>
+      <pubDate>Sat, 28 Dec 2024 00:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/posts/prometheus/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Prometheus&lt;/strong&gt; est un outil open-source de surveillance et de gestion des métriques conçu pour collecter, stocker et analyser des données en temps réel. Il est particulièrement populaire dans les environnements cloud et DevOps grâce à son intégration facile avec des systèmes modernes comme Kubernetes.&lt;/p&gt;
+&lt;p&gt;Afin de visualiser les &lt;strong&gt;métriques&lt;/strong&gt; collectées par &lt;code&gt;prometheus&lt;/code&gt;, on utilise souvent &lt;strong&gt;Grafana&lt;/strong&gt; qui permet de créer des tableaux de bord personnalisés.&lt;/p&gt;
+&lt;h2 id=&#34;caractéristiques-et-fonctionnalités&#34;&gt;Caractéristiques et fonctionnalités&lt;/h2&gt;
+&lt;h3 id=&#34;collecte-de-métriques&#34;&gt;Collecte de métriques&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;Prometheus&lt;/code&gt; fonctionne en mode &lt;code&gt;pull&lt;/code&gt;. Il extrait des métriques en interrogeant des points d&amp;rsquo;exposition (&lt;code&gt;endpoints HTTP&lt;/code&gt;) appelés &lt;code&gt;exporters&lt;/code&gt;. Ces derniers peuvent exposer des métriques d&amp;rsquo;applications, systèmes, conteneurs, etc.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

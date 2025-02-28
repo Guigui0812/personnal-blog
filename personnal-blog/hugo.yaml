@@ -1,0 +1,48 @@
+baseURL: https://example.org/
+languageCode: fr
+title: grohee
+theme: ['papermod']
+mainsections: ["posts", "about"]
+menu:
+  main:
+    - identifier: categories
+      name: Catégories
+      url: "/categories/"
+
+enableRobotsTXT: true
+
+params:
+  defaultTheme: dark
+  disableThemeToggle: false
+  hideFooter: false
+  ShowReadingTime: false
+  ShowShareButtons: false
+  ShowPostNavLinks: false
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: false
+  ShowWordCount: true
+  ShowRssButtonInSectionTermList: true
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  comments: false
+  hidemeta: false
+  hideSummary: false
+  showtoc: false
+  tocopen: false
+  ShareButtons: ["x", "reddit","linkedin"]
+
+  homeInfoParams:
+  
+    Title: "💻 Guillaume ROHEE - Ingénieur Système"
+    Content: |
+      - Actuellement en poste chez **Worldline**, je travaille principalement sur des projets **GCP** impliquant **Linux** et **Kubernetes**.
+      - 
+      - **Principales technologies** : Linux, Kubernetes, Docker, GCP, Ansible, Terraform, Python, Gitlab CI, Prometheus, Grafana, ...
+      - 
+      - Ce site regroupe des articles sur différents sujets techniques que j'ai pu rencontrer et que je souhaite partager.
+
+  socialIcons: 
+    - name: github
+      url: "https://github.com/Guigui0812"
+    - name: "linkedin"
+      url: "https://www.linkedin.com/in/guillaume-rohee0812/"
