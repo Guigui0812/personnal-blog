@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on grohee</title>
+    <link>http://localhost:1313/tags/</link>
+    <description>Recent content in Tags on grohee</description>
+    <generator>Hugo</generator>
+    <language>fr</language>
+    <lastBuildDate>Sat, 16 Nov 2024 00:00:00 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cloud</title>
+      <link>http://localhost:1313/tags/cloud/</link>
+      <pubDate>Sat, 16 Nov 2024 00:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/tags/cloud/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gcp</title>
+      <link>http://localhost:1313/tags/gcp/</link>
+      <pubDate>Sat, 16 Nov 2024 00:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/tags/gcp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Helm</title>
+      <link>http://localhost:1313/tags/helm/</link>
+      <pubDate>Sat, 16 Nov 2024 00:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/tags/helm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kubernetes</title>
+      <link>http://localhost:1313/tags/kubernetes/</link>
+      <pubDate>Sat, 16 Nov 2024 00:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>http://localhost:1313/tags/docker/</link>
+      <pubDate>Tue, 15 Oct 2024 00:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/tags/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dns</title>
+      <link>http://localhost:1313/tags/dns/</link>
+      <pubDate>Wed, 02 Oct 2024 00:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/tags/dns/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Networking</title>
+      <link>http://localhost:1313/tags/networking/</link>
+      <pubDate>Wed, 02 Oct 2024 00:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/tags/networking/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pihole</title>
+      <link>http://localhost:1313/tags/pihole/</link>
+      <pubDate>Wed, 02 Oct 2024 00:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/tags/pihole/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
