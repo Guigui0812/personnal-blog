@@ -2,63 +2,74 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://guillaume-rohee.fr/categories/</loc>
+    <lastmod>2025-03-11T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://guillaume-rohee.fr/categories/docker/</loc>
+    <lastmod>2025-03-11T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://guillaume-rohee.fr/categories/grafana/</loc>
+    <lastmod>2025-03-11T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://guillaume-rohee.fr/posts/grafana-loki/</loc>
+    <lastmod>2025-03-11T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://guillaume-rohee.fr/</loc>
+    <lastmod>2025-03-11T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://guillaume-rohee.fr/categories/logs/</loc>
+    <lastmod>2025-03-11T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://guillaume-rohee.fr/categories/loki/</loc>
+    <lastmod>2025-03-11T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://guillaume-rohee.fr/categories/monitoring/</loc>
+    <lastmod>2025-03-11T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://guillaume-rohee.fr/posts/</loc>
+    <lastmod>2025-03-11T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://guillaume-rohee.fr/categories/promtail/</loc>
+    <lastmod>2025-03-11T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://guillaume-rohee.fr/posts/grafana-prometheus/</loc>
     <lastmod>2024-12-28T00:00:00+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/grafana/</loc>
+    <loc>https://guillaume-rohee.fr/categories/prometheus/</loc>
     <lastmod>2024-12-28T00:00:00+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2024-12-28T00:00:00+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/prometheus/</loc>
-    <lastmod>2024-12-28T00:00:00+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/monitoring/</loc>
-    <lastmod>2024-12-28T00:00:00+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2024-12-28T00:00:00+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/prometheus/</loc>
-    <lastmod>2024-12-28T00:00:00+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/cloud/</loc>
+    <loc>https://guillaume-rohee.fr/categories/cloud/</loc>
     <lastmod>2024-11-16T00:00:00+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/helm-repo-gcp/</loc>
+    <loc>https://guillaume-rohee.fr/posts/helm-repo-gcp/</loc>
     <lastmod>2024-11-16T00:00:00+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/gcp/</loc>
+    <loc>https://guillaume-rohee.fr/categories/gcp/</loc>
     <lastmod>2024-11-16T00:00:00+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/helm/</loc>
+    <loc>https://guillaume-rohee.fr/categories/helm/</loc>
     <lastmod>2024-11-16T00:00:00+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/kubernetes/</loc>
+    <loc>https://guillaume-rohee.fr/categories/kubernetes/</loc>
     <lastmod>2024-11-16T00:00:00+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2024-11-16T00:00:00+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/docker/</loc>
+    <loc>https://guillaume-rohee.fr/posts/docker-registry-setup/</loc>
     <lastmod>2024-10-15T00:00:00+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/docker-registry-setup/</loc>
-    <lastmod>2024-10-15T00:00:00+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/dns/</loc>
+    <loc>https://guillaume-rohee.fr/categories/dns/</loc>
     <lastmod>2024-10-02T00:00:00+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/networking/</loc>
+    <loc>https://guillaume-rohee.fr/categories/networking/</loc>
     <lastmod>2024-10-02T00:00:00+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/pihole/</loc>
+    <loc>https://guillaume-rohee.fr/posts/pihole-docker/</loc>
     <lastmod>2024-10-02T00:00:00+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/pihole-docker/</loc>
+    <loc>https://guillaume-rohee.fr/categories/pihole/</loc>
     <lastmod>2024-10-02T00:00:00+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/search/</loc>
+    <loc>https://guillaume-rohee.fr/search/</loc>
+  </url><url>
+    <loc>https://guillaume-rohee.fr/tags/</loc>
   </url>
 </urlset>

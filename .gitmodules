@@ -1,6 +1,9 @@
-[submodule "personnal-blog/themes/papermod"]
-	path = personnal-blog/themes/papermod
+[submodule "themes/papermod"]
+	path = themes/papermod
 	url = https://github.com/adityatelange/hugo-PaperMod.git
-[submodule "personnal-blog/themes/hugopaper"]
-	path = personnal-blog/themes/hugopaper
+[submodule "themes/hugopaper"]
+	path = themes/hugopaper
 	url = https://github.com/nanxiaobei/hugo-paper.git
+[submodule "themes/PaperMod"]
+	path = themes/PaperMod
+	url = https://github.com/adityatelange/hugo-PaperMod.git

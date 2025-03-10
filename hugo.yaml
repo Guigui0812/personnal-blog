@@ -1,7 +1,7 @@
-baseURL: https://example.org/
-languageCode: fr
-title: grohee
-theme: ['papermod']
+baseURL: https://guillaume-rohee.fr
+theme: ["PaperMod"]
+title: "grohee"
+languageCode: "fr"
 mainsections: ["posts", "about"]
 menu:
   main:
@@ -10,6 +10,10 @@ menu:
       url: "/categories/"
 
 enableRobotsTXT: true
+
+minify:
+  disableXML: true
+  minifyOutput: true
 
 params:
   defaultTheme: dark
@@ -35,11 +39,11 @@ params:
   
     Title: "💻 Guillaume ROHEE - Ingénieur Système"
     Content: |
-      - Actuellement en poste chez **Worldline**, je travaille principalement sur des projets **GCP** impliquant **Linux** et **Kubernetes**.
+      - Actuellement en poste chez **Worldline**, je travaille principalement sur des projets **GCP** impliquant **Linux**, **Google Cloud Platform** et **Kubernetes**.
       - 
-      - **Principales technologies** : Linux, Kubernetes, Docker, GCP, Ansible, Terraform, Python, Gitlab CI, Prometheus, Grafana, ...
+      - **Autres technologies** : Docker, Ansible, Terraform, Python, Gitlab CI, Prometheus, Grafana, Puppet...
       - 
-      - Ce site regroupe des articles sur différents sujets techniques que j'ai pu rencontrer et que je souhaite partager.
+      - Ce site vise à partager certaines découvertes et réalisations effectuées durant ma veille personnelle.
 
   socialIcons: 
     - name: github

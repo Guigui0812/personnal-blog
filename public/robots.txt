@@ -1,1 +1,3 @@
 User-agent: *
+Disallow:
+Sitemap: https://guillaume-rohee.fr/sitemap.xml

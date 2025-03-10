@@ -1,32 +1,109 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Categories on grohee</title>
-    <link>http://localhost:1313/categories/</link>
+    <link>https://guillaume-rohee.fr/categories/</link>
     <description>Recent content in Categories on grohee</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>fr</language>
-    <lastBuildDate>Sat, 28 Dec 2024 00:00:00 +0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 11 Mar 2025 00:00:00 +0100</lastBuildDate>
+    <atom:link href="https://guillaume-rohee.fr/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker</title>
+      <link>https://guillaume-rohee.fr/categories/docker/</link>
+      <pubDate>Tue, 11 Mar 2025 00:00:00 +0100</pubDate>
+      <guid>https://guillaume-rohee.fr/categories/docker/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Grafana</title>
-      <link>http://localhost:1313/categories/grafana/</link>
-      <pubDate>Sat, 28 Dec 2024 00:00:00 +0100</pubDate>
-      <guid>http://localhost:1313/categories/grafana/</guid>
+      <link>https://guillaume-rohee.fr/categories/grafana/</link>
+      <pubDate>Tue, 11 Mar 2025 00:00:00 +0100</pubDate>
+      <guid>https://guillaume-rohee.fr/categories/grafana/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Logs</title>
+      <link>https://guillaume-rohee.fr/categories/logs/</link>
+      <pubDate>Tue, 11 Mar 2025 00:00:00 +0100</pubDate>
+      <guid>https://guillaume-rohee.fr/categories/logs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Loki</title>
+      <link>https://guillaume-rohee.fr/categories/loki/</link>
+      <pubDate>Tue, 11 Mar 2025 00:00:00 +0100</pubDate>
+      <guid>https://guillaume-rohee.fr/categories/loki/</guid>
       <description></description>
     </item>
     <item>
       <title>Monitoring</title>
-      <link>http://localhost:1313/categories/monitoring/</link>
-      <pubDate>Sat, 28 Dec 2024 00:00:00 +0100</pubDate>
-      <guid>http://localhost:1313/categories/monitoring/</guid>
+      <link>https://guillaume-rohee.fr/categories/monitoring/</link>
+      <pubDate>Tue, 11 Mar 2025 00:00:00 +0100</pubDate>
+      <guid>https://guillaume-rohee.fr/categories/monitoring/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Promtail</title>
+      <link>https://guillaume-rohee.fr/categories/promtail/</link>
+      <pubDate>Tue, 11 Mar 2025 00:00:00 +0100</pubDate>
+      <guid>https://guillaume-rohee.fr/categories/promtail/</guid>
       <description></description>
     </item>
     <item>
       <title>Prometheus</title>
-      <link>http://localhost:1313/categories/prometheus/</link>
+      <link>https://guillaume-rohee.fr/categories/prometheus/</link>
       <pubDate>Sat, 28 Dec 2024 00:00:00 +0100</pubDate>
-      <guid>http://localhost:1313/categories/prometheus/</guid>
+      <guid>https://guillaume-rohee.fr/categories/prometheus/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cloud</title>
+      <link>https://guillaume-rohee.fr/categories/cloud/</link>
+      <pubDate>Sat, 16 Nov 2024 00:00:00 +0100</pubDate>
+      <guid>https://guillaume-rohee.fr/categories/cloud/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gcp</title>
+      <link>https://guillaume-rohee.fr/categories/gcp/</link>
+      <pubDate>Sat, 16 Nov 2024 00:00:00 +0100</pubDate>
+      <guid>https://guillaume-rohee.fr/categories/gcp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Helm</title>
+      <link>https://guillaume-rohee.fr/categories/helm/</link>
+      <pubDate>Sat, 16 Nov 2024 00:00:00 +0100</pubDate>
+      <guid>https://guillaume-rohee.fr/categories/helm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kubernetes</title>
+      <link>https://guillaume-rohee.fr/categories/kubernetes/</link>
+      <pubDate>Sat, 16 Nov 2024 00:00:00 +0100</pubDate>
+      <guid>https://guillaume-rohee.fr/categories/kubernetes/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dns</title>
+      <link>https://guillaume-rohee.fr/categories/dns/</link>
+      <pubDate>Wed, 02 Oct 2024 00:00:00 +0100</pubDate>
+      <guid>https://guillaume-rohee.fr/categories/dns/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Networking</title>
+      <link>https://guillaume-rohee.fr/categories/networking/</link>
+      <pubDate>Wed, 02 Oct 2024 00:00:00 +0100</pubDate>
+      <guid>https://guillaume-rohee.fr/categories/networking/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pihole</title>
+      <link>https://guillaume-rohee.fr/categories/pihole/</link>
+      <pubDate>Wed, 02 Oct 2024 00:00:00 +0100</pubDate>
+      <guid>https://guillaume-rohee.fr/categories/pihole/</guid>
       <description></description>
     </item>
   </channel>

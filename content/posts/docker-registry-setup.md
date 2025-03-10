@@ -1,7 +1,7 @@
 ---
 date: '2024-10-15T00:00:00+01:00'
 draft: false
-title: 'Mise en place et utilisation de Docker Registry'
+title: 'Docker Registry : stocker et distribuer des images Docker'
 categories: ['docker']
 ---
 

@@ -1,17 +1,19 @@
 ---
 date: '2024-11-16T00:00:00+01:00'
 draft: false
-title: 'Dépôt Helm avec Google Cloud Storage'
+title: 'Créer un dépôt Helm sur Google Cloud Storage'
 categories: ['kubernetes', 'cloud', 'helm', 'gcp']
 ---
 
-Il est possible d'utiliser `Cloud Storage` en tant que dépôt pour les `charts` Helm.
+Il est possible d'utiliser **Google Cloud Storage** en tant que dépôt pour les **charts Helm**.
+
+L'intérêt est de rapidement rendre disponible des **charts** pour des applications ou des services depuis un **bucket** accessible en ligne, sans une configuration complexe.
 
 ## Créer un bucket sur GCP
 
-Le code `terraform` peut être le suivant : 
+Le **bucket GCS** peut être créé via la **Console GCP** ou via **Terraform** :
 
-```HCL
+```ruby
 provider "google" {
   project = var.project_id
   region  = var.region
@@ -49,76 +51,124 @@ output "bucket_url" {
 }
 ```
 
-Importez vos fichiers 
+Une fois le **bucket** créé, il est temps de créer un **chart**.
 
-## Créer un `chart`
+## Création d'un chart Helm
 
-Créer un `chart` :
+La création d'un **chart Helm** passe par la commande `helm create` :
 
 ```bash
 helm create [chart_name]
 ```
 
-Packager le `chart` :
+Une fois créé, on va modifier le fichier `Chart.yaml` pour ajouter des informations sur le **chart** :
+
+```yaml
+apiVersion: v2
+name: nginx-sample
+description: A nginx sample chart for Kubernetes
+version: 1.0.0
+appVersion: 1.0.0
+```
+
+Il faut ensuite ajouter différentes ressources dans le répertoire `templates`. Par exemple un fichier `deployment.yaml` :
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-sample
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-sample
+  template:
+    metadata:
+      labels:
+        app: nginx-sample
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+```
+
+Lorsque les différents **templates** sont ajoutés, il est possible de **packager** le **chart**.
+
+Cette étape passe par l'usage de la commande `helm package` :
 
 ```bash
 helm package /path/to/chart/directory
 ```
 
-Ajouter ce chart dans le **bucket**.
+On obtient alors un fichier `.tgz` qui peut être ajouté au **bucket**.
 
 ## Configurer le fichier `index.yaml` du dépôt
 
-Générer un fichier `index.yaml` depuis un répertoire :
+Avant d'ajouter le fichier `.tgz` au **bucket**, il faut générer un fichier `index.yaml` qui va référencer les différents **charts** disponibles. C'est cette étape qui permet de transformer un simple **bucket** en dépôt **Helm**.
+
+La génération du fichier `index.yaml` passe par la **cli Helm** en utilisant la commande `helm repo index` depuis le répertoire contenant les **charts** (parent du répertoire du **chart ngnix-sample**).
 
 ```bash
 helm repo index .
 ```
 
-Résultat :
+Le résultat obtenu est un fichier `index.yaml` référançant le **chart** `nginx-sample` :
 
-```bash
+```yaml
 apiVersion: v1
 entries:
-  myapp:
+  nginx-sample:
   - apiVersion: v1
     created: "2025-01-06T22:23:38.311373009+01:00"
     description: Hello World API
     digest: 506b474ee123e445d644fc3e1a5eb331d8629e59db1b1bcba8e3419dde684b22
-    name: myapp
+    name: nginx-sample
     urls:
-    - myapp-1.0.0.tgz
+    - nginx-sample-1.0.0.tgz
     version: 1.0.0
 generated: "2025-01-06T22:23:38.311185591+01:00"
 ```
 
-Ajouter l'URL du **bucket** avant le nom du fichier sous `urls` : 
+Avant d'ajouter le fichier `index.yaml` et le **chart** au **bucket**, il faut modifier le fichier `index.yaml` pour ajouter l'URL du **bucket**.
 
-```bash
-urls:
-- https://storage.googleapis.com/guillaume-helm-repo-3/myapp-1.0.0.tgz
+Elle doit être rajoutée dans la section `urls` :
+
+```yaml
+...
+    urls:
+    - https://storage.googleapis.com/guillaume-helm-repo-3/nginx-sample-1.0.0.tgz
 ```
 
-Une fois complété, il faut ajouter le fichier dans le **bucket** :
+Dès lors, il faut importer le fichier `index.yaml` et le **chart** dans le **bucket**.
+
+Pour cela, il est recommandé d'utiliser l'utilitaire `gsutil` qui permet de manipuler les **buckets** GCS depuis la ligne de commande :
 
 ```bash
-gsutil cp /chemin/vers/le/fichier.ext gs://[bucket-name]/
+gsutil cp index.yaml gs://[bucket-name]
+gsutil cp nginx-sample-1.0.0.tgz gs://[bucket-name]
 ```
 
-## Ajouter le bucket en tant que dépôt
+Le **bucket** est ainsi transformé en dépôt **Helm** et contient le **chart** `m
 
-Ajouter le **bucket** aux dépôts :
+## Utiliser le dépôt Helm
+
+Afin d'utiliser le **bucket** comme dépôt **Helm**, il faut d'abord l'ajouter aux dépôts du **cluster** Kubernetes :
 
 ```bash
  helm repo add [repo-name] https://storage.googleapis.com/[bucket-name]
  helm repo update
 ```
 
-Ca fonctionne :
+L'étape suivante consiste à installer le **chart** depuis le dépôt :
 
 ```bash
-helm install myapp guillaume-repo-2/myapp --version 1.0.0
+helm install nginx-sample [repo-name]/nginx-sample
 ```
+
+Et voilà, en quelques étapes, il est possible de créer un dépôt **Helm** sur **Google Cloud Storage** afin de distribuer des **charts** pour **Kubernetes**.
 
 ## Références
 

@@ -1,288 +1,83 @@
-<!DOCTYPE html>
-<html lang="en" dir="auto">
-
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
-<title>Mise en place et utilisation de Docker Registry | grohee</title>
-<meta name="keywords" content="docker">
-<meta name="description" content="Docker Registry est un service permettant de stocker et de distribuer des images Docker, facilitant leur partage et leur gestion dans des environnements de développement et de production.
+<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Docker Registry : stocker et distribuer des images Docker | grohee</title>
+<meta name=keywords content><meta name=description content="Docker Registry est un service permettant de stocker et de distribuer des images Docker, facilitant leur partage et leur gestion dans des environnements de développement et de production.
 Mise en place
 Une méthode simple consiste à installer la Docker Registry en tant que conteneur via docker-compose.
-Prérequis : avant d&rsquo;installer le service, il faut définir l&rsquo;endroit où la registry enregistrera les données. Dans mon cas, je choisis d&rsquo;utiliser un point de montage data sur mon nas afin d&rsquo;assurer la persistance des éléments.">
-<meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/posts/docker-registry-setup/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/docker-registry-setup/">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-</noscript>
-</head>
-
-<body class=" dark" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    }
-
-</script>
-
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="grohee (Alt + H)">grohee</a>
-            <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <ul id="menu">
-            <li>
-                <a href="http://localhost:1313/categories/" title="Catégories">
-                    <span>Catégories</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</header>
-<main class="main">
-
-<article class="post-single">
-  <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
-    <h1 class="post-title entry-hint-parent">
-      Mise en place et utilisation de Docker Registry
-    </h1>
-    <div class="post-meta"><span title='2024-10-15 00:00:00 +0100 +0100'>October 15, 2024</span>&nbsp;·&nbsp;573 words
-
-</div>
-  </header> 
-  <div class="post-content"><p><code>Docker Registry</code> est un service permettant de stocker et de distribuer des images Docker, facilitant leur partage et leur gestion dans des environnements de développement et de production.</p>
-<h2 id="mise-en-place">Mise en place<a hidden class="anchor" aria-hidden="true" href="#mise-en-place">#</a></h2>
-<p>Une méthode simple consiste à installer la <code>Docker Registry</code> en tant que conteneur via <code>docker-compose</code>.</p>
-<p><code>Prérequis</code> : avant d&rsquo;installer le service, il faut définir l&rsquo;endroit où la <code>registry</code> enregistrera les données. Dans mon cas, je choisis d&rsquo;utiliser un point de montage <code>data</code> sur mon <code>nas</code> afin d&rsquo;assurer la persistance des éléments.</p>
-<p>Fichier <code>docker-compose.yaml</code> :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">registry</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">registry:2</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#e6db74">&#34;5000:5000&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY</span>: <span style="color:#ae81ff">/Data</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/Data:/Data</span>
-</span></span></code></pre></div><p>Une fois défini, il faut exécuter la commande suivante :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker compose up -f docker-compose.yaml -d
-</span></span></code></pre></div><h2 id="mettre-en-place-lauthentification">Mettre en place l&rsquo;authentification<a hidden class="anchor" aria-hidden="true" href="#mettre-en-place-lauthentification">#</a></h2>
-<p><strong>Prérequis :</strong> configuration de reverse proxy comme <code>nginx</code>.</p>
-<p><strong>Exemple</strong> :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nginx" data-lang="nginx"><span style="display:flex;"><span>  <span style="color:#66d9ef">server</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">listen</span> <span style="color:#ae81ff">80</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">server_name</span> <span style="color:#e6db74">docker-registry.home</span> <span style="color:#e6db74">www.docker-registry.home</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">location</span> <span style="color:#e6db74">/</span> {
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">proxy_pass</span> <span style="color:#e6db74">http://docker-registry:5000</span>;
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">proxy_set_header</span>  <span style="color:#e6db74">Host</span>              $http_host;   <span style="color:#75715e"># required for docker client&#39;s sake
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#f92672">proxy_set_header</span>  <span style="color:#e6db74">X-Real-IP</span>         $remote_addr; <span style="color:#75715e"># pass on real client&#39;s IP
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#f92672">proxy_set_header</span>  <span style="color:#e6db74">X-Forwarded-For</span>   $proxy_add_x_forwarded_for;
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">proxy_set_header</span>  <span style="color:#e6db74">X-Forwarded-Proto</span> $scheme;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  }
-</span></span></code></pre></div><p>Les <code>headers</code> sont nécessaires pour l&rsquo;authentification auprès de la <code>registry</code>.</p>
-<p>Utiliser <code>htpasswd</code> du paquet <code>apache2-utils</code> pour créer un fichier d&rsquo;authentification :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install apache2-utils -y
-</span></span></code></pre></div><p>Une fois installé, on peut créer un utilisateur dans un répertoire dédié, ici on va créer un répertoire <code>auth</code> qui sera monté comme volume sur le conteneur :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir ~/docker-registry/auth <span style="color:#75715e"># Créer le répertoire qui contient les richiers d&#39;auth</span>
-</span></span><span style="display:flex;"><span>cd ~/docker-registry/auth
-</span></span><span style="display:flex;"><span>sudo htpasswd -B registry.password <span style="color:#f92672">[</span>username<span style="color:#f92672">]</span>
-</span></span></code></pre></div><p>Il faut aussi modifier le <code>docker-compose.yaml</code> :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">registry</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">registry:2</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#e6db74">&#34;5000:5000&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
-</span></span><span style="display:flex;"><span>	  <span style="color:#f92672">REGISTRY_AUTH</span>: <span style="color:#ae81ff">htpasswd</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">REGISTRY_AUTH_HTPASSWD_REALM</span>: <span style="color:#ae81ff">Registry</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">REGISTRY_AUTH_HTPASSWD_PATH</span>: <span style="color:#ae81ff">/auth/registry.password</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY</span>: <span style="color:#ae81ff">/Data</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
-</span></span><span style="display:flex;"><span>	  - <span style="color:#ae81ff">./auth:/auth</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/Data:/Data</span>
-</span></span></code></pre></div><h3 id="tester-une-registry-via-http">Tester une registry via <code>http</code><a hidden class="anchor" aria-hidden="true" href="#tester-une-registry-via-http">#</a></h3>
-<p><code>docker login</code> utilise par défaut <code>https</code>, donc si <code>nginx</code> ne sert que du <code>http</code> il faut créer une exception.</p>
-<p>Pour cela, il faut ajouter la <code>regitry</code> au fait fichier <code>/etc/docker/daemon.json</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>   <span style="color:#f92672">&#34;insecure-registries&#34;</span>: [<span style="color:#e6db74">&#34;&lt;registry&gt;:&lt;port&gt;&#34;</span>]
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><strong>Remarque</strong> : sous <strong>Windows</strong> (pour <strong>docker desktop</strong>) le fichier se trouve sous <code>%userprofile%\.docker\daemon.json</code>.</p>
-<p>Via <code>docker desktop</code> :</p>
-<p>![[docker-desktop-daemong-config.png]]</p>
-<p>Ensuite,; il faut adapter la commande <code>docker-login</code> pour utiliser le port <code>80</code> :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker login docker-registry.home:80
-</span></span></code></pre></div><h2 id="insecure-registry-sur-kubernetes"><code>Insecure registry</code> sur Kubernetes<a hidden class="anchor" aria-hidden="true" href="#insecure-registry-sur-kubernetes">#</a></h2>
-<p>Ajouter dans <code>/etc/default/docker.json</code> :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;insecure-registries&#34;</span>: <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;&lt;regsitry&gt;:&lt;port&gt;&#34;</span><span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>Ensuite, il faut créer un <code>secret</code> qui contiendra les éléments pour s&rsquo;authentifier à la registry :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl create secret docker-registry docker-cred <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --docker-server<span style="color:#f92672">=</span>https://index.docker.io/v1/ <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --docker-username<span style="color:#f92672">=</span>your-username <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --docker-password<span style="color:#f92672">=</span>your-password
-</span></span></code></pre></div><h2 id="utiliser-la-registry">Utiliser la registry<a hidden class="anchor" aria-hidden="true" href="#utiliser-la-registry">#</a></h2>
-<h3 id="se-connecter-à-docker-registry">Se connecter à Docker Registry<a hidden class="anchor" aria-hidden="true" href="#se-connecter-à-docker-registry">#</a></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker login <span style="color:#f92672">[</span>registry_url<span style="color:#f92672">]</span>
-</span></span></code></pre></div><p>Les informations seront stockées dans <code>~/.docker/config.json</code>.</p>
-<h3 id="pousser-une-image-sur-la-registry">Pousser une image sur la registry<a hidden class="anchor" aria-hidden="true" href="#pousser-une-image-sur-la-registry">#</a></h3>
-<p>Avant de pousser une image vers un registre, il faut la tagger avec l&rsquo;URL du registre.</p>
-<p>La structure de la commande sera la suivante :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker tag <span style="color:#f92672">[</span>nom_image_locale<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>url_du_registry<span style="color:#f92672">]</span>/<span style="color:#f92672">[</span>nom_utilisateur<span style="color:#f92672">]</span>/<span style="color:#f92672">[</span>nom_image<span style="color:#f92672">]</span>:<span style="color:#f92672">[</span>tag<span style="color:#f92672">]</span>
-</span></span></code></pre></div><p><strong>Exemple :</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker tag my-app myregistry.example.com/myuser/my-app:latest
-</span></span></code></pre></div><p>Enfin, on peut pousser l&rsquo;image avec la commande <code>push</code> :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker push &lt;url_du_registry&gt;/&lt;nom_utilisateur&gt;/&lt;nom_image&gt;:&lt;tag&gt;
-</span></span></code></pre></div><p><strong>Remarque</strong> : si l&rsquo;authentification est nécessaire, il faut ajouter le mot de passe via la variable <code>auth</code> dans <code>~/.docker/config.json</code> :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;auth&#34;</span>: <span style="color:#e6db74">&#34;mdp&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p><strong>Erreur liée</strong> : <code>push access denied, repository does not exist or may require authorization: authorization failed: no basic auth credentials</code></p>
-<h3 id="récupérer-une-image-depuis-la-registry">Récupérer une image depuis la registry<a hidden class="anchor" aria-hidden="true" href="#récupérer-une-image-depuis-la-registry">#</a></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker pull &lt;url_du_registry&gt;/&lt;nom_utilisateur&gt;/&lt;nom_image&gt;:&lt;tag&gt;
-</span></span><span style="display:flex;"><span>docker pull docker-registry.home:80/guillaume/hello-world-api:v1
-</span></span></code></pre></div><h3 id="lister-les-images-repositories-disponibles-sur-la-registry">Lister les images (repositories) disponibles sur la registry<a hidden class="anchor" aria-hidden="true" href="#lister-les-images-repositories-disponibles-sur-la-registry">#</a></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -X GET https://myregistry:5000/v2/_catalog
-</span></span></code></pre></div><p>Exemple si authentification nécessaire :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -X GET -u guillaume:&lt;password&gt; http://docker-registry.home:80/v2/_cata
-</span></span><span style="display:flex;"><span>log
-</span></span></code></pre></div><p>Pour lister les tags d&rsquo;une image :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -X GET https://myregistry:5000/v2/ubuntu/tags/list
-</span></span></code></pre></div><h2 id="références">Références<a hidden class="anchor" aria-hidden="true" href="#références">#</a></h2>
-<ul>
-<li><a href="https://hub.docker.com/_/registry">Image Officielle de Docker Registry</a></li>
-<li><a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-a-private-docker-registry-on-ubuntu-20-04">How To Set Up a Private Docker Registry on Ubuntu 20.04</a></li>
-<li><a href="https://github.com/Joxit/docker-registry-ui">UI for docker registry</a></li>
-<li><a href="https://www.baeldung.com/ops/docker-private-registry">A Guide to Docker Private Registry</a></li>
-</ul>
-
-
-  </div>
-
-  <footer class="post-footer">
-    <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/docker/">Docker</a></li>
-    </ul>
-  </footer>
-</article>
-    </main>
-    
-<footer class="footer">
-        <span>&copy; 2025 <a href="http://localhost:1313/">grohee</a></span> · 
-
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
-
-<script>
-    let menu = document.getElementById('menu')
-    if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-</body>
-
-</html>
+Prérequis : avant d&rsquo;installer le service, il faut définir l&rsquo;endroit où la registry enregistrera les données. Dans mon cas, je choisis d&rsquo;utiliser un point de montage data sur mon nas afin d&rsquo;assurer la persistance des éléments."><meta name=author content><link rel=canonical href=https://guillaume-rohee.fr/posts/docker-registry-setup/><link crossorigin=anonymous href=/assets/css/stylesheet.f49d66caae9ea0fd43f21f29e71a8d3e284517ed770f2aa86fa012953ad3c9ef.css integrity="sha256-9J1myq6eoP1D8h8p5xqNPihFF+13Dyqob6ASlTrTye8=" rel="preload stylesheet" as=style><link rel=icon href=https://guillaume-rohee.fr/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://guillaume-rohee.fr/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://guillaume-rohee.fr/favicon-32x32.png><link rel=apple-touch-icon href=https://guillaume-rohee.fr/apple-touch-icon.png><link rel=mask-icon href=https://guillaume-rohee.fr/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://guillaume-rohee.fr/posts/docker-registry-setup/><noscript><style>#theme-toggle,.top-link{display:none}</style></noscript><meta property="og:url" content="https://guillaume-rohee.fr/posts/docker-registry-setup/"><meta property="og:site_name" content="grohee"><meta property="og:title" content="Docker Registry : stocker et distribuer des images Docker"><meta property="og:description" content="Docker Registry est un service permettant de stocker et de distribuer des images Docker, facilitant leur partage et leur gestion dans des environnements de développement et de production.
+Mise en place Une méthode simple consiste à installer la Docker Registry en tant que conteneur via docker-compose.
+Prérequis : avant d’installer le service, il faut définir l’endroit où la registry enregistrera les données. Dans mon cas, je choisis d’utiliser un point de montage data sur mon nas afin d’assurer la persistance des éléments."><meta property="og:locale" content="fr"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2024-10-15T00:00:00+01:00"><meta property="article:modified_time" content="2024-10-15T00:00:00+01:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Docker Registry : stocker et distribuer des images Docker"><meta name=twitter:description content="Docker Registry est un service permettant de stocker et de distribuer des images Docker, facilitant leur partage et leur gestion dans des environnements de développement et de production.
+Mise en place
+Une méthode simple consiste à installer la Docker Registry en tant que conteneur via docker-compose.
+Prérequis : avant d&rsquo;installer le service, il faut définir l&rsquo;endroit où la registry enregistrera les données. Dans mon cas, je choisis d&rsquo;utiliser un point de montage data sur mon nas afin d&rsquo;assurer la persistance des éléments."><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://guillaume-rohee.fr/posts/"},{"@type":"ListItem","position":2,"name":"Docker Registry : stocker et distribuer des images Docker","item":"https://guillaume-rohee.fr/posts/docker-registry-setup/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Docker Registry : stocker et distribuer des images Docker","name":"Docker Registry : stocker et distribuer des images Docker","description":"Docker Registry est un service permettant de stocker et de distribuer des images Docker, facilitant leur partage et leur gestion dans des environnements de développement et de production.\nMise en place Une méthode simple consiste à installer la Docker Registry en tant que conteneur via docker-compose.\nPrérequis : avant d\u0026rsquo;installer le service, il faut définir l\u0026rsquo;endroit où la registry enregistrera les données. Dans mon cas, je choisis d\u0026rsquo;utiliser un point de montage data sur mon nas afin d\u0026rsquo;assurer la persistance des éléments.\n","keywords":[],"articleBody":"Docker Registry est un service permettant de stocker et de distribuer des images Docker, facilitant leur partage et leur gestion dans des environnements de développement et de production.\nMise en place Une méthode simple consiste à installer la Docker Registry en tant que conteneur via docker-compose.\nPrérequis : avant d’installer le service, il faut définir l’endroit où la registry enregistrera les données. Dans mon cas, je choisis d’utiliser un point de montage data sur mon nas afin d’assurer la persistance des éléments.\nFichier docker-compose.yaml :\nversion: '3' services: registry: image: registry:2 ports: - \"5000:5000\" environment: REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY: /Data volumes: - /Data:/Data Une fois défini, il faut exécuter la commande suivante :\ndocker compose up -f docker-compose.yaml -d Mettre en place l’authentification Prérequis : configuration de reverse proxy comme nginx.\nExemple :\nserver { listen 80; server_name docker-registry.home www.docker-registry.home; location / { proxy_pass http://docker-registry:5000; proxy_set_header Host $http_host; # required for docker client's sake proxy_set_header X-Real-IP $remote_addr; # pass on real client's IP proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_set_header X-Forwarded-Proto $scheme; } } Les headers sont nécessaires pour l’authentification auprès de la registry.\nUtiliser htpasswd du paquet apache2-utils pour créer un fichier d’authentification :\nsudo apt install apache2-utils -y Une fois installé, on peut créer un utilisateur dans un répertoire dédié, ici on va créer un répertoire auth qui sera monté comme volume sur le conteneur :\nmkdir ~/docker-registry/auth # Créer le répertoire qui contient les richiers d'auth cd ~/docker-registry/auth sudo htpasswd -B registry.password [username] Il faut aussi modifier le docker-compose.yaml :\nversion: '3' services: registry: image: registry:2 restart: always ports: - \"5000:5000\" environment: REGISTRY_AUTH: htpasswd REGISTRY_AUTH_HTPASSWD_REALM: Registry REGISTRY_AUTH_HTPASSWD_PATH: /auth/registry.password REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY: /Data volumes: - ./auth:/auth - /Data:/Data Tester une registry via http docker login utilise par défaut https, donc si nginx ne sert que du http il faut créer une exception.\nPour cela, il faut ajouter la regitry au fait fichier /etc/docker/daemon.json:\n{ \"insecure-registries\": [\":\"] } Remarque : sous Windows (pour docker desktop) le fichier se trouve sous %userprofile%\\.docker\\daemon.json.\nVia docker desktop :\n![[docker-desktop-daemong-config.png]]\nEnsuite,; il faut adapter la commande docker-login pour utiliser le port 80 :\ndocker login docker-registry.home:80 Insecure registry sur Kubernetes Ajouter dans /etc/default/docker.json :\n{ \"insecure-registries\": [\":\"] } Ensuite, il faut créer un secret qui contiendra les éléments pour s’authentifier à la registry :\nkubectl create secret docker-registry docker-cred \\ --docker-server=https://index.docker.io/v1/ \\ --docker-username=your-username \\ --docker-password=your-password Utiliser la registry Se connecter à Docker Registry docker login [registry_url] Les informations seront stockées dans ~/.docker/config.json.\nPousser une image sur la registry Avant de pousser une image vers un registre, il faut la tagger avec l’URL du registre.\nLa structure de la commande sera la suivante :\ndocker tag [nom_image_locale] [url_du_registry]/[nom_utilisateur]/[nom_image]:[tag] Exemple :\ndocker tag my-app myregistry.example.com/myuser/my-app:latest Enfin, on peut pousser l’image avec la commande push :\ndocker push //: Remarque : si l’authentification est nécessaire, il faut ajouter le mot de passe via la variable auth dans ~/.docker/config.json :\n{ \"auth\": \"mdp\" } Erreur liée : push access denied, repository does not exist or may require authorization: authorization failed: no basic auth credentials\nRécupérer une image depuis la registry docker pull //: docker pull docker-registry.home:80/guillaume/hello-world-api:v1 Lister les images (repositories) disponibles sur la registry curl -X GET https://myregistry:5000/v2/_catalog Exemple si authentification nécessaire :\ncurl -X GET -u guillaume: http://docker-registry.home:80/v2/_cata log Pour lister les tags d’une image :\ncurl -X GET https://myregistry:5000/v2/ubuntu/tags/list Références Image Officielle de Docker Registry How To Set Up a Private Docker Registry on Ubuntu 20.04 UI for docker registry A Guide to Docker Private Registry ","wordCount":"573","inLanguage":"en","datePublished":"2024-10-15T00:00:00+01:00","dateModified":"2024-10-15T00:00:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://guillaume-rohee.fr/posts/docker-registry-setup/"},"publisher":{"@type":"Organization","name":"grohee","logo":{"@type":"ImageObject","url":"https://guillaume-rohee.fr/favicon.ico"}}}</script></head><body class=dark id=top><script>localStorage.getItem("pref-theme")==="light"&&document.body.classList.remove("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://guillaume-rohee.fr/ accesskey=h title="grohee (Alt + H)">grohee</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme"><svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://guillaume-rohee.fr/categories/ title=Catégories><span>Catégories</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://guillaume-rohee.fr/>Home</a>&nbsp;»&nbsp;<a href=https://guillaume-rohee.fr/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">Docker Registry : stocker et distribuer des images Docker</h1><div class=post-meta><span title='2024-10-15 00:00:00 +0100 +0100'>October 15, 2024</span>&nbsp;·&nbsp;573 words</div></header><div class=post-content><p><code>Docker Registry</code> est un service permettant de stocker et de distribuer des images Docker, facilitant leur partage et leur gestion dans des environnements de développement et de production.</p><h2 id=mise-en-place>Mise en place<a hidden class=anchor aria-hidden=true href=#mise-en-place>#</a></h2><p>Une méthode simple consiste à installer la <code>Docker Registry</code> en tant que conteneur via <code>docker-compose</code>.</p><p><code>Prérequis</code> : avant d&rsquo;installer le service, il faut définir l&rsquo;endroit où la <code>registry</code> enregistrera les données. Dans mon cas, je choisis d&rsquo;utiliser un point de montage <code>data</code> sur mon <code>nas</code> afin d&rsquo;assurer la persistance des éléments.</p><p>Fichier <code>docker-compose.yaml</code> :</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>version</span>: <span style=color:#e6db74>&#39;3&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>services</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>registry</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>registry:2</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>ports</span>:
+</span></span><span style=display:flex><span>    - <span style=color:#e6db74>&#34;5000:5000&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>environment</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY</span>: <span style=color:#ae81ff>/Data</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>/Data:/Data</span>
+</span></span></code></pre></div><p>Une fois défini, il faut exécuter la commande suivante :</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>docker compose up -f docker-compose.yaml -d
+</span></span></code></pre></div><h2 id=mettre-en-place-lauthentification>Mettre en place l&rsquo;authentification<a hidden class=anchor aria-hidden=true href=#mettre-en-place-lauthentification>#</a></h2><p><strong>Prérequis :</strong> configuration de reverse proxy comme <code>nginx</code>.</p><p><strong>Exemple</strong> :</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-nginx data-lang=nginx><span style=display:flex><span>  <span style=color:#66d9ef>server</span> {
+</span></span><span style=display:flex><span>    <span style=color:#f92672>listen</span> <span style=color:#ae81ff>80</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>server_name</span> <span style=color:#e6db74>docker-registry.home</span> <span style=color:#e6db74>www.docker-registry.home</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>location</span> <span style=color:#e6db74>/</span> {
+</span></span><span style=display:flex><span>      <span style=color:#f92672>proxy_pass</span> <span style=color:#e6db74>http://docker-registry:5000</span>;
+</span></span><span style=display:flex><span>      <span style=color:#f92672>proxy_set_header</span>  <span style=color:#e6db74>Host</span>              $http_host;   <span style=color:#75715e># required for docker client&#39;s sake
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>      <span style=color:#f92672>proxy_set_header</span>  <span style=color:#e6db74>X-Real-IP</span>         $remote_addr; <span style=color:#75715e># pass on real client&#39;s IP
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>      <span style=color:#f92672>proxy_set_header</span>  <span style=color:#e6db74>X-Forwarded-For</span>   $proxy_add_x_forwarded_for;
+</span></span><span style=display:flex><span>      <span style=color:#f92672>proxy_set_header</span>  <span style=color:#e6db74>X-Forwarded-Proto</span> $scheme;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span></code></pre></div><p>Les <code>headers</code> sont nécessaires pour l&rsquo;authentification auprès de la <code>registry</code>.</p><p>Utiliser <code>htpasswd</code> du paquet <code>apache2-utils</code> pour créer un fichier d&rsquo;authentification :</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>sudo apt install apache2-utils -y
+</span></span></code></pre></div><p>Une fois installé, on peut créer un utilisateur dans un répertoire dédié, ici on va créer un répertoire <code>auth</code> qui sera monté comme volume sur le conteneur :</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>mkdir ~/docker-registry/auth <span style=color:#75715e># Créer le répertoire qui contient les richiers d&#39;auth</span>
+</span></span><span style=display:flex><span>cd ~/docker-registry/auth
+</span></span><span style=display:flex><span>sudo htpasswd -B registry.password <span style=color:#f92672>[</span>username<span style=color:#f92672>]</span>
+</span></span></code></pre></div><p>Il faut aussi modifier le <code>docker-compose.yaml</code> :</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>version</span>: <span style=color:#e6db74>&#39;3&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>services</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>registry</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>registry:2</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>ports</span>:
+</span></span><span style=display:flex><span>    - <span style=color:#e6db74>&#34;5000:5000&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>environment</span>:
+</span></span><span style=display:flex><span>	  <span style=color:#f92672>REGISTRY_AUTH</span>: <span style=color:#ae81ff>htpasswd</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>REGISTRY_AUTH_HTPASSWD_REALM</span>: <span style=color:#ae81ff>Registry</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>REGISTRY_AUTH_HTPASSWD_PATH</span>: <span style=color:#ae81ff>/auth/registry.password</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY</span>: <span style=color:#ae81ff>/Data</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>	  - <span style=color:#ae81ff>./auth:/auth</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>/Data:/Data</span>
+</span></span></code></pre></div><h3 id=tester-une-registry-via-http>Tester une registry via <code>http</code><a hidden class=anchor aria-hidden=true href=#tester-une-registry-via-http>#</a></h3><p><code>docker login</code> utilise par défaut <code>https</code>, donc si <code>nginx</code> ne sert que du <code>http</code> il faut créer une exception.</p><p>Pour cela, il faut ajouter la <code>regitry</code> au fait fichier <code>/etc/docker/daemon.json</code>:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>{
+</span></span><span style=display:flex><span>   <span style=color:#f92672>&#34;insecure-registries&#34;</span>: [<span style=color:#e6db74>&#34;&lt;registry&gt;:&lt;port&gt;&#34;</span>]
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p><strong>Remarque</strong> : sous <strong>Windows</strong> (pour <strong>docker desktop</strong>) le fichier se trouve sous <code>%userprofile%\.docker\daemon.json</code>.</p><p>Via <code>docker desktop</code> :</p><p>![[docker-desktop-daemong-config.png]]</p><p>Ensuite,; il faut adapter la commande <code>docker-login</code> pour utiliser le port <code>80</code> :</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>docker login docker-registry.home:80
+</span></span></code></pre></div><h2 id=insecure-registry-sur-kubernetes><code>Insecure registry</code> sur Kubernetes<a hidden class=anchor aria-hidden=true href=#insecure-registry-sur-kubernetes>#</a></h2><p>Ajouter dans <code>/etc/default/docker.json</code> :</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;insecure-registries&#34;</span>: <span style=color:#f92672>[</span><span style=color:#e6db74>&#34;&lt;regsitry&gt;:&lt;port&gt;&#34;</span><span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span></code></pre></div><p>Ensuite, il faut créer un <code>secret</code> qui contiendra les éléments pour s&rsquo;authentifier à la registry :</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>kubectl create secret docker-registry docker-cred <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>    --docker-server<span style=color:#f92672>=</span>https://index.docker.io/v1/ <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>    --docker-username<span style=color:#f92672>=</span>your-username <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>    --docker-password<span style=color:#f92672>=</span>your-password
+</span></span></code></pre></div><h2 id=utiliser-la-registry>Utiliser la registry<a hidden class=anchor aria-hidden=true href=#utiliser-la-registry>#</a></h2><h3 id=se-connecter-à-docker-registry>Se connecter à Docker Registry<a hidden class=anchor aria-hidden=true href=#se-connecter-à-docker-registry>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>docker login <span style=color:#f92672>[</span>registry_url<span style=color:#f92672>]</span>
+</span></span></code></pre></div><p>Les informations seront stockées dans <code>~/.docker/config.json</code>.</p><h3 id=pousser-une-image-sur-la-registry>Pousser une image sur la registry<a hidden class=anchor aria-hidden=true href=#pousser-une-image-sur-la-registry>#</a></h3><p>Avant de pousser une image vers un registre, il faut la tagger avec l&rsquo;URL du registre.</p><p>La structure de la commande sera la suivante :</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>docker tag <span style=color:#f92672>[</span>nom_image_locale<span style=color:#f92672>]</span> <span style=color:#f92672>[</span>url_du_registry<span style=color:#f92672>]</span>/<span style=color:#f92672>[</span>nom_utilisateur<span style=color:#f92672>]</span>/<span style=color:#f92672>[</span>nom_image<span style=color:#f92672>]</span>:<span style=color:#f92672>[</span>tag<span style=color:#f92672>]</span>
+</span></span></code></pre></div><p><strong>Exemple :</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>docker tag my-app myregistry.example.com/myuser/my-app:latest
+</span></span></code></pre></div><p>Enfin, on peut pousser l&rsquo;image avec la commande <code>push</code> :</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>docker push &lt;url_du_registry&gt;/&lt;nom_utilisateur&gt;/&lt;nom_image&gt;:&lt;tag&gt;
+</span></span></code></pre></div><p><strong>Remarque</strong> : si l&rsquo;authentification est nécessaire, il faut ajouter le mot de passe via la variable <code>auth</code> dans <code>~/.docker/config.json</code> :</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>	<span style=color:#e6db74>&#34;auth&#34;</span>: <span style=color:#e6db74>&#34;mdp&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span></code></pre></div><p><strong>Erreur liée</strong> : <code>push access denied, repository does not exist or may require authorization: authorization failed: no basic auth credentials</code></p><h3 id=récupérer-une-image-depuis-la-registry>Récupérer une image depuis la registry<a hidden class=anchor aria-hidden=true href=#récupérer-une-image-depuis-la-registry>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>docker pull &lt;url_du_registry&gt;/&lt;nom_utilisateur&gt;/&lt;nom_image&gt;:&lt;tag&gt;
+</span></span><span style=display:flex><span>docker pull docker-registry.home:80/guillaume/hello-world-api:v1
+</span></span></code></pre></div><h3 id=lister-les-images-repositories-disponibles-sur-la-registry>Lister les images (repositories) disponibles sur la registry<a hidden class=anchor aria-hidden=true href=#lister-les-images-repositories-disponibles-sur-la-registry>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>curl -X GET https://myregistry:5000/v2/_catalog
+</span></span></code></pre></div><p>Exemple si authentification nécessaire :</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>curl -X GET -u guillaume:&lt;password&gt; http://docker-registry.home:80/v2/_cata
+</span></span><span style=display:flex><span>log
+</span></span></code></pre></div><p>Pour lister les tags d&rsquo;une image :</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>curl -X GET https://myregistry:5000/v2/ubuntu/tags/list
+</span></span></code></pre></div><h2 id=références>Références<a hidden class=anchor aria-hidden=true href=#références>#</a></h2><ul><li><a href=https://hub.docker.com/_/registry>Image Officielle de Docker Registry</a></li><li><a href=https://www.digitalocean.com/community/tutorials/how-to-set-up-a-private-docker-registry-on-ubuntu-20-04>How To Set Up a Private Docker Registry on Ubuntu 20.04</a></li><li><a href=https://github.com/Joxit/docker-registry-ui>UI for docker registry</a></li><li><a href=https://www.baeldung.com/ops/docker-private-registry>A Guide to Docker Private Registry</a></li></ul></div><footer class=post-footer><ul class=post-tags></ul></footer></article></main><footer class=footer><span>&copy; 2025 <a href=https://guillaume-rohee.fr/>grohee</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script></body></html>

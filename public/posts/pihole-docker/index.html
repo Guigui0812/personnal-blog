@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html lang="en" dir="auto">
-
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
-<title>Pihole : bloqeur de pub et dns | grohee</title>
-<meta name="keywords" content="docker, dns, pihole, networking">
-<meta name="description" content="pihole est un logiciel permettant de bloquer les publicités et de protéger la vie privée en bloquant les domaines de suivi. Il est possible de le déployer avec Docker et d&rsquo;activer l&rsquo;IPv6 pour bloquer les publicités sur ce protocole.
+<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Pi-hole : bloquer les publicités avec Docker | grohee</title>
+<meta name=keywords content><meta name=description content="Pi-hole est un service permettant de bloquer les publicités et de protéger la vie privée en bloquant les domaines de suivi. Il est possible de le déployer avec Docker et d&rsquo;activer l&rsquo;IPv6 pour bloquer les publicités sur ce protocole.
 Installation
-Pour installer pihole avec docker, il suffit de créer un fichier docker-compose.yml avec le contenu suivant :
-version: &#39;3&#39;
+Pour installer Pi-holeavec Docker, il suffit de créer un fichier docker-compose.yml avec le contenu suivant :
+version: '3'
 
 services:
 	pihole:
@@ -23,232 +15,80 @@ services:
 			- &#34;80:80/tcp&#34;
 			- &#34;443:443/tcp&#34;
 		environment:
-			TZ: &#39;Europe/Paris&#39;
-			ServerIP: &#39;192.168.1.2&#39;
-			IPv6: &#39;true&#39;
-			ServerIPv6: &lt;server_ipv6&gt;
+			TZ: 'Europe/Paris'
+			ServerIP: '192.168.1.2'
+			IPv6: 'true'
+			ServerIPv6: <server_ipv6>
 		volumes:
-			- &#39;./etc-pihole/:/etc/pihole/&#39;
-			- &#39;./etc-dnsmasq.d/:/etc/dnsmasq.d/&#39;
+			- './etc-pihole/:/etc/pihole/'
+			- './etc-dnsmasq.d/:/etc/dnsmasq.d/'
 		dns:
 			- 8.8.8.8
 			- 1.1.1.1
 		cap_add:
 		- NET_ADMIN
 		restart: always
-Quelques explications :">
-<meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/posts/pihole-docker/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/pihole-docker/">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
+Quelques explications :"><meta name=author content><link rel=canonical href=https://guillaume-rohee.fr/posts/pihole-docker/><link crossorigin=anonymous href=/assets/css/stylesheet.f49d66caae9ea0fd43f21f29e71a8d3e284517ed770f2aa86fa012953ad3c9ef.css integrity="sha256-9J1myq6eoP1D8h8p5xqNPihFF+13Dyqob6ASlTrTye8=" rel="preload stylesheet" as=style><link rel=icon href=https://guillaume-rohee.fr/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://guillaume-rohee.fr/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://guillaume-rohee.fr/favicon-32x32.png><link rel=apple-touch-icon href=https://guillaume-rohee.fr/apple-touch-icon.png><link rel=mask-icon href=https://guillaume-rohee.fr/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://guillaume-rohee.fr/posts/pihole-docker/><noscript><style>#theme-toggle,.top-link{display:none}</style></noscript><meta property="og:url" content="https://guillaume-rohee.fr/posts/pihole-docker/"><meta property="og:site_name" content="grohee"><meta property="og:title" content="Pi-hole : bloquer les publicités avec Docker"><meta property="og:description" content="Pi-hole est un service permettant de bloquer les publicités et de protéger la vie privée en bloquant les domaines de suivi. Il est possible de le déployer avec Docker et d’activer l’IPv6 pour bloquer les publicités sur ce protocole.
+Installation Pour installer Pi-holeavec Docker, il suffit de créer un fichier docker-compose.yml avec le contenu suivant :
+version: '3' services: pihole: container_name: pihole image: pihole/pihole:latest ports: - &#34;53:53/tcp&#34; - &#34;53:53/udp&#34; - &#34;67:67/udp&#34; - &#34;80:80/tcp&#34; - &#34;443:443/tcp&#34; environment: TZ: 'Europe/Paris' ServerIP: '192.168.1.2' IPv6: 'true' ServerIPv6: <server_ipv6> volumes: - './etc-pihole/:/etc/pihole/' - './etc-dnsmasq.d/:/etc/dnsmasq.d/' dns: - 8.8.8.8 - 1.1.1.1 cap_add: - NET_ADMIN restart: always Quelques explications :"><meta property="og:locale" content="fr"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2024-10-02T00:00:00+01:00"><meta property="article:modified_time" content="2024-10-02T00:00:00+01:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Pi-hole : bloquer les publicités avec Docker"><meta name=twitter:description content="Pi-hole est un service permettant de bloquer les publicités et de protéger la vie privée en bloquant les domaines de suivi. Il est possible de le déployer avec Docker et d&rsquo;activer l&rsquo;IPv6 pour bloquer les publicités sur ce protocole.
+Installation
+Pour installer Pi-holeavec Docker, il suffit de créer un fichier docker-compose.yml avec le contenu suivant :
+version: '3'
 
-    </style>
-</noscript>
-</head>
-
-<body class=" dark" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    }
-
-</script>
-
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="grohee (Alt + H)">grohee</a>
-            <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <ul id="menu">
-            <li>
-                <a href="http://localhost:1313/categories/" title="Catégories">
-                    <span>Catégories</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</header>
-<main class="main">
-
-<article class="post-single">
-  <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
-    <h1 class="post-title entry-hint-parent">
-      Pihole : bloqeur de pub et dns
-    </h1>
-    <div class="post-meta"><span title='2024-10-02 00:00:00 +0100 +0100'>October 2, 2024</span>&nbsp;·&nbsp;270 words
-
-</div>
-  </header> 
-  <div class="post-content"><p><code>pihole</code> est un logiciel permettant de bloquer les publicités et de protéger la vie privée en bloquant les domaines de suivi. Il est possible de le déployer avec Docker et d&rsquo;activer l&rsquo;IPv6 pour bloquer les publicités sur ce protocole.</p>
-<h2 id="installation">Installation<a hidden class="anchor" aria-hidden="true" href="#installation">#</a></h2>
-<p>Pour installer <code>pihole</code> avec <code>docker</code>, il suffit de créer un fichier <code>docker-compose.yml</code> avec le contenu suivant :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
-</span></span><span style="display:flex;"><span>	<span style="color:#f92672">pihole</span>:
-</span></span><span style="display:flex;"><span>		<span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">pihole</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#f92672">image</span>: <span style="color:#ae81ff">pihole/pihole:latest</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#f92672">ports</span>:
-</span></span><span style="display:flex;"><span>			- <span style="color:#e6db74">&#34;53:53/tcp&#34;</span>
-</span></span><span style="display:flex;"><span>			- <span style="color:#e6db74">&#34;53:53/udp&#34;</span>
-</span></span><span style="display:flex;"><span>			- <span style="color:#e6db74">&#34;67:67/udp&#34;</span>
-</span></span><span style="display:flex;"><span>			- <span style="color:#e6db74">&#34;80:80/tcp&#34;</span>
-</span></span><span style="display:flex;"><span>			- <span style="color:#e6db74">&#34;443:443/tcp&#34;</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#f92672">environment</span>:
-</span></span><span style="display:flex;"><span>			<span style="color:#f92672">TZ</span>: <span style="color:#e6db74">&#39;Europe/Paris&#39;</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#f92672">ServerIP</span>: <span style="color:#e6db74">&#39;192.168.1.2&#39;</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#f92672">IPv6</span>: <span style="color:#e6db74">&#39;true&#39;</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#f92672">ServerIPv6</span>: <span style="color:#ae81ff">&lt;server_ipv6&gt;</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#f92672">volumes</span>:
-</span></span><span style="display:flex;"><span>			- <span style="color:#e6db74">&#39;./etc-pihole/:/etc/pihole/&#39;</span>
-</span></span><span style="display:flex;"><span>			- <span style="color:#e6db74">&#39;./etc-dnsmasq.d/:/etc/dnsmasq.d/&#39;</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#f92672">dns</span>:
-</span></span><span style="display:flex;"><span>			- <span style="color:#ae81ff">8.8.8.8</span>
-</span></span><span style="display:flex;"><span>			- <span style="color:#ae81ff">1.1.1.1</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#f92672">cap_add</span>:
-</span></span><span style="display:flex;"><span>		- <span style="color:#ae81ff">NET_ADMIN</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
-</span></span></code></pre></div><p><strong>Quelques explications :</strong></p>
-<ul>
-<li>L&rsquo;option <code>IPv6</code> est importante si votre réseau local utilise ce protocole afin que <strong>PiHole</strong> soit en mesure de bloquer ce type de trafic.</li>
-<li>Les <code>volumes</code> permettent d&rsquo;assurer la pérennité de la configuration même en cas de redémarrage ou de suppression du conteneur.</li>
-</ul>
-<p>Une fois le fichier créé, il suffit de démarrer le conteneur pour démarrer le service <code>pihole</code> :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker-compose up -d
-</span></span></code></pre></div><h2 id="configuration">Configuration<a hidden class="anchor" aria-hidden="true" href="#configuration">#</a></h2>
-<p>Une fois le service démarré, il est possible de se rendre sur l&rsquo;interface web de <code>pihole</code> à l&rsquo;adresse <code>http://&lt;ip_du_serveur&gt;/admin</code>.</p>
-<p>Le <code>mot de passe</code> par défaut est généré aléatoirement et est affiché dans les logs du conteneur.</p>
-<p>Pour accéder à ces <strong>logs</strong> :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker logs pihole | grep <span style="color:#e6db74">&#39;password&#39;</span>
-</span></span></code></pre></div><h2 id="sources-et-références">Sources et références<a hidden class="anchor" aria-hidden="true" href="#sources-et-références">#</a></h2>
-<ul>
-<li><a href="https://pi-hole.net/">Pi-hole</a></li>
-<li><a href="https://danielrampelt.com/blog/install-pihole-raspberry-pi-docker-ipv6/">Complete Guide to Setting up Pi-hole on a Raspberry Pi with IPv6 Support on Docker - Daniel Rampelt</a></li>
-<li><a href="https://firebog.net/">The Big Blocklist Collection - Firebog</a></li>
-<li><a href="https://github.com/diogomartino/docker-pihole-openvpn-raspberry-ipv6/tree/master">docker-pihole-openvpn-raspberry-ipv6 - GitHub</a></li>
-<li><a href="https://www.it-connect.fr/pi-hole-un-bloqueur-de-pubs-pour-tout-votre-reseau/">Pi-Hole : un bloqueur de pubs pour tout votre réseau - it-connect</a></li>
-<li><a href="https://www.techaddressed.com/tutorials/using-pi-hole-local-dns/">USING PI-HOLE LOCAL DNS AND WHY IT’S IMPORTANT IN YOUR HOMELAB - techaddressed</a></li>
-</ul>
-
-
-  </div>
-
-  <footer class="post-footer">
-    <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/docker/">Docker</a></li>
-      <li><a href="http://localhost:1313/tags/dns/">Dns</a></li>
-      <li><a href="http://localhost:1313/tags/pihole/">Pihole</a></li>
-      <li><a href="http://localhost:1313/tags/networking/">Networking</a></li>
-    </ul>
-  </footer>
-</article>
-    </main>
-    
-<footer class="footer">
-        <span>&copy; 2025 <a href="http://localhost:1313/">grohee</a></span> · 
-
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
-
-<script>
-    let menu = document.getElementById('menu')
-    if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-</body>
-
-</html>
+services:
+	pihole:
+		container_name: pihole
+		image: pihole/pihole:latest
+		ports:
+			- &#34;53:53/tcp&#34;
+			- &#34;53:53/udp&#34;
+			- &#34;67:67/udp&#34;
+			- &#34;80:80/tcp&#34;
+			- &#34;443:443/tcp&#34;
+		environment:
+			TZ: 'Europe/Paris'
+			ServerIP: '192.168.1.2'
+			IPv6: 'true'
+			ServerIPv6: <server_ipv6>
+		volumes:
+			- './etc-pihole/:/etc/pihole/'
+			- './etc-dnsmasq.d/:/etc/dnsmasq.d/'
+		dns:
+			- 8.8.8.8
+			- 1.1.1.1
+		cap_add:
+		- NET_ADMIN
+		restart: always
+Quelques explications :"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://guillaume-rohee.fr/posts/"},{"@type":"ListItem","position":2,"name":"Pi-hole : bloquer les publicités avec Docker","item":"https://guillaume-rohee.fr/posts/pihole-docker/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Pi-hole : bloquer les publicités avec Docker","name":"Pi-hole : bloquer les publicités avec Docker","description":"Pi-hole est un service permettant de bloquer les publicités et de protéger la vie privée en bloquant les domaines de suivi. Il est possible de le déployer avec Docker et d\u0026rsquo;activer l\u0026rsquo;IPv6 pour bloquer les publicités sur ce protocole.\nInstallation Pour installer Pi-holeavec Docker, il suffit de créer un fichier docker-compose.yml avec le contenu suivant :\nversion: \u0026#39;3\u0026#39; services: pihole: container_name: pihole image: pihole/pihole:latest ports: - \u0026#34;53:53/tcp\u0026#34; - \u0026#34;53:53/udp\u0026#34; - \u0026#34;67:67/udp\u0026#34; - \u0026#34;80:80/tcp\u0026#34; - \u0026#34;443:443/tcp\u0026#34; environment: TZ: \u0026#39;Europe/Paris\u0026#39; ServerIP: \u0026#39;192.168.1.2\u0026#39; IPv6: \u0026#39;true\u0026#39; ServerIPv6: \u0026lt;server_ipv6\u0026gt; volumes: - \u0026#39;./etc-pihole/:/etc/pihole/\u0026#39; - \u0026#39;./etc-dnsmasq.d/:/etc/dnsmasq.d/\u0026#39; dns: - 8.8.8.8 - 1.1.1.1 cap_add: - NET_ADMIN restart: always Quelques explications :\n","keywords":[],"articleBody":"Pi-hole est un service permettant de bloquer les publicités et de protéger la vie privée en bloquant les domaines de suivi. Il est possible de le déployer avec Docker et d’activer l’IPv6 pour bloquer les publicités sur ce protocole.\nInstallation Pour installer Pi-holeavec Docker, il suffit de créer un fichier docker-compose.yml avec le contenu suivant :\nversion: '3' services: pihole: container_name: pihole image: pihole/pihole:latest ports: - \"53:53/tcp\" - \"53:53/udp\" - \"67:67/udp\" - \"80:80/tcp\" - \"443:443/tcp\" environment: TZ: 'Europe/Paris' ServerIP: '192.168.1.2' IPv6: 'true' ServerIPv6: volumes: - './etc-pihole/:/etc/pihole/' - './etc-dnsmasq.d/:/etc/dnsmasq.d/' dns: - 8.8.8.8 - 1.1.1.1 cap_add: - NET_ADMIN restart: always Quelques explications :\nL’option IPv6 est importante si votre réseau local utilise ce protocole afin que PiHole soit en mesure de bloquer ce type de trafic. Les volumes permettent d’assurer la pérennité de la configuration même en cas de redémarrage ou de suppression du conteneur. Une fois le fichier créé, il suffit de démarrer le conteneur pour démarrer le service pihole :\ndocker-compose up -d Configuration Une fois le service démarré, il est possible de se rendre sur l’interface web de pihole à l’adresse http:///admin.\nLe mot de passe par défaut est généré aléatoirement et est affiché dans les logs du conteneur.\nPour accéder à ces logs :\ndocker logs pihole | grep 'password' Sources et références Pi-hole Complete Guide to Setting up Pi-hole on a Raspberry Pi with IPv6 Support on Docker - Daniel Rampelt The Big Blocklist Collection - Firebog docker-pihole-openvpn-raspberry-ipv6 - GitHub Pi-Hole : un bloqueur de pubs pour tout votre réseau - it-connect USING PI-HOLE LOCAL DNS AND WHY IT’S IMPORTANT IN YOUR HOMELAB - techaddressed ","wordCount":"269","inLanguage":"en","datePublished":"2024-10-02T00:00:00+01:00","dateModified":"2024-10-02T00:00:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://guillaume-rohee.fr/posts/pihole-docker/"},"publisher":{"@type":"Organization","name":"grohee","logo":{"@type":"ImageObject","url":"https://guillaume-rohee.fr/favicon.ico"}}}</script></head><body class=dark id=top><script>localStorage.getItem("pref-theme")==="light"&&document.body.classList.remove("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://guillaume-rohee.fr/ accesskey=h title="grohee (Alt + H)">grohee</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme"><svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://guillaume-rohee.fr/categories/ title=Catégories><span>Catégories</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://guillaume-rohee.fr/>Home</a>&nbsp;»&nbsp;<a href=https://guillaume-rohee.fr/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">Pi-hole : bloquer les publicités avec Docker</h1><div class=post-meta><span title='2024-10-02 00:00:00 +0100 +0100'>October 2, 2024</span>&nbsp;·&nbsp;269 words</div></header><div class=post-content><p><strong>Pi-hole</strong> est un service permettant de bloquer les publicités et de protéger la vie privée en bloquant les domaines de suivi. Il est possible de le déployer avec Docker et d&rsquo;activer l&rsquo;IPv6 pour bloquer les publicités sur ce protocole.</p><h2 id=installation>Installation<a hidden class=anchor aria-hidden=true href=#installation>#</a></h2><p>Pour installer <strong>Pi-hole</strong>avec <strong>Docker</strong>, il suffit de créer un fichier <code>docker-compose.yml</code> avec le contenu suivant :</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>version</span>: <span style=color:#e6db74>&#39;3&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>services</span>:
+</span></span><span style=display:flex><span>	<span style=color:#f92672>pihole</span>:
+</span></span><span style=display:flex><span>		<span style=color:#f92672>container_name</span>: <span style=color:#ae81ff>pihole</span>
+</span></span><span style=display:flex><span>		<span style=color:#f92672>image</span>: <span style=color:#ae81ff>pihole/pihole:latest</span>
+</span></span><span style=display:flex><span>		<span style=color:#f92672>ports</span>:
+</span></span><span style=display:flex><span>			- <span style=color:#e6db74>&#34;53:53/tcp&#34;</span>
+</span></span><span style=display:flex><span>			- <span style=color:#e6db74>&#34;53:53/udp&#34;</span>
+</span></span><span style=display:flex><span>			- <span style=color:#e6db74>&#34;67:67/udp&#34;</span>
+</span></span><span style=display:flex><span>			- <span style=color:#e6db74>&#34;80:80/tcp&#34;</span>
+</span></span><span style=display:flex><span>			- <span style=color:#e6db74>&#34;443:443/tcp&#34;</span>
+</span></span><span style=display:flex><span>		<span style=color:#f92672>environment</span>:
+</span></span><span style=display:flex><span>			<span style=color:#f92672>TZ</span>: <span style=color:#e6db74>&#39;Europe/Paris&#39;</span>
+</span></span><span style=display:flex><span>			<span style=color:#f92672>ServerIP</span>: <span style=color:#e6db74>&#39;192.168.1.2&#39;</span>
+</span></span><span style=display:flex><span>			<span style=color:#f92672>IPv6</span>: <span style=color:#e6db74>&#39;true&#39;</span>
+</span></span><span style=display:flex><span>			<span style=color:#f92672>ServerIPv6</span>: <span style=color:#ae81ff>&lt;server_ipv6&gt;</span>
+</span></span><span style=display:flex><span>		<span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>			- <span style=color:#e6db74>&#39;./etc-pihole/:/etc/pihole/&#39;</span>
+</span></span><span style=display:flex><span>			- <span style=color:#e6db74>&#39;./etc-dnsmasq.d/:/etc/dnsmasq.d/&#39;</span>
+</span></span><span style=display:flex><span>		<span style=color:#f92672>dns</span>:
+</span></span><span style=display:flex><span>			- <span style=color:#ae81ff>8.8.8.8</span>
+</span></span><span style=display:flex><span>			- <span style=color:#ae81ff>1.1.1.1</span>
+</span></span><span style=display:flex><span>		<span style=color:#f92672>cap_add</span>:
+</span></span><span style=display:flex><span>		- <span style=color:#ae81ff>NET_ADMIN</span>
+</span></span><span style=display:flex><span>		<span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
+</span></span></code></pre></div><p><strong>Quelques explications :</strong></p><ul><li>L&rsquo;option <code>IPv6</code> est importante si votre réseau local utilise ce protocole afin que <strong>PiHole</strong> soit en mesure de bloquer ce type de trafic.</li><li>Les <code>volumes</code> permettent d&rsquo;assurer la pérennité de la configuration même en cas de redémarrage ou de suppression du conteneur.</li></ul><p>Une fois le fichier créé, il suffit de démarrer le conteneur pour démarrer le service <code>pihole</code> :</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>docker-compose up -d
+</span></span></code></pre></div><h2 id=configuration>Configuration<a hidden class=anchor aria-hidden=true href=#configuration>#</a></h2><p>Une fois le service démarré, il est possible de se rendre sur l&rsquo;interface web de <code>pihole</code> à l&rsquo;adresse <code>http://&lt;ip_du_serveur>/admin</code>.</p><p>Le <code>mot de passe</code> par défaut est généré aléatoirement et est affiché dans les logs du conteneur.</p><p>Pour accéder à ces <strong>logs</strong> :</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>docker logs pihole | grep <span style=color:#e6db74>&#39;password&#39;</span>
+</span></span></code></pre></div><h2 id=sources-et-références>Sources et références<a hidden class=anchor aria-hidden=true href=#sources-et-références>#</a></h2><ul><li><a href=https://pi-hole.net/>Pi-hole</a></li><li><a href=https://danielrampelt.com/blog/install-pihole-raspberry-pi-docker-ipv6/>Complete Guide to Setting up Pi-hole on a Raspberry Pi with IPv6 Support on Docker - Daniel Rampelt</a></li><li><a href=https://firebog.net/>The Big Blocklist Collection - Firebog</a></li><li><a href=https://github.com/diogomartino/docker-pihole-openvpn-raspberry-ipv6/tree/master>docker-pihole-openvpn-raspberry-ipv6 - GitHub</a></li><li><a href=https://www.it-connect.fr/pi-hole-un-bloqueur-de-pubs-pour-tout-votre-reseau/>Pi-Hole : un bloqueur de pubs pour tout votre réseau - it-connect</a></li><li><a href=https://www.techaddressed.com/tutorials/using-pi-hole-local-dns/>USING PI-HOLE LOCAL DNS AND WHY IT’S IMPORTANT IN YOUR HOMELAB - techaddressed</a></li></ul></div><footer class=post-footer><ul class=post-tags></ul></footer></article></main><footer class=footer><span>&copy; 2025 <a href=https://guillaume-rohee.fr/>grohee</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script></body></html>

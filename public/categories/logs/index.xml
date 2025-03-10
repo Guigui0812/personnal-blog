@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Logs on grohee</title>
+    <link>https://guillaume-rohee.fr/categories/logs/</link>
+    <description>Recent content in Logs on grohee</description>
+    <generator>Hugo -- 0.145.0</generator>
+    <language>fr</language>
+    <lastBuildDate>Tue, 11 Mar 2025 00:00:00 +0100</lastBuildDate>
+    <atom:link href="https://guillaume-rohee.fr/categories/logs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Grafana Loki : une stack complète pour la gestion des logs</title>
+      <link>https://guillaume-rohee.fr/posts/grafana-loki/</link>
+      <pubDate>Tue, 11 Mar 2025 00:00:00 +0100</pubDate>
+      <guid>https://guillaume-rohee.fr/posts/grafana-loki/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Grafana Loki&lt;/strong&gt; est un système de gestion de logs, qui permet de stocker et de rechercher des logs de manière efficace. Il est conçu pour être utilisé avec &lt;strong&gt;Promtail&lt;/strong&gt; et &lt;strong&gt;Grafana&lt;/strong&gt; pour une solution de monitoring complète.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Promtail&lt;/strong&gt; est un agent qui collecte les logs et les envoie à &lt;strong&gt;Loki&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Grafana&lt;/strong&gt; est un outil de visualisation de données initialement connu pour ses tableaux de bord de métriques, mais qui peut également être utilisé pour afficher des logs.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

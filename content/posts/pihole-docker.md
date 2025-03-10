@@ -1,15 +1,15 @@
 ---
 date: '2024-10-02T00:00:00+01:00'
 draft: false
-title: 'Pihole : bloqeur de pub et dns'
+title: 'Pi-hole : bloquer les publicités avec Docker'
 categories: ['docker', 'dns', 'pihole', 'networking']
 ---
 
-`pihole` est un logiciel permettant de bloquer les publicités et de protéger la vie privée en bloquant les domaines de suivi. Il est possible de le déployer avec Docker et d'activer l'IPv6 pour bloquer les publicités sur ce protocole.
+**Pi-hole** est un service permettant de bloquer les publicités et de protéger la vie privée en bloquant les domaines de suivi. Il est possible de le déployer avec Docker et d'activer l'IPv6 pour bloquer les publicités sur ce protocole.
 
 ## Installation
 
-Pour installer `pihole` avec `docker`, il suffit de créer un fichier `docker-compose.yml` avec le contenu suivant :
+Pour installer **Pi-hole**avec **Docker**, il suffit de créer un fichier `docker-compose.yml` avec le contenu suivant :
 
 ```yaml
 version: '3'
