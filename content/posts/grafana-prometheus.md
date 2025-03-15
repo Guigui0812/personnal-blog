@@ -125,4 +125,4 @@ Il faut évidemment avoir créée un `user` dédié au service. Il est important
 - [Dépôt git](https://github.com/prometheus/node_exporter)
 - [How To Install Prometheus on Ubuntu 16.04 - Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-install-prometheus-on-ubuntu-16-04)
 - [Prometheus node exporter on Raspberry Pi – How to install](https://linuxhit.com/prometheus-node-exporter-on-raspberry-pi-how-to-install/)
-- - [Prometheus - Stephane Robert](https://blog.stephane-robert.info/docs/observer/metriques/prometheus/)
+- [Prometheus - Stephane Robert](https://blog.stephane-robert.info/docs/observer/metriques/prometheus/)
