@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Sécurité on grohee</title>
+    <link>https://guillaume-rohee.fr/categories/s%C3%A9curit%C3%A9/</link>
+    <description>Recent content in Sécurité on grohee</description>
+    <generator>Hugo -- 0.145.0</generator>
+    <language>fr</language>
+    <lastBuildDate>Fri, 21 Mar 2025 18:00:00 +0100</lastBuildDate>
+    <atom:link href="https://guillaume-rohee.fr/categories/s%C3%A9curit%C3%A9/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Step CA : devenir sa propre autorité de certification TLS</title>
+      <link>https://guillaume-rohee.fr/posts/step-ca/</link>
+      <pubDate>Fri, 21 Mar 2025 18:00:00 +0100</pubDate>
+      <guid>https://guillaume-rohee.fr/posts/step-ca/</guid>
+      <description>&lt;p&gt;Dans un environnement fermé comme un &lt;strong&gt;homelab&lt;/strong&gt;, il est commun d&amp;rsquo;avoir recours à des &lt;strong&gt;certificats autosignés&lt;/strong&gt;, ce qui n&amp;rsquo;est jamais idéal. &lt;strong&gt;Step CA&lt;/strong&gt; permet de devenir sa propre autorité de certification, de manière simple, sécurisée et automatisable.&lt;/p&gt;
+&lt;h2 id=&#34;mise-en-place-de-la-ca&#34;&gt;Mise en place de la CA&lt;/h2&gt;
+&lt;h3 id=&#34;installation&#34;&gt;Installation&lt;/h3&gt;
+&lt;p&gt;Installer la &lt;strong&gt;CLI&lt;/strong&gt; selon l&amp;rsquo;architecture, par exemple &lt;strong&gt;armv7&lt;/strong&gt; :&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;wget https://dl.smallstep.com/gh-release/cli/gh-release-header/v0.28.6/step_linux_0.28.6_armv7.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;tar -xf step_linux_0.28.6_armv7.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo mv step*/step /usr/local/bin/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;Voir les différentes versions disponibles&lt;/em&gt; : &lt;a href=&#34;https://github.com/smallstep/cli&#34;&gt;GitHub - smallstep/cli&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

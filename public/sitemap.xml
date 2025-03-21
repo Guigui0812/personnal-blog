@@ -3,18 +3,30 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://guillaume-rohee.fr/categories/</loc>
-    <lastmod>2025-03-11T00:00:00+01:00</lastmod>
+    <lastmod>2025-03-21T18:00:00+01:00</lastmod>
   </url><url>
     <loc>https://guillaume-rohee.fr/categories/docker/</loc>
-    <lastmod>2025-03-11T00:00:00+01:00</lastmod>
+    <lastmod>2025-03-21T18:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://guillaume-rohee.fr/</loc>
+    <lastmod>2025-03-21T18:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://guillaume-rohee.fr/categories/https/</loc>
+    <lastmod>2025-03-21T18:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://guillaume-rohee.fr/posts/</loc>
+    <lastmod>2025-03-21T18:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://guillaume-rohee.fr/categories/s%C3%A9curit%C3%A9/</loc>
+    <lastmod>2025-03-21T18:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://guillaume-rohee.fr/posts/step-ca/</loc>
+    <lastmod>2025-03-21T18:00:00+01:00</lastmod>
   </url><url>
     <loc>https://guillaume-rohee.fr/categories/grafana/</loc>
     <lastmod>2025-03-11T00:00:00+01:00</lastmod>
   </url><url>
     <loc>https://guillaume-rohee.fr/posts/grafana-loki/</loc>
-    <lastmod>2025-03-11T00:00:00+01:00</lastmod>
-  </url><url>
-    <loc>https://guillaume-rohee.fr/</loc>
     <lastmod>2025-03-11T00:00:00+01:00</lastmod>
   </url><url>
     <loc>https://guillaume-rohee.fr/categories/logs/</loc>
@@ -24,9 +36,6 @@
     <lastmod>2025-03-11T00:00:00+01:00</lastmod>
   </url><url>
     <loc>https://guillaume-rohee.fr/categories/monitoring/</loc>
-    <lastmod>2025-03-11T00:00:00+01:00</lastmod>
-  </url><url>
-    <loc>https://guillaume-rohee.fr/posts/</loc>
     <lastmod>2025-03-11T00:00:00+01:00</lastmod>
   </url><url>
     <loc>https://guillaume-rohee.fr/categories/promtail/</loc>
@@ -55,18 +64,6 @@
   </url><url>
     <loc>https://guillaume-rohee.fr/posts/docker-registry-setup/</loc>
     <lastmod>2024-10-15T00:00:00+01:00</lastmod>
-  </url><url>
-    <loc>https://guillaume-rohee.fr/categories/dns/</loc>
-    <lastmod>2024-10-02T00:00:00+01:00</lastmod>
-  </url><url>
-    <loc>https://guillaume-rohee.fr/categories/networking/</loc>
-    <lastmod>2024-10-02T00:00:00+01:00</lastmod>
-  </url><url>
-    <loc>https://guillaume-rohee.fr/posts/pihole-docker/</loc>
-    <lastmod>2024-10-02T00:00:00+01:00</lastmod>
-  </url><url>
-    <loc>https://guillaume-rohee.fr/categories/pihole/</loc>
-    <lastmod>2024-10-02T00:00:00+01:00</lastmod>
   </url><url>
     <loc>https://guillaume-rohee.fr/search/</loc>
   </url><url>

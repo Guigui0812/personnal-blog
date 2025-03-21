@@ -6,8 +6,23 @@
     <description>Recent content in Posts on grohee</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>fr</language>
-    <lastBuildDate>Tue, 11 Mar 2025 00:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 21 Mar 2025 18:00:00 +0100</lastBuildDate>
     <atom:link href="https://guillaume-rohee.fr/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Step CA : devenir sa propre autorité de certification TLS</title>
+      <link>https://guillaume-rohee.fr/posts/step-ca/</link>
+      <pubDate>Fri, 21 Mar 2025 18:00:00 +0100</pubDate>
+      <guid>https://guillaume-rohee.fr/posts/step-ca/</guid>
+      <description>&lt;p&gt;Dans un environnement fermé comme un &lt;strong&gt;homelab&lt;/strong&gt;, il est commun d&amp;rsquo;avoir recours à des &lt;strong&gt;certificats autosignés&lt;/strong&gt;, ce qui n&amp;rsquo;est jamais idéal. &lt;strong&gt;Step CA&lt;/strong&gt; permet de devenir sa propre autorité de certification, de manière simple, sécurisée et automatisable.&lt;/p&gt;
+&lt;h2 id=&#34;mise-en-place-de-la-ca&#34;&gt;Mise en place de la CA&lt;/h2&gt;
+&lt;h3 id=&#34;installation&#34;&gt;Installation&lt;/h3&gt;
+&lt;p&gt;Installer la &lt;strong&gt;CLI&lt;/strong&gt; selon l&amp;rsquo;architecture, par exemple &lt;strong&gt;armv7&lt;/strong&gt; :&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;wget https://dl.smallstep.com/gh-release/cli/gh-release-header/v0.28.6/step_linux_0.28.6_armv7.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;tar -xf step_linux_0.28.6_armv7.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo mv step*/step /usr/local/bin/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;Voir les différentes versions disponibles&lt;/em&gt; : &lt;a href=&#34;https://github.com/smallstep/cli&#34;&gt;GitHub - smallstep/cli&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Grafana Loki : une stack complète pour la gestion des logs</title>
       <link>https://guillaume-rohee.fr/posts/grafana-loki/</link>
@@ -83,42 +98,6 @@
 &lt;h2 id=&#34;mise-en-place&#34;&gt;Mise en place&lt;/h2&gt;
 &lt;p&gt;Une méthode simple consiste à installer la &lt;code&gt;Docker Registry&lt;/code&gt; en tant que conteneur via &lt;code&gt;docker-compose&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Prérequis&lt;/code&gt; : avant d&amp;rsquo;installer le service, il faut définir l&amp;rsquo;endroit où la &lt;code&gt;registry&lt;/code&gt; enregistrera les données. Dans mon cas, je choisis d&amp;rsquo;utiliser un point de montage &lt;code&gt;data&lt;/code&gt; sur mon &lt;code&gt;nas&lt;/code&gt; afin d&amp;rsquo;assurer la persistance des éléments.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Pi-hole : bloquer les publicités avec Docker</title>
-      <link>https://guillaume-rohee.fr/posts/pihole-docker/</link>
-      <pubDate>Wed, 02 Oct 2024 00:00:00 +0100</pubDate>
-      <guid>https://guillaume-rohee.fr/posts/pihole-docker/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Pi-hole&lt;/strong&gt; est un service permettant de bloquer les publicités et de protéger la vie privée en bloquant les domaines de suivi. Il est possible de le déployer avec Docker et d&amp;rsquo;activer l&amp;rsquo;IPv6 pour bloquer les publicités sur ce protocole.&lt;/p&gt;
-&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
-&lt;p&gt;Pour installer &lt;strong&gt;Pi-hole&lt;/strong&gt;avec &lt;strong&gt;Docker&lt;/strong&gt;, il suffit de créer un fichier &lt;code&gt;docker-compose.yml&lt;/code&gt; avec le contenu suivant :&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;version&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;3&amp;#39;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;services&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#f92672&#34;&gt;pihole&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#f92672&#34;&gt;container_name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;pihole&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#f92672&#34;&gt;image&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;pihole/pihole:latest&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#f92672&#34;&gt;ports&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			- &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;53:53/tcp&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			- &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;53:53/udp&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			- &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;67:67/udp&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			- &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;80:80/tcp&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			- &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;443:443/tcp&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#f92672&#34;&gt;environment&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#f92672&#34;&gt;TZ&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Europe/Paris&amp;#39;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#f92672&#34;&gt;ServerIP&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;192.168.1.2&amp;#39;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#f92672&#34;&gt;IPv6&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;true&amp;#39;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#f92672&#34;&gt;ServerIPv6&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;&amp;lt;server_ipv6&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#f92672&#34;&gt;volumes&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			- &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;./etc-pihole/:/etc/pihole/&amp;#39;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			- &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;./etc-dnsmasq.d/:/etc/dnsmasq.d/&amp;#39;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#f92672&#34;&gt;dns&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			- &lt;span style=&#34;color:#ae81ff&#34;&gt;8.8.8.8&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			- &lt;span style=&#34;color:#ae81ff&#34;&gt;1.1.1.1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#f92672&#34;&gt;cap_add&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		- &lt;span style=&#34;color:#ae81ff&#34;&gt;NET_ADMIN&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#f92672&#34;&gt;restart&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;always&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Quelques explications :&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

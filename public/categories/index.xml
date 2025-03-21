@@ -6,13 +6,27 @@
     <description>Recent content in Categories on grohee</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>fr</language>
-    <lastBuildDate>Tue, 11 Mar 2025 00:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 21 Mar 2025 18:00:00 +0100</lastBuildDate>
     <atom:link href="https://guillaume-rohee.fr/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docker</title>
       <link>https://guillaume-rohee.fr/categories/docker/</link>
-      <pubDate>Tue, 11 Mar 2025 00:00:00 +0100</pubDate>
+      <pubDate>Fri, 21 Mar 2025 18:00:00 +0100</pubDate>
       <guid>https://guillaume-rohee.fr/categories/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Https</title>
+      <link>https://guillaume-rohee.fr/categories/https/</link>
+      <pubDate>Fri, 21 Mar 2025 18:00:00 +0100</pubDate>
+      <guid>https://guillaume-rohee.fr/categories/https/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sécurité</title>
+      <link>https://guillaume-rohee.fr/categories/s%C3%A9curit%C3%A9/</link>
+      <pubDate>Fri, 21 Mar 2025 18:00:00 +0100</pubDate>
+      <guid>https://guillaume-rohee.fr/categories/s%C3%A9curit%C3%A9/</guid>
       <description></description>
     </item>
     <item>
@@ -83,27 +97,6 @@
       <link>https://guillaume-rohee.fr/categories/kubernetes/</link>
       <pubDate>Sat, 16 Nov 2024 00:00:00 +0100</pubDate>
       <guid>https://guillaume-rohee.fr/categories/kubernetes/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Dns</title>
-      <link>https://guillaume-rohee.fr/categories/dns/</link>
-      <pubDate>Wed, 02 Oct 2024 00:00:00 +0100</pubDate>
-      <guid>https://guillaume-rohee.fr/categories/dns/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Networking</title>
-      <link>https://guillaume-rohee.fr/categories/networking/</link>
-      <pubDate>Wed, 02 Oct 2024 00:00:00 +0100</pubDate>
-      <guid>https://guillaume-rohee.fr/categories/networking/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Pihole</title>
-      <link>https://guillaume-rohee.fr/categories/pihole/</link>
-      <pubDate>Wed, 02 Oct 2024 00:00:00 +0100</pubDate>
-      <guid>https://guillaume-rohee.fr/categories/pihole/</guid>
       <description></description>
     </item>
   </channel>
