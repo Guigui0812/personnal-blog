@@ -1,8 +1,8 @@
 ---
-date: '2025-05-17T20:00:00+01:00'
+date: '2025-05-26T20:00:00+01:00'
 draft: false
 title: 'Argo CD et GitOps : automatiser le déploiement Kubernetes'
-categories: ['kubernetes', 'devops', 'gitops', 'cloud', 'argocd']
+categories: ['kubernetes', 'devops', 'gitops', 'cloud', 'argocd', 'cicd']
 ---
 
 **Argo CD** est un outil de déploiement continu spécifiquement conçu pour les environnements **Kubernetes**. Fonctionnant selon le principe du **GitOps**, il permet de simplifier et d'automatiser le déploiement d'applications et la gestion d'infrastructures conteneurisées en s'appuyant sur des dépôts **Git** comme source de vérité.
