@@ -1,48 +1,48 @@
 ---
 date: '2025-05-17T20:00:00+01:00'
 draft: false
-title: 'Argo CD : Repenser le déploiement d'application et la gestion d'infrastructure avec le GitOps'
+title: 'Argo CD et GitOps : automatiser le déploiement Kubernetes'
 categories: ['kubernetes', 'devops', 'gitops', 'cloud', 'argocd']
 ---
 
-**Argo CD** est un outil de déploiement continu spécifiquement conçu pour les environnements **Kubernetes**. Fonctionnant selon le principe du **GitOps**, il permet de simplifier et d'automatiser le déploiement d'application et la gestion d'infrastructures conteneurisées en s'appuyant sur des dépôts **Git** comme source de vérité.
+**Argo CD** est un outil de déploiement continu spécifiquement conçu pour les environnements **Kubernetes**. Fonctionnant selon le principe du **GitOps**, il permet de simplifier et d'automatiser le déploiement d'applications et la gestion d'infrastructures conteneurisées en s'appuyant sur des dépôts **Git** comme source de vérité.
 
 ## Le GitOps
 
 C'est une méthodologie liée au déploiement d'applications et à la gestion automatisée d'infrastructure. Elle consiste à gérer l'infrastructure en tant que code, sous forme de fichiers (souvent au format `YAML`) stockés dans des dépôts git utilisés comme **source de vérité**. L'intérêt est de garantir que l'état de l'infrastructure et des applications est toujours en phase avec la configuration définie dans le dépôt.
 
-Il existe plusieurs "modes" de GitOps : **push** ou **pull** :
+Il existe plusieurs "modes" de GitOps nommés **push** et **pull** :
 
 - **Mode push** : Cas où c'est la modification du référentiel qui provoque la livraison d'une nouvelle configuration afin de placer l'infrastructure dans l'état souhaité. Par exemple, une pipeline (Jenkins, GitLab CI…) déclenche l'application de la configuration après une modification dans Git.
-
 - **Mode pull** : un agent (ex : Argo CD, Flux) scrute le dépôt Git en continu et applique les changements dès qu'ils sont détectés. Les modifications sont apportées automatiquement par l'outil sans autre intervention humaine que la modification du référentiel.
 
 **Remarques** :
 
-- Le framework ne remplace pas l'usage d'une **CI** classique pour les étapes de test ou de build d'images.
+- Le**GitOps** ne remplace pas l'usage d'une **CI** classique pour les étapes de test ou de build d'images, il s'agit plutôt d'une approche de **Déploiement Continu** (CD).
+- L'approche **pull** est plus robuste, mieux adaptée à Kubernetes, et permet une synchronisation continue sans intervention manuelle.
 
-- L'approche **pull** est plus robuste, mieux adaptée à Kubernetes, et permet une synchronisation continue sans intervention manuelle. Dès lors, l'utilisation des fonctionnalités de **Merge Request** et de **Pull Request** afin d'effectuer une relecture et une validation des modifications est recommandée.
+**Important** : Dans une approche **pull** l'utilisation des fonctionnalités de **Merge Request** afin d'effectuer une relecture et une validation des modifications est recommandée.
 
 ## Argo CD : principes et fonctionnalités
 
 **Argo CD** est un outil de la catégorie **pull**. Il permet de gérer le déploiement d'applications et la configuration de clusters **Kubernetes** en se basant sur diverses sources : **Git**, **Helm** ou encore **Kustomize**.
 
-**Son principe de fonctionnement est très simple** : il scrute en permanence les dépôts **Git** enregistrés en tant que sources afin de détecter des modifications et appliquer automatiquement les changements correspondant à la configuration du cluster **Kubernetes** et des applications qu'il héberge.
+**Son principe de fonctionnement est le suivant** : il scrute en permanence les dépôts **Git** enregistrés en tant que sources afin de détecter des modifications et appliquer automatiquement les changements correspondant à la configuration du cluster **Kubernetes** et des applications qu'il héberge.
 
 ### Fonctionnalités
 
 - **Déploiement & synchronisation** : Argo déploie les ressources sur le cluster **Kubernetes** en se basant sur la configuration définie dans le dépôt **Git**. Il s'assure que l'état du cluster correspond à l'état souhaité défini dans le dépôt en intéragissant avec l'API **Kubernetes**.
-- **Custom Resource Definitions (CRD)** : Argo CD intégère ses propres ressources personnalisées (CRD) pour gérer l'ensemble des configurations de l'outil en tant que code, voire en modèle de **GitOps**. Quelques exemples de CRD :
+- **Custom Resource Definitions (CRD)** : Argo CD intègre ses propres ressources personnalisées (CRD) pour gérer l'ensemble des configurations de l'outil en tant que code. Quelques exemples de CRD :
   - `Application` : représente une application déployée sur le cluster.
   - `AppProject` : permet de définir des projets d'application, facilitant la gestion des autorisations et des ressources.
-  - `ApplicationSet` : permet de gérer plusieurs applications en même temps, facilitant la gestion de déploiements complexes.
+  - `ApplicationSet` : permet de déployer plusieurs applications à partir d'un modèle ou d'une configuration commune.
 - **UI Web** : interface web intuitive pour visualiser l'état des applications, gérer les déploiements, effectuer des opérations de synchronisation et même consulter les logs des pods.
-- **Authentification et SSO** : Argo CD prend en charge plusieurs méthodes d'authentification, y compris l'intégration avec des systèmes d'authentification tiers (ex : OAuth2, LDAP).
-- **Gestion des accès** : Argo CD embarque un système de gestion de permissions basé sur les rôles (RBAC) permettant de contrôler l'accès aux ressources et aux fonctionnalités de l'outil. Il est possiblede lier ces rôles aux utilisateurs et groupes d'un fournisseur d'identité (ex : LDAP, SSO).
+- **Authentification et SSO** : Argo CD prend en charge plusieurs méthodes d'authentification, y compris l'intégration avec des systèmes d'authentification tiers via **OpenID Connect (OIDC)** ou **LDAP**.
+- **Gestion des accès** : Argo CD embarque un système de gestion de permissions basé sur les rôles (RBAC) permettant de contrôler l'accès aux ressources et aux fonctionnalités de l'outil. 
 - **Métriques et alertes** : Argo CD expose des métriques **Prometheus** pour surveiller l'état des applications et des clusters. Il est possible de configurer des alertes basées sur ces métriques.
 - **Gestion multi-cluster** : possibilité de gérer plusieurs clusters **Kubernetes** à partir d'une seule instance, facilitant ainsi la gestion d'environnements complexes.
 - Intégration avec des **Webhooks** : Argo CD peut être configuré pour recevoir des notifications de changements dans les dépôts **Git** via des **webhooks**, permettant ainsi une synchronisation instantanée des modifications.
-- **Gestion des secrets**
+- **Gestion des secrets** : gestion des secrets Kubernetes
 
 ### Fonctionnement et architecture
 
@@ -69,7 +69,7 @@ D'autres composants sont présents comme **l'application set controller** pour l
 ### Avantages
 
 - Centralisation des configurations dans un référentiel unique (git)
-- Versionninf des configurations d’infrastructure et possibilité de revenir à une version antérieure en cas de problème
+- Versionning des configurations d’infrastructure et possibilité de revenir à une version antérieure en cas de problème
 - Garantit la cohérence entre l'état réel et l'état souhaité de l'infrastructure
 - Éviter les modifications manuelles non tracées
 - Fiabilisation des déploiements et limitation des erreurs humaines
@@ -111,6 +111,8 @@ helm repo add argo https://argoproj.github.io/argo-helm # Ajout du dépôt Helm 
 helm install my-argo-cd argo/argo-cd -n argocd --create-namespace # Installation d'Argo dans le namespace
 ```
 
+**Remarque** : il peut être nécessaire de fixer la version du chart à installer en ajoutant `--version <version>` à la commande `helm install` dans le cas d'environnements de production, afin d'éviter les changements de comportement suite à une mise à jour du chart.
+
 **Astuce** : si le dépôt **Helm** n'est pas déte, utiliser `helm repo update`.
 
 Dans le cas d'une installation par **Helm**, il est possible de personnaliser la configuration de l'outil dès l'installation via des **values**.
@@ -131,23 +133,23 @@ helm install my-argo-cd argo/argo-cd -n argocd --create-namespace -f values.yaml
 
 L'ensemble des valeurs configurables sont détaillées dans le dépôt git du projet [argo-helm](https://github.com/argoproj/argo-helm/blob/main/charts/argo-cd/values.yaml).
 
-**Remarque** : pour avoir un déploiement totalement automatisé et reproductible, il est possible d'utiliser le **provider Helm** pour **Terraform** afin de déployer **Argo CD** sur le cluster **Kubernetes**.
+**Remarque** : pour avoir un déploiement totalement automatisé et reproductible, il est possible d'utiliser le  [provider Helm](https://registry.terraform.io/providers/hashicorp/helm/latest/docs) pour **Terraform**.
 
 ## Configuration
 
-*Argo CD** est un outil complet et riche en fonctionnalités : authentification, gestion des accès, gestion d'utilisateurs, gestion des applications, monitoring, etc.
+**Argo CD** est un outil complet et riche en fonctionnalités : authentification, gestion des accès, gestion d'utilisateurs, gestion des applications, monitoring, etc.
 
 ### Authentification
 
 **Argo CD** propose une grande variété de méthodes d'authentifications, allant de l'authentification basique (nom d'utilisateur et mot de passe) à l'intégration de **OpenID Connect** (OIDC) pour une authentification unique (SSO) avec des fournisseurs d'identité tels que **Google**, **GitHub**, **Keycloak**, **LDAP**, etc.
 
-La plupart de ces fonctionnalités sont offertes par [dex](https://dexidp.io/) qui est un fournisseur d'identité open source permettant de gérer l'authentification et l'autorisation des utilisateurs.
+La plupart de ces fonctionnalités sont offertes par [dex](https://dexidp.io/) qui est un composant open source permettant de gérer l'authentification des utilisateurs.
 
 #### LDAP
 
 Il est possible de configurer **Argo CD** pour utiliser un annuaire **LDAP** afin d'y authentifier les utilisateurs et de gérer les groupes d'utilisateurs.
 
-Pour cela, il faut modifier le fichier de configuration `argocd-cm` dans le `namespace` **argocd** :
+**Exemple de configuration pour le connecteur LDAP** :
 
 ```yaml
 apiVersion: v1
@@ -183,7 +185,7 @@ data:
           groupAttr: member
           nameAttr: cn
   url: https://<YOUR_ARGOCD_URL>
-```	
+```
 
 L'utilisation du connecteur **LDAP** de dex ([Documentation dex](https://dexidp.io/docs/connectors/ldap/)) permet de configurer les paramètres de connexion à l'annuaire **LDAP**, les attributs des utilisateurs et des groupes, ainsi que les filtres de recherche (pour par exemple autoriser uniquement certains groupes d'utilisateurs à se connecter à **Argo CD**).
 
@@ -222,9 +224,9 @@ kind: ConfigMap
 
 **Quelques points à noter** :
 
-- Le `clientID` et le `clientSecret` sont à récupérer dans la console de gestion des API de **Google Cloud**.
+- Le `clientID` et le `clientSecret` sont à récupérer dans la console de gestion des APIs de **Google Cloud**.
 - Le `redirectURI` doit correspondre à l'URL de votre instance **Argo CD** suivi de `/api/dex/callback` (représente le point de terminaison de redirection pour l'authentification OIDC).
-- Plusieurs fournisseurs d'identité peuvent être configurés dans le même fichier de configuration `dex.config`
+- Plusieurs fournisseurs d'identité peuvent être configurés dans le même fichier de configuration `dex.config`.
 - La récupération des groupes d'utilisateurs peut être configurée mais nécessite un compte de service avec une **délégation au niveau de l'organisation** pour accéder aux groupes d'utilisateurs dans **Google Workspace**.
 
 **Ressource** :
@@ -245,18 +247,17 @@ Plusieurs fonctionnalités vont permettre de gérer les politiques **RBAC** (Rol
 
 ### Projets
 
-Un projet dans **Argo CD** est une ressource qui se déclare d'une manière similaire à une application. La différence résidre évidemment dans le contenu de la ressource qui permet de : 
+Un projet dans **Argo CD** est une ressource qui se déclare d'une manière similaire à une application. La différence réside évidemment dans le contenu de la ressource qui permet de :
 
 - Définir les `namespaces` sources et destination autorisés pour les applications du projet
 - Définir les dépôts **Git** autorisés pour les applications du projet
 - Définir des rôles et permissions spécifiques au projet
-- Définir des **fenêtres de maintenance** pour les applications du projet : 
-  - Permet de restreindre les opérations de synchronisation pendant une période donnée (ex : pendant les heures de travail)
+- Définir des **fenêtres de maintenance** pour les applications du projet :
+  - Permet de limiter les opérations de synchronisation pendant une période donnée (ex : pendant les heures de travail)
   - Utile pour éviter les modifications pendant des périodes critiques (ex : maintenance, déploiement de nouvelles versions)
 - Autoriser ou restreindre l'usage de certaines ressources Kubernetes (ex : `ConfigMap`, `Secret`, `ServiceAccount`, etc.) pour les applications du projet
 
-
-Aperçu du contenu d'un projet :
+**Aperçu du contenu d'un projet :**
 
 ```yaml
 apiVersion: argoproj.io/v1alpha1
@@ -391,7 +392,7 @@ Ces éléments permettent de créer la ressource `Application` qui contient tout
 - **Sync Policy** et **Sync Options** : stratégie de synchronisation (automatique ou manuelle) et options de synchronisation (ex : prune, self heal)
 - **Project** : projet auquel l'application appartient afin de gérer les accès et les ressources
 
-Concernant l'utilisation de l'interface web, les champs étant assez explicites, il est possible de créer une application en quelques clics. 
+Concernant l'utilisation de l'interface web, les champs étant assez explicites, il est possible de créer une application en quelques clics.
 
 Pour la création d'une application via un fichier **YAML**, voici un exemple de définition d'application :
 
@@ -419,7 +420,7 @@ spec:
     - PruneLast=true # Prune les ressources après la synchronisation
 ```
 
-Il est possible d'utiliser des **Charts Helm** comme source d'application. Dans ce cas, il faut ajouter la section `helm` dans la définition de l'application :
+Il est possible d'utiliser des **charts Helm** comme source d'application. Dans ce cas, il faut ajouter la section `helm` dans la définition de l'application :
 
 ```yaml
 apiVersion: argoproj.io/v1alpha1
@@ -447,8 +448,10 @@ spec:
 
 La personnalisation des **values** du **chart Helm** peut se faire de plusieurs manières :
 
-- En utilisant la section `values` dans la définition de l'application (comme ci-dessus)
+- En utilisant la section `values` ou `valuesObject` dans la définition de l'application (comme ci-dessus)
 - En utilisant un fichier **YAML** externe (ex : `values.yaml`) en l'ajoutant dans la section `valuesFiles`.
+
+Plus d'informations sont disponibles dans la section [Helm](https://argo-cd.readthedocs.io/en/stable/user-guide/helm/) de la documentation.
 
 ### Déployer plusieurs applications
 
@@ -460,9 +463,10 @@ Ce type d'implémentation est appelé **App of Apps**, c'est à dire qu'à parti
 
 #### ApplicationSet
 
-Une autre solution pour déployer plusieurs applications est d'utiliser un **ApplicationSet**. Il s'agit d'une ressource permettant de définir des **templates** d'applications et de générer plusieurs applications à partir de ceux-ci. 
+Une autre solution pour déployer plusieurs applications est d'utiliser un **ApplicationSet**. Il s'agit d'une ressource permettant de définir des **templates** d'applications et de générer plusieurs applications à partir de ceux-ci.
 
 On va pouvoir les utiiliser dans plusieurs cas :
+
 - Déployer plusieurs instances d'une même application avec des configurations différentes (ex : différents environnements)
 - Déployer des applications à partir de modèles définis dans un dépôt **Git**
 - Déployer des applications dans plusieurs clusters 
@@ -505,3 +509,11 @@ De nombreux générateurs sont disponibles pour l'`ApplicationSet` et sont déta
 ### Gestion des secrets
 
 *A venir*
+
+## Références
+
+- [Documentation officielle d'Argo CD](https://argo-cd.readthedocs.io/en/stable/)
+- [ArgoCD de A à Y - Une tasse de café](https://une-tasse-de.cafe/blog/argocd/)
+- [Flux et ArgoCD, deux visions du GitOps sur Kubernetes - WeScale](https://blog.wescale.fr/flux-et-argocd-deux-visions-du-gitops-sur-kubernetes)
+- [Argo CD, qu'est-ce que c'est ? - Red Hat](https://www.redhat.com/fr/topics/devops/what-is-argocd)
+- [ArgoCD Tutorial for Beginners | GitOps CD for Kubernetes - TechWorld with Nana](https://www.youtube.com/watch?v=MeU5_k9ssrs)
