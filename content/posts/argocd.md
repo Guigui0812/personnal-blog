@@ -135,11 +135,243 @@ L'ensemble des valeurs configurables sont détaillées dans le dépôt git du pr
 
 ## Configuration
 
+*Argo CD** est un outil complet et riche en fonctionnalités : authentification, gestion des accès, gestion d'utilisateurs, gestion des applications, monitoring, etc.
+
 ### Authentification
+
+**Argo CD** propose une grande variété de méthodes d'authentifications, allant de l'authentification basique (nom d'utilisateur et mot de passe) à l'intégration de **OpenID Connect** (OIDC) pour une authentification unique (SSO) avec des fournisseurs d'identité tels que **Google**, **GitHub**, **Keycloak**, **LDAP**, etc.
+
+La plupart de ces fonctionnalités sont offertes par [dex](https://dexidp.io/) qui est un fournisseur d'identité open source permettant de gérer l'authentification et l'autorisation des utilisateurs.
+
+#### LDAP
+
+Il est possible de configurer **Argo CD** pour utiliser un annuaire **LDAP** afin d'y authentifier les utilisateurs et de gérer les groupes d'utilisateurs.
+
+Pour cela, il faut modifier le fichier de configuration `argocd-cm` dans le `namespace` **argocd** :
+
+```yaml
+apiVersion: v1
+data:
+  dex.config: |
+    connectors:
+    - type: ldap
+      name: LDAP
+      id: ldap
+      config:
+        # Ldap server address
+        host: "<LDAP_URL>"
+        insecureNoSSL: true
+        insecureSkipVerify: true
+        # Variable name stores ldap bindDN in argocd-secret
+        bindDN: "$dex.ldap.bindDN"
+        # Variable name stores ldap bind password in argocd-secret
+        bindPW: "$dex.ldap.bindPW"
+        usernamePrompt: Username
+        # Ldap user search attributes
+        userSearch:
+          baseDN: "<LDAP_USER_BASE_DN>"
+          filter: ""
+          username: sAMAccountName
+          idAttr: sAMAccountName
+          emailAttr: mail
+          nameAttr: givenName
+        # Ldap group search attributes
+        groupSearch:
+          baseDN: "<LDAP_GROUP_BASE_DN>"
+          filter: "(objectClass=group)"
+          userAttr: DN
+          groupAttr: member
+          nameAttr: cn
+  url: https://<YOUR_ARGOCD_URL>
+```	
+
+L'utilisation du connecteur **LDAP** de dex ([Documentation dex](https://dexidp.io/docs/connectors/ldap/)) permet de configurer les paramètres de connexion à l'annuaire **LDAP**, les attributs des utilisateurs et des groupes, ainsi que les filtres de recherche (pour par exemple autoriser uniquement certains groupes d'utilisateurs à se connecter à **Argo CD**).
+
+#### OpenID Connect (OIDC)
+
+##### Google
+
+Grâce à **dex**, il est possible de configurer **Argo CD** pour utiliser **Google** comme fournisseur d'identité via **OpenID Connect (OIDC)**.
+
+**Exemple de configuration** :
+
+```yaml
+apiVersion: v1
+data:
+  admin.enabled: "true"
+  application.instanceLabelKey: argocd.argoproj.io/instance
+  dex.config: |
+    connectors:
+    - config:
+        issuer: https://accounts.google.com
+        clientID: <google-client-id>
+        clientSecret: <google-client-secret>
+        redirectURI: https://<YOUR_ARGOCD_URL>/api/dex/callback
+      type: oidc
+      id: google
+      name: Google
+  exec.enabled: "false"
+  oidc.tls.insecure.skip.verify: "true"
+  server.rbac.log.enforce.enable: "false"
+  statusbadge.enabled: "false"
+  timeout.hard.reconciliation: 0s
+  timeout.reconciliation: 180s
+  url: https://<YOUR_ARGOCD_URL>
+kind: ConfigMap
+```
+
+**Quelques points à noter** :
+
+- Le `clientID` et le `clientSecret` sont à récupérer dans la console de gestion des API de **Google Cloud**.
+- Le `redirectURI` doit correspondre à l'URL de votre instance **Argo CD** suivi de `/api/dex/callback` (représente le point de terminaison de redirection pour l'authentification OIDC).
+- Plusieurs fournisseurs d'identité peuvent être configurés dans le même fichier de configuration `dex.config`
+- La récupération des groupes d'utilisateurs peut être configurée mais nécessite un compte de service avec une **délégation au niveau de l'organisation** pour accéder aux groupes d'utilisateurs dans **Google Workspace**.
+
+**Ressource** :
+
+- [Connecteur OIDC - Documentation dex](https://dexidp.io/docs/connectors/oidc/)
+- [Authentification avec Google - Argo CD](https://argo-cd.readthedocs.io/en/stable/operator-manual/user-management/google/#openid-connect-plus-google-groups-using-dex)
 
 ### Gestion des accès et permissions
 
+Les fournisseurs d'identité (ex : **LDAP**, **OIDC**) permettant la récupération des utilisateurs et des groupes, **Argo CD** permet à ses administrateurs de définir des rôles et des permissions pour contrôler l'accès aux ressources et aux fonctionnalités de l'outil.
+
+Plusieurs fonctionnalités vont permettre de gérer les politiques **RBAC** (Role-Based Access Control) :
+
+- **Projects** : permettent de regrouper les applications et de définir des politiques globales pour toutes les applications d'un projet.
+- **Roles** : définissent les permissions accordées aux utilisateurs ou groupes d'utilisateurs.
+- **Role Bindings** : lient les rôles aux utilisateurs ou groupes d'utilisateurs, leur accordant ainsi les permissions définies dans le rôle.
+- **Policies** : définissent les règles d'accès aux ressources et aux fonctionnalités d'Argo CD, en fonction des rôles et des utilisateurs.
+
+### Projets
+
+Un projet dans **Argo CD** est une ressource qui se déclare d'une manière similaire à une application. La différence résidre évidemment dans le contenu de la ressource qui permet de : 
+
+- Définir les `namespaces` sources et destination autorisés pour les applications du projet
+- Définir les dépôts **Git** autorisés pour les applications du projet
+- Définir des rôles et permissions spécifiques au projet
+- Définir des **fenêtres de maintenance** pour les applications du projet : 
+  - Permet de restreindre les opérations de synchronisation pendant une période donnée (ex : pendant les heures de travail)
+  - Utile pour éviter les modifications pendant des périodes critiques (ex : maintenance, déploiement de nouvelles versions)
+- Autoriser ou restreindre l'usage de certaines ressources Kubernetes (ex : `ConfigMap`, `Secret`, `ServiceAccount`, etc.) pour les applications du projet
+
+
+Aperçu du contenu d'un projet :
+
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: example-app-project
+  namespace: argocd
+spec:
+    description: ArgoCD project for an example application
+    sourceRepos:
+    - '*'
+    destinations:
+    - namespace: <namespace_1>
+      server: https://kubernetes.default.svc
+    - namespace: <namespace_2>
+      server: https://kubernetes.default.svc
+    - namespace: "!kube-system" # Exclut le namespace kube-system
+      server: "*"
+    clusterResourceWhitelist: []
+    clusterResourceBlacklist: []
+    namespaceResourceBlacklist:
+    - group: ''
+      kind: ResourceQuota
+    - group: ''
+      kind: LimitRange
+    - group: ''
+      kind: NetworkPolicy
+      orphanedResources: {}
+      roles: []
+    namespaceResourceWhitelist:
+    - group: 'apps'
+      kind: Deployment
+    - group: 'apps'
+      kind: StatefulSet
+    orphanedResources: {}
+    roles: []
+    syncWindows: 
+    - kind: allow
+      schedule: '10 1 * * *'
+      duration: 1h
+      applications:
+      - '*-prod'
+      manualSync: true
+    signatureKeys:
+    - keyID: ABCDEF1234567890
+    sourceNamespaces:
+    - ${argocd_namespace}
+    - ${argocd_namespace}
+```
+
+**Quelques explications** :
+
+- **orphanedResources** : permet de définir les ressources orphelines (ressources qui ne sont plus gérées par Argo CD) à prendre en compte ou à ignorer lors de la synchronisation.
+- **signatureKeys** : permet de définir les clés de signature utilisées pour vérifier l'intégrité des applications déployées.
+
+Plus d'informations dans la [documentation de Argo CD](https://argo-cd.readthedocs.io/en/stable/user-guide/projects/).
+
+#### Les politiques de sécurité
+
+Les politiques de sécurité dans **Argo CD** permettent de définir des règles d'accès aux ressources et aux fonctionnalités de l'outil. Elles sont définies dans le fichier de configuration `argocd-rbac-cm` dans le `namespace` **argocd**.
+
+On va pouvoir attribuer des rôles par défaut tels que `admin` et `readonly`, mais aussi définir des rôles personnalisés.
+
+Chaque **ressource** (ex : `Application`, `Project`, `ApplicationSet`, etc.) possède des permissions spécifiques qui peuvent être accordées ou restreintes aux utilisateurs et groupes d'utilisateurs :
+
+| Ressource       | get | create | update | delete | sync | action | override | invoke |
+|-----------------|:---:|:------:|:------:|:------:|:----:|:------:|:--------:|:------:|
+| applications    | ✅  | ✅     | ✅     | ✅     | ✅   | ✅     | ✅       | ❌     |
+| applicationsets | ✅  | ✅     | ✅     | ✅     | ❌   | ❌     | ❌       | ❌     |
+| clusters        | ✅  | ✅     | ✅     | ✅     | ❌   | ❌     | ❌       | ❌     |
+| projects        | ✅  | ✅     | ✅     | ✅     | ❌   | ❌     | ❌       | ❌     |
+| repositories    | ✅  | ✅     | ✅     | ✅     | ❌   | ❌     | ❌       | ❌     |
+| accounts        | ✅  | ❌     | ✅     | ❌     | ❌   | ❌     | ❌       | ❌     |
+| certificates    | ✅  | ✅     | ❌     | ✅     | ❌   | ❌     | ❌       | ❌     |
+| gpgkeys         | ✅  | ✅     | ❌     | ✅     | ❌   | ❌     | ❌       | ❌     |
+| logs            | ✅  | ❌     | ❌     | ❌     | ❌   | ❌     | ❌       | ❌     |
+| exec            | ❌  | ✅     | ❌     | ❌     | ❌   | ❌     | ❌       | ❌     |
+| extensions      | ❌  | ❌     | ❌     | ❌     | ❌   | ❌     | ❌       | ✅     |
+
+*Tableau tiré de la [documentation officielle](https://argo-cd.readthedocs.io/en/stable/operator-manual/rbac/)*
+
+Dès lors, il est possible de définir des rôles et des permissions pour les utilisateurs et groupes en se basant sur ces différents types de droits pour chaque ressource.
+
+**Exemple de définition de rôle** :
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-rbac-cm
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: argocd-rbac-cm
+    app.kubernetes.io/part-of: argocd
+data:
+  policy.csv: |
+
+    p, role:developer, applications, *, my-project/*, allow # Permet aux développeurs de gérer les applications de leur projet
+    p, role:developer, applications, get,*, allow # Permet aux développeurs de récupérer les applications de tous les projets
+    p, role:developer, applicationsets, get,*, allow # Permet aux développeurs de récupérer les ApplicationSets de tous les projets
+    p, role:developer, repositories, get,*, allow # Permet aux développeurs de récupérer les dépôts de tous les projets
+    p, role:developer, projects, get,*, allow # Permet aux développeurs de récupérer les projets de tous les projets
+    p, role:developer, clusters, get,*, allow # Permet aux développeurs de récupérer les clusters de tous les projets
+
+    g, developer@example, role:developer # Associe le groupe developer@example à ce rôle
+    g, user@example.org, role:admin
+  policy.default: role:readonly
+  scopes: '[groups, email]'
+```
+
+**Remarque** : Un rôle par défaut peut être définir avec `policy.default` et sera appliqué à tous les utilisateurs qui ne sont pas explicitement associés à un rôle.
+
 ### Monitoring
+
+*A venir*
 
 ## Déploiement d'applications
 
@@ -228,10 +460,48 @@ Ce type d'implémentation est appelé **App of Apps**, c'est à dire qu'à parti
 
 #### ApplicationSet
 
+Une autre solution pour déployer plusieurs applications est d'utiliser un **ApplicationSet**. Il s'agit d'une ressource permettant de définir des **templates** d'applications et de générer plusieurs applications à partir de ceux-ci. 
 
+On va pouvoir les utiiliser dans plusieurs cas :
+- Déployer plusieurs instances d'une même application avec des configurations différentes (ex : différents environnements)
+- Déployer des applications à partir de modèles définis dans un dépôt **Git**
+- Déployer des applications dans plusieurs clusters 
 
-### Les projets dans Argo CD
+**Exemple d'ApplicationSet basé sur un dépôt Git** :
 
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: apps-by-dir
+  namespace: argocd
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/mon-org/mon-repo.git
+        revision: main
+        directories:
+          - path: apps/*
+  template:
+    metadata:
+      name: '{{path.basename}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/mon-org/mon-repo.git
+        targetRevision: main
+        path: '{{path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{path.basename}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+```
 
+De nombreux générateurs sont disponibles pour l'`ApplicationSet` et sont détaillés dans la [documentation officielle](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/).
 
 ### Gestion des secrets
+
+*A venir*
