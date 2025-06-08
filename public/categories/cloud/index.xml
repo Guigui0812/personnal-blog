@@ -6,8 +6,17 @@
     <description>Recent content in Cloud on grohee</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>fr</language>
-    <lastBuildDate>Sat, 16 Nov 2024 00:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 26 May 2025 20:00:00 +0100</lastBuildDate>
     <atom:link href="https://guillaume-rohee.fr/categories/cloud/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Argo CD et GitOps : automatiser le déploiement Kubernetes</title>
+      <link>https://guillaume-rohee.fr/posts/argocd/</link>
+      <pubDate>Mon, 26 May 2025 20:00:00 +0100</pubDate>
+      <guid>https://guillaume-rohee.fr/posts/argocd/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Argo CD&lt;/strong&gt; est un outil de déploiement continu spécifiquement conçu pour les environnements &lt;strong&gt;Kubernetes&lt;/strong&gt;. Fonctionnant selon le principe du &lt;strong&gt;GitOps&lt;/strong&gt;, il permet de simplifier et d&amp;rsquo;automatiser le déploiement d&amp;rsquo;applications et la gestion d&amp;rsquo;infrastructures conteneurisées en s&amp;rsquo;appuyant sur des dépôts &lt;strong&gt;Git&lt;/strong&gt; comme source de vérité.&lt;/p&gt;
+&lt;h2 id=&#34;le-gitops&#34;&gt;Le GitOps&lt;/h2&gt;
+&lt;p&gt;C&amp;rsquo;est une méthodologie liée au déploiement d&amp;rsquo;applications et à la gestion automatisée d&amp;rsquo;infrastructure. Elle consiste à gérer l&amp;rsquo;infrastructure en tant que code, sous forme de fichiers (souvent au format &lt;code&gt;YAML&lt;/code&gt;) stockés dans des dépôts git utilisés comme &lt;strong&gt;source de vérité&lt;/strong&gt;. L&amp;rsquo;intérêt est de garantir que l&amp;rsquo;état de l&amp;rsquo;infrastructure et des applications est toujours en phase avec la configuration définie dans le dépôt.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Créer un dépôt Helm sur Google Cloud Storage</title>
       <link>https://guillaume-rohee.fr/posts/helm-repo-gcp/</link>

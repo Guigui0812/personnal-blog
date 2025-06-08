@@ -2,19 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://guillaume-rohee.fr/posts/argocd/</loc>
+    <lastmod>2025-05-26T20:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://guillaume-rohee.fr/categories/argocd/</loc>
+    <lastmod>2025-05-26T20:00:00+01:00</lastmod>
+  </url><url>
     <loc>https://guillaume-rohee.fr/categories/</loc>
-    <lastmod>2025-03-21T18:00:00+01:00</lastmod>
+    <lastmod>2025-05-26T20:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://guillaume-rohee.fr/categories/cicd/</loc>
+    <lastmod>2025-05-26T20:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://guillaume-rohee.fr/categories/cloud/</loc>
+    <lastmod>2025-05-26T20:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://guillaume-rohee.fr/categories/devops/</loc>
+    <lastmod>2025-05-26T20:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://guillaume-rohee.fr/categories/gitops/</loc>
+    <lastmod>2025-05-26T20:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://guillaume-rohee.fr/</loc>
+    <lastmod>2025-05-26T20:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://guillaume-rohee.fr/categories/kubernetes/</loc>
+    <lastmod>2025-05-26T20:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://guillaume-rohee.fr/posts/</loc>
+    <lastmod>2025-05-26T20:00:00+01:00</lastmod>
   </url><url>
     <loc>https://guillaume-rohee.fr/categories/docker/</loc>
     <lastmod>2025-03-21T18:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://guillaume-rohee.fr/</loc>
-    <lastmod>2025-03-21T18:00:00+01:00</lastmod>
-  </url><url>
     <loc>https://guillaume-rohee.fr/categories/https/</loc>
-    <lastmod>2025-03-21T18:00:00+01:00</lastmod>
-  </url><url>
-    <loc>https://guillaume-rohee.fr/posts/</loc>
     <lastmod>2025-03-21T18:00:00+01:00</lastmod>
   </url><url>
     <loc>https://guillaume-rohee.fr/categories/s%C3%A9curit%C3%A9/</loc>
@@ -47,9 +68,6 @@
     <loc>https://guillaume-rohee.fr/categories/prometheus/</loc>
     <lastmod>2024-12-28T00:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://guillaume-rohee.fr/categories/cloud/</loc>
-    <lastmod>2024-11-16T00:00:00+01:00</lastmod>
-  </url><url>
     <loc>https://guillaume-rohee.fr/posts/helm-repo-gcp/</loc>
     <lastmod>2024-11-16T00:00:00+01:00</lastmod>
   </url><url>
@@ -57,9 +75,6 @@
     <lastmod>2024-11-16T00:00:00+01:00</lastmod>
   </url><url>
     <loc>https://guillaume-rohee.fr/categories/helm/</loc>
-    <lastmod>2024-11-16T00:00:00+01:00</lastmod>
-  </url><url>
-    <loc>https://guillaume-rohee.fr/categories/kubernetes/</loc>
     <lastmod>2024-11-16T00:00:00+01:00</lastmod>
   </url><url>
     <loc>https://guillaume-rohee.fr/posts/docker-registry-setup/</loc>

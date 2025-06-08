@@ -29,9 +29,9 @@ docker pull smallstep/step-ca
 docker run -it -u <step_ca_user_id> -v ./data:/home/step smallstep/step-ca step ca init
 ```
 
-Remplir les différents champs proposés : 
+Remplir les différents champs proposés :
 
-```bash
+```yaml
 ✔ What would you like to name your new PKI? (e.g. Smallstep): Smallstep
 ✔ What DNS names or IP addresses would you like to add to your new CA? (e.g. ca.smallstep.com[,1.1.1.1,etc.]): localhost
 ✔ What address will your new CA listen at? (e.g. :443): :9000
@@ -39,7 +39,7 @@ Remplir les différents champs proposés :
 ✔ What do you want your password to be? [leave empty and we'll generate one]:
 ```
 
-Explications : 
+Explications :
 
 - Nom de la CA
 - Nom DNS pris en compte
@@ -109,17 +109,10 @@ sudo cp ~/step-ca-root.crt /usr/local/share/ca-certificates/step-ca.crt
 sudo update-ca-certificates
 ```
 
-**Sous RHEL, CentOS, Rocky Linux, AlmaLinux :**
+**Sous RHEL, Centos ou Fedora :**
 
 ```bash
 sudo cp ~/step-ca-root.crt /etc/pki/ca-trust/source/anchors/step-ca.crt
-sudo update-ca-trust
-```
-
-**Sous Arch Linux :**
-
-```bash
-sudo cp ~/step-ca-root.crt /etc/ca-certificates/trust-source/anchors/step-ca.crt
 sudo update-ca-trust
 ```
 
@@ -131,10 +124,10 @@ sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keyc
 
 **Sous Windows :**
 
-1. Ouvre **"certlm.msc"** (`Win + R` → tape `certlm.msc` → Entrée).
-2. Va dans **"Autorités de certification racines de confiance" → "Certificats"**.
-3. Clic droit → **"Toutes les tâches" → "Importer"**.
-4. Sélectionne **`step-ca-root.crt`** et valide.
+- Ouvrir `certlm.msc` (via `Win + R`)
+- Se rendre dans **"Autorités de certification racines de confiance"** et **"Certificats"**.
+- Via clic droit → **"Toutes les tâches"** puis **"Importer"**.
+- Sélectionner le fichier de la **Root CA** puis valider.
 
 ### Vérification
 
@@ -144,9 +137,9 @@ Après l'ajout du certificat, il reste à tester le bon fonctionnement de la **C
 curl -v https://localhost:9000
 ```
 
-Réponse attendue : 
+Réponse attendue :
 
-```
+```bash
 {"status":"ok"}
 ```
 
@@ -179,11 +172,35 @@ La validité doit être définie en **heures** : `2190h` équivaut à **3 mois**
 
 ## Renouveler un certificat
 
+### Renouvellement manuel
+
 Lorsqu'il est expiré, on peut renouveler un certificat avec la commande suivante :
+
+```bash
+step ca renew svc.crt svc.key
+```
+
+Il est possible de renouvellement un certificat en forçant la réécriture des fichiers `.crt` et `.key` :
 
 ```bash
 step ca renew --force svc.crt svc.key
 ```
+
+### Renouvellement automatique
+
+#### Renouvellement via un **daemon**
+
+Utilisation de la commande suivante :
+
+```bash
+step ca renew --daemon --renew-period 24h svc.crt svc.key
+```
+
+D'autres techniques seront abordées prochainement pour automatiser le renouvellement des certificats :
+
+- Renouvellement via un **cron**
+- **ACME** (Automated Certificate Management Environment)
+
 ## Références
 
 - [Run a private online TLS certificate authority in a Docker container](https://smallstep.com/docs/tutorials/docker-tls-certificate-authority/#troubleshooting)
