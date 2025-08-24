@@ -5,8 +5,8 @@ title: 'Proxmox : Automatiser le déploiement de VM avec Cloud-Init et Terraform
 categories: ['proxmox', 'terraform', 'cloud-init', 'virtualisation', 'infrastructure as code']
 cover:
   image: '/images/proxmox-terraform-cloudinit.png'
-  alt: 'Proxmox with terraform & cloudinit'
-  caption: 'Proxmox with terraform & cloudinit'
+  alt: 'Schéma expliquant l’automatisation du déploiement de VM sur Proxmox avec Terraform et Cloud-Init'
+  caption: 'Proxmox avec Terraform & Cloud Init'
   focalPoint: 'center center'
 ---
 
