@@ -6,8 +6,43 @@
     <description>Recent content in Categories on grohee</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>fr</language>
-    <lastBuildDate>Mon, 26 May 2025 20:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 23 Aug 2025 20:00:00 +0100</lastBuildDate>
     <atom:link href="https://guillaume-rohee.fr/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cloud-Init</title>
+      <link>https://guillaume-rohee.fr/categories/cloud-init/</link>
+      <pubDate>Sat, 23 Aug 2025 20:00:00 +0100</pubDate>
+      <guid>https://guillaume-rohee.fr/categories/cloud-init/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Infrastructure as Code</title>
+      <link>https://guillaume-rohee.fr/categories/infrastructure-as-code/</link>
+      <pubDate>Sat, 23 Aug 2025 20:00:00 +0100</pubDate>
+      <guid>https://guillaume-rohee.fr/categories/infrastructure-as-code/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Proxmox</title>
+      <link>https://guillaume-rohee.fr/categories/proxmox/</link>
+      <pubDate>Sat, 23 Aug 2025 20:00:00 +0100</pubDate>
+      <guid>https://guillaume-rohee.fr/categories/proxmox/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Terraform</title>
+      <link>https://guillaume-rohee.fr/categories/terraform/</link>
+      <pubDate>Sat, 23 Aug 2025 20:00:00 +0100</pubDate>
+      <guid>https://guillaume-rohee.fr/categories/terraform/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Virtualisation</title>
+      <link>https://guillaume-rohee.fr/categories/virtualisation/</link>
+      <pubDate>Sat, 23 Aug 2025 20:00:00 +0100</pubDate>
+      <guid>https://guillaume-rohee.fr/categories/virtualisation/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Argocd</title>
       <link>https://guillaume-rohee.fr/categories/argocd/</link>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Cloud-Init on grohee</title>
+    <link>https://guillaume-rohee.fr/categories/cloud-init/</link>
+    <description>Recent content in Cloud-Init on grohee</description>
+    <generator>Hugo -- 0.145.0</generator>
+    <language>fr</language>
+    <lastBuildDate>Sat, 23 Aug 2025 20:00:00 +0100</lastBuildDate>
+    <atom:link href="https://guillaume-rohee.fr/categories/cloud-init/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Proxmox : Automatiser le déploiement de VM avec Cloud-Init et Terraform</title>
+      <link>https://guillaume-rohee.fr/posts/proxmox-cloudinit-terraform/</link>
+      <pubDate>Sat, 23 Aug 2025 20:00:00 +0100</pubDate>
+      <guid>https://guillaume-rohee.fr/posts/proxmox-cloudinit-terraform/</guid>
+      <description>&lt;p&gt;Déployer des machines virtuelles sur un hyperviseur tel que &lt;code&gt;Proxmox&lt;/code&gt; est une tâche fréquente pour tout administrateur système. Que ce soit dans un contexte de production ou dans un homelab, il s&amp;rsquo;agit d&amp;rsquo;une tâche récurrente. L&amp;rsquo;automatisation étant désormais au coeur des métiers de l&amp;rsquo;infrastructure, c&amp;rsquo;est exactement ce type de tâche qu&amp;rsquo;il convient de repenser sous le prisme de &lt;strong&gt;l&amp;rsquo;infrastructure as code&lt;/strong&gt; via des outils modernes tels que &lt;code&gt;Terraform&lt;/code&gt; et &lt;code&gt;Cloud-Init&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

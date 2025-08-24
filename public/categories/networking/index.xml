@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Networking on grohee</title>
-    <link>https://guillaume-rohee.fr/categories/networking/</link>
+    <link>http://localhost:1313/categories/networking/</link>
     <description>Recent content in Networking on grohee</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>fr</language>
     <lastBuildDate>Wed, 02 Oct 2024 00:00:00 +0100</lastBuildDate>
-    <atom:link href="https://guillaume-rohee.fr/categories/networking/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/networking/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pi-hole : bloquer les publicités avec Docker</title>
-      <link>https://guillaume-rohee.fr/posts/pihole-docker/</link>
+      <link>http://localhost:1313/posts/pihole-docker/</link>
       <pubDate>Wed, 02 Oct 2024 00:00:00 +0100</pubDate>
-      <guid>https://guillaume-rohee.fr/posts/pihole-docker/</guid>
+      <guid>http://localhost:1313/posts/pihole-docker/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Pi-hole&lt;/strong&gt; est un service permettant de bloquer les publicités et de protéger la vie privée en bloquant les domaines de suivi. Il est possible de le déployer avec Docker et d&amp;rsquo;activer l&amp;rsquo;IPv6 pour bloquer les publicités sur ce protocole.&lt;/p&gt;
 &lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
 &lt;p&gt;Pour installer &lt;strong&gt;Pi-hole&lt;/strong&gt;avec &lt;strong&gt;Docker&lt;/strong&gt;, il suffit de créer un fichier &lt;code&gt;docker-compose.yml&lt;/code&gt; avec le contenu suivant :&lt;/p&gt;

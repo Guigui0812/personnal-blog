@@ -2,13 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://guillaume-rohee.fr/categories/</loc>
+    <lastmod>2025-08-23T20:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://guillaume-rohee.fr/categories/cloud-init/</loc>
+    <lastmod>2025-08-23T20:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://guillaume-rohee.fr/</loc>
+    <lastmod>2025-08-23T20:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://guillaume-rohee.fr/categories/infrastructure-as-code/</loc>
+    <lastmod>2025-08-23T20:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://guillaume-rohee.fr/posts/</loc>
+    <lastmod>2025-08-23T20:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://guillaume-rohee.fr/categories/proxmox/</loc>
+    <lastmod>2025-08-23T20:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://guillaume-rohee.fr/posts/proxmox-cloudinit-terraform/</loc>
+    <lastmod>2025-08-23T20:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://guillaume-rohee.fr/categories/terraform/</loc>
+    <lastmod>2025-08-23T20:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://guillaume-rohee.fr/categories/virtualisation/</loc>
+    <lastmod>2025-08-23T20:00:00+01:00</lastmod>
+  </url><url>
     <loc>https://guillaume-rohee.fr/posts/argocd/</loc>
     <lastmod>2025-05-26T20:00:00+01:00</lastmod>
   </url><url>
     <loc>https://guillaume-rohee.fr/categories/argocd/</loc>
-    <lastmod>2025-05-26T20:00:00+01:00</lastmod>
-  </url><url>
-    <loc>https://guillaume-rohee.fr/categories/</loc>
     <lastmod>2025-05-26T20:00:00+01:00</lastmod>
   </url><url>
     <loc>https://guillaume-rohee.fr/categories/cicd/</loc>
@@ -23,13 +47,7 @@
     <loc>https://guillaume-rohee.fr/categories/gitops/</loc>
     <lastmod>2025-05-26T20:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://guillaume-rohee.fr/</loc>
-    <lastmod>2025-05-26T20:00:00+01:00</lastmod>
-  </url><url>
     <loc>https://guillaume-rohee.fr/categories/kubernetes/</loc>
-    <lastmod>2025-05-26T20:00:00+01:00</lastmod>
-  </url><url>
-    <loc>https://guillaume-rohee.fr/posts/</loc>
     <lastmod>2025-05-26T20:00:00+01:00</lastmod>
   </url><url>
     <loc>https://guillaume-rohee.fr/categories/docker/</loc>

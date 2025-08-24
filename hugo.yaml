@@ -39,9 +39,9 @@ params:
   
     Title: "💻 Guillaume ROHEE - Ingénieur Système"
     Content: |
-      - Actuellement en poste chez **Worldline**, je participe au BUILD et au RUN de plateformes à destinations des domaines de la finance et du paiement, de la santé ou encore des administrations publiques d'Etat.
+      - Actuellement en poste chez **Worldline**, je participe au BUILD et au RUN de plateformes à destination des domaines de la finance, du paiement, de la santé ou encore des administrations publiques d'Etat.
       - 
-      - **Autres technologies** : Docker, Ansible, Terraform, Python, Gitlab CI, Prometheus, Grafana, Puppet...
+      - **Quelques autres technologies utilisées** : Docker, Ansible, Terraform, Python, Gitlab CI, Prometheus, Grafana, Puppet...
       - 
       - Ce site vise à partager certaines découvertes et réalisations effectuées durant ma veille personnelle.
 
