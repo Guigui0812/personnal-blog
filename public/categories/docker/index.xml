@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Docker on grohee</title>
-    <link>https://guillaume-rohee.fr/categories/docker/</link>
+    <link>https://grohee.fr/categories/docker/</link>
     <description>Recent content in Docker on grohee</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>fr</language>
     <lastBuildDate>Fri, 21 Mar 2025 18:00:00 +0100</lastBuildDate>
-    <atom:link href="https://guillaume-rohee.fr/categories/docker/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://grohee.fr/categories/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Step CA : devenir sa propre autorité de certification TLS</title>
-      <link>https://guillaume-rohee.fr/posts/step-ca/</link>
+      <link>https://grohee.fr/posts/step-ca/</link>
       <pubDate>Fri, 21 Mar 2025 18:00:00 +0100</pubDate>
-      <guid>https://guillaume-rohee.fr/posts/step-ca/</guid>
+      <guid>https://grohee.fr/posts/step-ca/</guid>
       <description>&lt;p&gt;Dans un environnement fermé comme un &lt;strong&gt;homelab&lt;/strong&gt;, il est commun d&amp;rsquo;avoir recours à des &lt;strong&gt;certificats autosignés&lt;/strong&gt;, ce qui n&amp;rsquo;est jamais idéal. &lt;strong&gt;Step CA&lt;/strong&gt; permet de devenir sa propre autorité de certification, de manière simple, sécurisée et automatisable.&lt;/p&gt;
 &lt;h2 id=&#34;mise-en-place-de-la-ca&#34;&gt;Mise en place de la CA&lt;/h2&gt;
 &lt;h3 id=&#34;installation&#34;&gt;Installation&lt;/h3&gt;
@@ -25,18 +25,18 @@
     </item>
     <item>
       <title>Grafana Loki : une stack complète pour la gestion des logs</title>
-      <link>https://guillaume-rohee.fr/posts/grafana-loki/</link>
+      <link>https://grohee.fr/posts/grafana-loki/</link>
       <pubDate>Tue, 11 Mar 2025 00:00:00 +0100</pubDate>
-      <guid>https://guillaume-rohee.fr/posts/grafana-loki/</guid>
+      <guid>https://grohee.fr/posts/grafana-loki/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Grafana Loki&lt;/strong&gt; est un système de gestion de logs, qui permet de stocker et de rechercher des logs de manière efficace. Il est conçu pour être utilisé avec &lt;strong&gt;Promtail&lt;/strong&gt; et &lt;strong&gt;Grafana&lt;/strong&gt; pour une solution de monitoring complète.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Promtail&lt;/strong&gt; est un agent qui collecte les logs et les envoie à &lt;strong&gt;Loki&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Grafana&lt;/strong&gt; est un outil de visualisation de données initialement connu pour ses tableaux de bord de métriques, mais qui peut également être utilisé pour afficher des logs.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Docker Registry : stocker et distribuer des images Docker</title>
-      <link>https://guillaume-rohee.fr/posts/docker-registry-setup/</link>
+      <link>https://grohee.fr/posts/docker-registry-setup/</link>
       <pubDate>Tue, 15 Oct 2024 00:00:00 +0100</pubDate>
-      <guid>https://guillaume-rohee.fr/posts/docker-registry-setup/</guid>
+      <guid>https://grohee.fr/posts/docker-registry-setup/</guid>
       <description>&lt;p&gt;&lt;code&gt;Docker Registry&lt;/code&gt; est un service permettant de stocker et de distribuer des images Docker, facilitant leur partage et leur gestion dans des environnements de développement et de production.&lt;/p&gt;
 &lt;h2 id=&#34;mise-en-place&#34;&gt;Mise en place&lt;/h2&gt;
 &lt;p&gt;Une méthode simple consiste à installer la &lt;code&gt;Docker Registry&lt;/code&gt; en tant que conteneur via &lt;code&gt;docker-compose&lt;/code&gt;.&lt;/p&gt;

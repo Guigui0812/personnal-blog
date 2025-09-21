@@ -278,16 +278,6 @@ resource "proxmox_virtual_environment_vm" "example-ubuntu" {
 
 Le déploiement de cette VM s'effectue de la même manière que précédemment en suivant les étapes de **plan** et **apply**. Après quelques instants, une nouvelle machine virtuelle sera déployée avec l'ensemble des configurations correspondant à celles définies dans le bloc dédié à `Cloud Init`. De nombreuses autres directives sont d'ailleurs disponibles pour pousser la personnalisation.
 
-### Zoom sur Cloud Init
-
-`Cloud Init` propose un grand nombre de directives pour personnaliser différents aspects des déploiements.
-
-#### Paquets
-
-Parfait 👍 Tu peux faire une section **“Zoom sur Cloud-Init”** bien découpée par thématique. Voici une version prête à intégrer dans ton article, avec des exemples réalistes et commentés :
-
----
-
 ### Zoom sur Cloud-Init
 
 `Cloud-Init` propose un grand nombre de directives pour personnaliser différents aspects des déploiements. L'ensemble des directive est détaillée dans la [documentation de Cloud Init](https://cloudinit.readthedocs.io/en/latest/reference/index.html).
@@ -372,8 +362,6 @@ Lancer des commandes après le boot :
 runcmd:
   - echo "Server Initialised" > init.log
 ```
-
----
 
 #### Gestion des mots de passe
 

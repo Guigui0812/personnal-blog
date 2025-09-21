@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Grafana on grohee</title>
-    <link>https://guillaume-rohee.fr/categories/grafana/</link>
+    <link>https://grohee.fr/categories/grafana/</link>
     <description>Recent content in Grafana on grohee</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>fr</language>
     <lastBuildDate>Tue, 11 Mar 2025 00:00:00 +0100</lastBuildDate>
-    <atom:link href="https://guillaume-rohee.fr/categories/grafana/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://grohee.fr/categories/grafana/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Grafana Loki : une stack complète pour la gestion des logs</title>
-      <link>https://guillaume-rohee.fr/posts/grafana-loki/</link>
+      <link>https://grohee.fr/posts/grafana-loki/</link>
       <pubDate>Tue, 11 Mar 2025 00:00:00 +0100</pubDate>
-      <guid>https://guillaume-rohee.fr/posts/grafana-loki/</guid>
+      <guid>https://grohee.fr/posts/grafana-loki/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Grafana Loki&lt;/strong&gt; est un système de gestion de logs, qui permet de stocker et de rechercher des logs de manière efficace. Il est conçu pour être utilisé avec &lt;strong&gt;Promtail&lt;/strong&gt; et &lt;strong&gt;Grafana&lt;/strong&gt; pour une solution de monitoring complète.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Promtail&lt;/strong&gt; est un agent qui collecte les logs et les envoie à &lt;strong&gt;Loki&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Grafana&lt;/strong&gt; est un outil de visualisation de données initialement connu pour ses tableaux de bord de métriques, mais qui peut également être utilisé pour afficher des logs.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Grafana &amp; Prometheus : configuration de base</title>
-      <link>https://guillaume-rohee.fr/posts/grafana-prometheus/</link>
+      <link>https://grohee.fr/posts/grafana-prometheus/</link>
       <pubDate>Sat, 28 Dec 2024 00:00:00 +0100</pubDate>
-      <guid>https://guillaume-rohee.fr/posts/grafana-prometheus/</guid>
+      <guid>https://grohee.fr/posts/grafana-prometheus/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Prometheus&lt;/strong&gt; est un outil open-source de surveillance et de gestion des métriques conçu pour collecter, stocker et analyser des données en temps réel. Il est particulièrement populaire dans les environnements cloud et DevOps grâce à son intégration facile avec des systèmes modernes comme Kubernetes.&lt;/p&gt;
 &lt;p&gt;Afin de visualiser les &lt;strong&gt;métriques&lt;/strong&gt; collectées par &lt;code&gt;prometheus&lt;/code&gt;, on utilise souvent &lt;strong&gt;Grafana&lt;/strong&gt; qui permet de créer des tableaux de bord personnalisés.&lt;/p&gt;
 &lt;h2 id=&#34;caractéristiques-et-fonctionnalités&#34;&gt;Caractéristiques et fonctionnalités&lt;/h2&gt;

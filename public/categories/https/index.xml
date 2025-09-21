@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Https on grohee</title>
-    <link>https://guillaume-rohee.fr/categories/https/</link>
+    <link>https://grohee.fr/categories/https/</link>
     <description>Recent content in Https on grohee</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>fr</language>
     <lastBuildDate>Fri, 21 Mar 2025 18:00:00 +0100</lastBuildDate>
-    <atom:link href="https://guillaume-rohee.fr/categories/https/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://grohee.fr/categories/https/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Step CA : devenir sa propre autorité de certification TLS</title>
-      <link>https://guillaume-rohee.fr/posts/step-ca/</link>
+      <link>https://grohee.fr/posts/step-ca/</link>
       <pubDate>Fri, 21 Mar 2025 18:00:00 +0100</pubDate>
-      <guid>https://guillaume-rohee.fr/posts/step-ca/</guid>
+      <guid>https://grohee.fr/posts/step-ca/</guid>
       <description>&lt;p&gt;Dans un environnement fermé comme un &lt;strong&gt;homelab&lt;/strong&gt;, il est commun d&amp;rsquo;avoir recours à des &lt;strong&gt;certificats autosignés&lt;/strong&gt;, ce qui n&amp;rsquo;est jamais idéal. &lt;strong&gt;Step CA&lt;/strong&gt; permet de devenir sa propre autorité de certification, de manière simple, sécurisée et automatisable.&lt;/p&gt;
 &lt;h2 id=&#34;mise-en-place-de-la-ca&#34;&gt;Mise en place de la CA&lt;/h2&gt;
 &lt;h3 id=&#34;installation&#34;&gt;Installation&lt;/h3&gt;

@@ -2,164 +2,164 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Categories on grohee</title>
-    <link>https://guillaume-rohee.fr/categories/</link>
+    <link>https://grohee.fr/categories/</link>
     <description>Recent content in Categories on grohee</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>fr</language>
     <lastBuildDate>Sat, 23 Aug 2025 20:00:00 +0100</lastBuildDate>
-    <atom:link href="https://guillaume-rohee.fr/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://grohee.fr/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cloud-Init</title>
-      <link>https://guillaume-rohee.fr/categories/cloud-init/</link>
+      <link>https://grohee.fr/categories/cloud-init/</link>
       <pubDate>Sat, 23 Aug 2025 20:00:00 +0100</pubDate>
-      <guid>https://guillaume-rohee.fr/categories/cloud-init/</guid>
+      <guid>https://grohee.fr/categories/cloud-init/</guid>
       <description></description>
     </item>
     <item>
       <title>Infrastructure as Code</title>
-      <link>https://guillaume-rohee.fr/categories/infrastructure-as-code/</link>
+      <link>https://grohee.fr/categories/infrastructure-as-code/</link>
       <pubDate>Sat, 23 Aug 2025 20:00:00 +0100</pubDate>
-      <guid>https://guillaume-rohee.fr/categories/infrastructure-as-code/</guid>
+      <guid>https://grohee.fr/categories/infrastructure-as-code/</guid>
       <description></description>
     </item>
     <item>
       <title>Proxmox</title>
-      <link>https://guillaume-rohee.fr/categories/proxmox/</link>
+      <link>https://grohee.fr/categories/proxmox/</link>
       <pubDate>Sat, 23 Aug 2025 20:00:00 +0100</pubDate>
-      <guid>https://guillaume-rohee.fr/categories/proxmox/</guid>
+      <guid>https://grohee.fr/categories/proxmox/</guid>
       <description></description>
     </item>
     <item>
       <title>Terraform</title>
-      <link>https://guillaume-rohee.fr/categories/terraform/</link>
+      <link>https://grohee.fr/categories/terraform/</link>
       <pubDate>Sat, 23 Aug 2025 20:00:00 +0100</pubDate>
-      <guid>https://guillaume-rohee.fr/categories/terraform/</guid>
+      <guid>https://grohee.fr/categories/terraform/</guid>
       <description></description>
     </item>
     <item>
       <title>Virtualisation</title>
-      <link>https://guillaume-rohee.fr/categories/virtualisation/</link>
+      <link>https://grohee.fr/categories/virtualisation/</link>
       <pubDate>Sat, 23 Aug 2025 20:00:00 +0100</pubDate>
-      <guid>https://guillaume-rohee.fr/categories/virtualisation/</guid>
+      <guid>https://grohee.fr/categories/virtualisation/</guid>
       <description></description>
     </item>
     <item>
       <title>Argocd</title>
-      <link>https://guillaume-rohee.fr/categories/argocd/</link>
+      <link>https://grohee.fr/categories/argocd/</link>
       <pubDate>Mon, 26 May 2025 20:00:00 +0100</pubDate>
-      <guid>https://guillaume-rohee.fr/categories/argocd/</guid>
+      <guid>https://grohee.fr/categories/argocd/</guid>
       <description></description>
     </item>
     <item>
       <title>Cicd</title>
-      <link>https://guillaume-rohee.fr/categories/cicd/</link>
+      <link>https://grohee.fr/categories/cicd/</link>
       <pubDate>Mon, 26 May 2025 20:00:00 +0100</pubDate>
-      <guid>https://guillaume-rohee.fr/categories/cicd/</guid>
+      <guid>https://grohee.fr/categories/cicd/</guid>
       <description></description>
     </item>
     <item>
       <title>Cloud</title>
-      <link>https://guillaume-rohee.fr/categories/cloud/</link>
+      <link>https://grohee.fr/categories/cloud/</link>
       <pubDate>Mon, 26 May 2025 20:00:00 +0100</pubDate>
-      <guid>https://guillaume-rohee.fr/categories/cloud/</guid>
+      <guid>https://grohee.fr/categories/cloud/</guid>
       <description></description>
     </item>
     <item>
       <title>Devops</title>
-      <link>https://guillaume-rohee.fr/categories/devops/</link>
+      <link>https://grohee.fr/categories/devops/</link>
       <pubDate>Mon, 26 May 2025 20:00:00 +0100</pubDate>
-      <guid>https://guillaume-rohee.fr/categories/devops/</guid>
+      <guid>https://grohee.fr/categories/devops/</guid>
       <description></description>
     </item>
     <item>
       <title>Gitops</title>
-      <link>https://guillaume-rohee.fr/categories/gitops/</link>
+      <link>https://grohee.fr/categories/gitops/</link>
       <pubDate>Mon, 26 May 2025 20:00:00 +0100</pubDate>
-      <guid>https://guillaume-rohee.fr/categories/gitops/</guid>
+      <guid>https://grohee.fr/categories/gitops/</guid>
       <description></description>
     </item>
     <item>
       <title>Kubernetes</title>
-      <link>https://guillaume-rohee.fr/categories/kubernetes/</link>
+      <link>https://grohee.fr/categories/kubernetes/</link>
       <pubDate>Mon, 26 May 2025 20:00:00 +0100</pubDate>
-      <guid>https://guillaume-rohee.fr/categories/kubernetes/</guid>
+      <guid>https://grohee.fr/categories/kubernetes/</guid>
       <description></description>
     </item>
     <item>
       <title>Docker</title>
-      <link>https://guillaume-rohee.fr/categories/docker/</link>
+      <link>https://grohee.fr/categories/docker/</link>
       <pubDate>Fri, 21 Mar 2025 18:00:00 +0100</pubDate>
-      <guid>https://guillaume-rohee.fr/categories/docker/</guid>
+      <guid>https://grohee.fr/categories/docker/</guid>
       <description></description>
     </item>
     <item>
       <title>Https</title>
-      <link>https://guillaume-rohee.fr/categories/https/</link>
+      <link>https://grohee.fr/categories/https/</link>
       <pubDate>Fri, 21 Mar 2025 18:00:00 +0100</pubDate>
-      <guid>https://guillaume-rohee.fr/categories/https/</guid>
+      <guid>https://grohee.fr/categories/https/</guid>
       <description></description>
     </item>
     <item>
       <title>Sécurité</title>
-      <link>https://guillaume-rohee.fr/categories/s%C3%A9curit%C3%A9/</link>
+      <link>https://grohee.fr/categories/s%C3%A9curit%C3%A9/</link>
       <pubDate>Fri, 21 Mar 2025 18:00:00 +0100</pubDate>
-      <guid>https://guillaume-rohee.fr/categories/s%C3%A9curit%C3%A9/</guid>
+      <guid>https://grohee.fr/categories/s%C3%A9curit%C3%A9/</guid>
       <description></description>
     </item>
     <item>
       <title>Grafana</title>
-      <link>https://guillaume-rohee.fr/categories/grafana/</link>
+      <link>https://grohee.fr/categories/grafana/</link>
       <pubDate>Tue, 11 Mar 2025 00:00:00 +0100</pubDate>
-      <guid>https://guillaume-rohee.fr/categories/grafana/</guid>
+      <guid>https://grohee.fr/categories/grafana/</guid>
       <description></description>
     </item>
     <item>
       <title>Logs</title>
-      <link>https://guillaume-rohee.fr/categories/logs/</link>
+      <link>https://grohee.fr/categories/logs/</link>
       <pubDate>Tue, 11 Mar 2025 00:00:00 +0100</pubDate>
-      <guid>https://guillaume-rohee.fr/categories/logs/</guid>
+      <guid>https://grohee.fr/categories/logs/</guid>
       <description></description>
     </item>
     <item>
       <title>Loki</title>
-      <link>https://guillaume-rohee.fr/categories/loki/</link>
+      <link>https://grohee.fr/categories/loki/</link>
       <pubDate>Tue, 11 Mar 2025 00:00:00 +0100</pubDate>
-      <guid>https://guillaume-rohee.fr/categories/loki/</guid>
+      <guid>https://grohee.fr/categories/loki/</guid>
       <description></description>
     </item>
     <item>
       <title>Monitoring</title>
-      <link>https://guillaume-rohee.fr/categories/monitoring/</link>
+      <link>https://grohee.fr/categories/monitoring/</link>
       <pubDate>Tue, 11 Mar 2025 00:00:00 +0100</pubDate>
-      <guid>https://guillaume-rohee.fr/categories/monitoring/</guid>
+      <guid>https://grohee.fr/categories/monitoring/</guid>
       <description></description>
     </item>
     <item>
       <title>Promtail</title>
-      <link>https://guillaume-rohee.fr/categories/promtail/</link>
+      <link>https://grohee.fr/categories/promtail/</link>
       <pubDate>Tue, 11 Mar 2025 00:00:00 +0100</pubDate>
-      <guid>https://guillaume-rohee.fr/categories/promtail/</guid>
+      <guid>https://grohee.fr/categories/promtail/</guid>
       <description></description>
     </item>
     <item>
       <title>Prometheus</title>
-      <link>https://guillaume-rohee.fr/categories/prometheus/</link>
+      <link>https://grohee.fr/categories/prometheus/</link>
       <pubDate>Sat, 28 Dec 2024 00:00:00 +0100</pubDate>
-      <guid>https://guillaume-rohee.fr/categories/prometheus/</guid>
+      <guid>https://grohee.fr/categories/prometheus/</guid>
       <description></description>
     </item>
     <item>
       <title>Gcp</title>
-      <link>https://guillaume-rohee.fr/categories/gcp/</link>
+      <link>https://grohee.fr/categories/gcp/</link>
       <pubDate>Sat, 16 Nov 2024 00:00:00 +0100</pubDate>
-      <guid>https://guillaume-rohee.fr/categories/gcp/</guid>
+      <guid>https://grohee.fr/categories/gcp/</guid>
       <description></description>
     </item>
     <item>
       <title>Helm</title>
-      <link>https://guillaume-rohee.fr/categories/helm/</link>
+      <link>https://grohee.fr/categories/helm/</link>
       <pubDate>Sat, 16 Nov 2024 00:00:00 +0100</pubDate>
-      <guid>https://guillaume-rohee.fr/categories/helm/</guid>
+      <guid>https://grohee.fr/categories/helm/</guid>
       <description></description>
     </item>
   </channel>

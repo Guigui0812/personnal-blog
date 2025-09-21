@@ -2,104 +2,104 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://guillaume-rohee.fr/categories/</loc>
+    <loc>https://grohee.fr/categories/</loc>
     <lastmod>2025-08-23T20:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://guillaume-rohee.fr/categories/cloud-init/</loc>
+    <loc>https://grohee.fr/categories/cloud-init/</loc>
     <lastmod>2025-08-23T20:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://guillaume-rohee.fr/</loc>
+    <loc>https://grohee.fr/</loc>
     <lastmod>2025-08-23T20:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://guillaume-rohee.fr/categories/infrastructure-as-code/</loc>
+    <loc>https://grohee.fr/categories/infrastructure-as-code/</loc>
     <lastmod>2025-08-23T20:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://guillaume-rohee.fr/posts/</loc>
+    <loc>https://grohee.fr/posts/</loc>
     <lastmod>2025-08-23T20:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://guillaume-rohee.fr/categories/proxmox/</loc>
+    <loc>https://grohee.fr/categories/proxmox/</loc>
     <lastmod>2025-08-23T20:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://guillaume-rohee.fr/posts/proxmox-cloudinit-terraform/</loc>
+    <loc>https://grohee.fr/posts/proxmox-cloudinit-terraform/</loc>
     <lastmod>2025-08-23T20:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://guillaume-rohee.fr/categories/terraform/</loc>
+    <loc>https://grohee.fr/categories/terraform/</loc>
     <lastmod>2025-08-23T20:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://guillaume-rohee.fr/categories/virtualisation/</loc>
+    <loc>https://grohee.fr/categories/virtualisation/</loc>
     <lastmod>2025-08-23T20:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://guillaume-rohee.fr/posts/argocd/</loc>
+    <loc>https://grohee.fr/posts/argocd/</loc>
     <lastmod>2025-05-26T20:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://guillaume-rohee.fr/categories/argocd/</loc>
+    <loc>https://grohee.fr/categories/argocd/</loc>
     <lastmod>2025-05-26T20:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://guillaume-rohee.fr/categories/cicd/</loc>
+    <loc>https://grohee.fr/categories/cicd/</loc>
     <lastmod>2025-05-26T20:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://guillaume-rohee.fr/categories/cloud/</loc>
+    <loc>https://grohee.fr/categories/cloud/</loc>
     <lastmod>2025-05-26T20:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://guillaume-rohee.fr/categories/devops/</loc>
+    <loc>https://grohee.fr/categories/devops/</loc>
     <lastmod>2025-05-26T20:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://guillaume-rohee.fr/categories/gitops/</loc>
+    <loc>https://grohee.fr/categories/gitops/</loc>
     <lastmod>2025-05-26T20:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://guillaume-rohee.fr/categories/kubernetes/</loc>
+    <loc>https://grohee.fr/categories/kubernetes/</loc>
     <lastmod>2025-05-26T20:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://guillaume-rohee.fr/categories/docker/</loc>
+    <loc>https://grohee.fr/categories/docker/</loc>
     <lastmod>2025-03-21T18:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://guillaume-rohee.fr/categories/https/</loc>
+    <loc>https://grohee.fr/categories/https/</loc>
     <lastmod>2025-03-21T18:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://guillaume-rohee.fr/categories/s%C3%A9curit%C3%A9/</loc>
+    <loc>https://grohee.fr/categories/s%C3%A9curit%C3%A9/</loc>
     <lastmod>2025-03-21T18:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://guillaume-rohee.fr/posts/step-ca/</loc>
+    <loc>https://grohee.fr/posts/step-ca/</loc>
     <lastmod>2025-03-21T18:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://guillaume-rohee.fr/categories/grafana/</loc>
+    <loc>https://grohee.fr/categories/grafana/</loc>
     <lastmod>2025-03-11T00:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://guillaume-rohee.fr/posts/grafana-loki/</loc>
+    <loc>https://grohee.fr/posts/grafana-loki/</loc>
     <lastmod>2025-03-11T00:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://guillaume-rohee.fr/categories/logs/</loc>
+    <loc>https://grohee.fr/categories/logs/</loc>
     <lastmod>2025-03-11T00:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://guillaume-rohee.fr/categories/loki/</loc>
+    <loc>https://grohee.fr/categories/loki/</loc>
     <lastmod>2025-03-11T00:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://guillaume-rohee.fr/categories/monitoring/</loc>
+    <loc>https://grohee.fr/categories/monitoring/</loc>
     <lastmod>2025-03-11T00:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://guillaume-rohee.fr/categories/promtail/</loc>
+    <loc>https://grohee.fr/categories/promtail/</loc>
     <lastmod>2025-03-11T00:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://guillaume-rohee.fr/posts/grafana-prometheus/</loc>
+    <loc>https://grohee.fr/posts/grafana-prometheus/</loc>
     <lastmod>2024-12-28T00:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://guillaume-rohee.fr/categories/prometheus/</loc>
+    <loc>https://grohee.fr/categories/prometheus/</loc>
     <lastmod>2024-12-28T00:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://guillaume-rohee.fr/posts/helm-repo-gcp/</loc>
+    <loc>https://grohee.fr/posts/helm-repo-gcp/</loc>
     <lastmod>2024-11-16T00:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://guillaume-rohee.fr/categories/gcp/</loc>
+    <loc>https://grohee.fr/categories/gcp/</loc>
     <lastmod>2024-11-16T00:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://guillaume-rohee.fr/categories/helm/</loc>
+    <loc>https://grohee.fr/categories/helm/</loc>
     <lastmod>2024-11-16T00:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://guillaume-rohee.fr/posts/docker-registry-setup/</loc>
+    <loc>https://grohee.fr/posts/docker-registry-setup/</loc>
     <lastmod>2024-10-15T00:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://guillaume-rohee.fr/search/</loc>
+    <loc>https://grohee.fr/search/</loc>
   </url><url>
-    <loc>https://guillaume-rohee.fr/tags/</loc>
+    <loc>https://grohee.fr/tags/</loc>
   </url>
 </urlset>
