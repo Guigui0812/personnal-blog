@@ -368,11 +368,41 @@ volumes:
   openwebui:
 ```
 
-Il ne reste qu'à exécuter la commande habituelle `docker compose up -d` pour lancer les services. *Ollama* sera accessible sur le port `11434` (API LLM), et **OpenWebUI** sur le port `8080`.
+Il ne reste qu'à exécuter la commande habituelle `docker compose up -d` pour lancer les services. *Ollama* sera accessible sur le port `11434` (API LLM), et *Open WebUI* sur le port `8080`.
 
-Une fois les conteneurs démarrés, on peut vérifier que tout fonctionne correctement avec `docker ps` et se rendre à l'adresse `http://<ip-de-la-vm>:8080` pour accéder à l'interface web de **OpenWebUI**.
+Une fois les conteneurs démarrés, on peut vérifier que tout fonctionne correctement avec `docker ps` et se rendre à l'adresse `http://<ip-de-la-vm>:8080` pour accéder à l'interface web de *Open WebUI*.
 
 ### Importer un modèle dans Ollama
 
+*Ollama* ne possède pas de modèle par défaut, il faut importer ceux que l'on souhaite utiliser parmi une [liste de modèles](https://ollama.com/search). Une fois choisi, on peut l'installer en utilisant la **CLI** fournie par l'outil.
 
+Pour cela, on doit d'abord accéder au conteneur *Ollama* avec la commande suivante :
+
+```bash
+docker exec -it <nom_du_conteneur> /bin/bash
+```
+
+Une fois dans le conteneur, on peut lister les modèles disponibles avec la commande :
+
+```bash
+ollama run gemma2:2b
+```
+
+Une fois le modèle téléchargé, on peut l'utiliser directement en ligne de commande ou via l'interface web de *Open WebUI*.
+
+**Exemple d'utilisation depuis l'interface web** :
+
+![Open WebUI example](../images/openwebui-example.png)
+
+L'exemple ci-dessus démontre avec succès l'utilisation du modèle *gemma2:2b* au sein d'un homelab. On peut dès lors imaginer pléthore d'usages :
+
+- Agents locaux pour effectuer des diagnostics et de l'autoremediation sur les serveurs du homelab
+- Génération de rapports automatisés sur l'état des services
+- Utilisation d'agents pour la vie quotidienne (assistant personnel, gestion de tâches, etc.) sans que les données ne quittent le domicile
+
+## Conclusion
+
+La mise en place d'un **LLM** auto-hébergé, au-delà de son aspect technique, ouvre la porte à une multitude d'usages. L'utilisation d'une IA locale garantit la confidentialité des données et permet d'expérimenter avec la grande variété de modèles disponibles. Couplée à des outils d'automatisation, comme *n8n* ou *Node-RED*, cette installation peut transformer un homelab en un environnement intelligent et réactif, capable de gérer des tâches complexes de manière autonome. Prochainement, je détaillerai comment j'ai utilisé mon IA locale pour automatiser des tâches à l'aide d'agents via *n8n*.
+
+## Références
 
