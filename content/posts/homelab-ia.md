@@ -390,11 +390,25 @@ ollama run gemma2:2b
 
 Une fois le modèle téléchargé, on peut l'utiliser directement en ligne de commande ou via l'interface web de *Open WebUI*.
 
+On peut lister les modèles installés avec la commande :
+
+```bash
+ollama list
+```
+
+Il est également possible d'importer un modèle sans l'exécuter :
+
+```bash
+ollama pull gemma3
+```
+
+Pour trouver une large gamme de modèles selon les cas d'usage, je recommande de se rendre sur [Hugging Face](https://huggingface.co/models) qui propose une multitude de modèles open-source, souvent compatibles avec *Ollama*. Certains modèles disponibles sur *Ollama* y sont référencés, avec leurs caractéristiques techniques (taille, nombre de paramètres, type de licence, etc.).
+
 **Exemple d'utilisation depuis l'interface web** :
 
 ![Open WebUI example](../images/openwebui-example.png)
 
-L'exemple ci-dessus démontre avec succès l'utilisation du modèle *gemma2:2b* au sein d'un homelab. On peut dès lors imaginer pléthore d'usages :
+L'exemple ci-dessus démontre avec succès l'utilisation du modèle *gemma2:2b* au sein de mon homelab personnel. On peut dès lors imaginer pléthore d'usages :
 
 - Agents locaux pour effectuer des diagnostics et de l'autoremediation sur les serveurs du homelab
 - Génération de rapports automatisés sur l'état des services
@@ -406,3 +420,12 @@ La mise en place d'un **LLM** auto-hébergé, au-delà de son aspect technique, 
 
 ## Références
 
+- [Self-Host a local AI platform! Ollama + Open WebUI - Christian Lempa - Youtube](https://www.youtube.com/watch?v=RQFfK7xIL28)
+- [Ollama - GitHub](https://github.com/ollama/ollama)
+- [Accélération matérielle GPU Passthrough sous Proxmox - Zogg](https://infos.zogg.fr/pvegpupassthrough/)
+- [NVIDIA Container Toolkit - Documentation](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/index.html)
+- [PCI Passthrough - Proxmox VE Wiki](https://pve.proxmox.com/wiki/PCI_Passthrough)
+- [Proxmox PCI(e) Passthrough in 2 minutes - Reddit](https://www.reddit.com/r/Proxmox/comments/lcnn5w/proxmox_pcie_passthrough_in_2_minutes/)
+- [NVIDIA Graphics Drivers - Debian Wiki](https://wiki.debian.org/NvidiaGraphicsDrivers)
+- [Ollama](https://ollama.com/)
+- [Hugging Face - Models](https://huggingface.co/models)
