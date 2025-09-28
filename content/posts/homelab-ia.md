@@ -1,18 +1,28 @@
-# Héberger un modèle de langage (LLM) afin de bénéficier de la puissance de l’IA dans son homelab
+---
+date: '2025-09-28T00:00:00+02:00'
+draft: false
+title: 'Héberger un modèle de langage (LLM) afin de bénéficier de la puissance de l’IA dans son homelab'
+categories: ['homelab', 'ia', 'docker', 'proxmox', 'ollama', 'openwebui', 'nvidia', 'gpu', 'llm', 'automatisation']
+cover:
+  image: '/images/ai-article-cover.png'
+  alt: 'AI dans un homelab avec Proxmox, Docker, Ollama et OpenWebUI'
+  caption: 'AI dans un homelab avec Proxmox, Docker, Ollama et OpenWebUI'
+  focalPoint: 'center center'
+---
 
-Un LLM (Large Language Model) est un modèle d’intelligence artificielle (IA) entraîné sur de très grandes quantités de données, ce qui lui permet de comprendre et de générer du langage naturel. Concrètement, il peut alors résumer des documents, répondre à des questions variées, générer du code, ou agir sous forme d’agent en étant interfacé avec d’autres outils (terminal, navigateur ou des APIs).
+Un LLM (Large Language Model) est un modèle d’intelligence artificielle (IA) entraîné sur de très grandes quantités de données, ce qui lui permet de comprendre et de générer du langage naturel. Concrètement, il peut résumer des documents, répondre à des questions variées, générer du code, ou agir sous forme d’agent en étant interfacé avec d’autres outils (terminal, navigateur ou des APIs).
 
-Sans aborder précisément les aspects techniques, ces modèles fonctionnent en prédisant le mot suivant dans une phrase, en se basant sur le contexte des mots précédents. Le contexte des mots est représenté par un très grand nombre de paramètres aussi appelés **poids** (weights). Par exemple, GPT-3 de OpenAI possède 175 milliards de paramètres. Plus un modèle a de paramètres, plus il est performant dans la compréhension et la génération de texte puisqu'il est ainsi capable de saisir une plus grande variété de contextes et de nuances dans le langage.
+Sans aborder précisément les aspects techniques, ces modèles fonctionnent en prédisant le mot suivant dans une phrase, en se basant sur le contexte des mots précédents. Le contexte des mots est représenté par un très grand nombre de paramètres aussi appelés **poids** (weights). Par exemple, GPT-3 de OpenAI possède 175 milliards de paramètres. Plus un modèle a de paramètres, plus il est performant dans la compréhension et la génération de texte. Il est ainsi capable de saisir une plus grande variété de contextes et de nuances dans le langage.
 
-Bien que les LLMs nécessitent un volume de calcul important lors de leur entraînement, leur exécution nécessite bien moins de ressources. En effet, il est possible d'exécuter des modèles plus petits et optimisés sur du matériel grand public, notamment des cartes graphiques (GPU) récentes telles que celles de NVIDIA ou AMD.
+Bien que les LLMs nécessitent un volume de calcul important lors de leur entraînement, leur exécution nécessite bien moins de ressources. En effet, il est possible d'exécuter des modèles plus petits et optimisés sur du matériel grand public, notamment des cartes graphiques (GPU) telles que celles de NVIDIA ou AMD. Evidemment, pour exécuter les modèles les plus gourmands, il faut opter pour des GPU modernes et puissants, mais de nombreux modèles plus légers sont disponibles et peuvent fonctionner sur des cartes graphiques plus anciennes.
 
 ## Un LLM dans un homelab pour quels usages ?
 
-Exécuter un **LLM** localement dans son homelab présente plusieurs avantages à plusieurs égards.
+Exécuter un **LLM** localement dans son homelab présente des avantages à plusieurs égards.
 
 ### Vie privée et sécurité
 
-Le premier avantage évident concerne la préservation de la vie privée. En hébergeant une IA localement, les données de l'utilisateur ni envoyées ni stockées à l'extérieur, ce qui réduit les risques de fuite de données sensibles, de surveillance ou d'usage commercial non désiré. Ces outils prennent en effet une place de plus en plus importante dans notre quotidien, et il peut arriver que des informations confidentielles soient partagées avec ces services. 
+Le premier avantage évident concerne la préservation de la vie privée. En hébergeant une IA localement, les données de l'utilisateur ne sont ni envoyées ni stockées à l'extérieur, ce qui réduit les risques de fuite de données sensibles, de surveillance ou d'usage commercial non désiré. Ces outils prenant en effet une place de plus en plus importante dans notre quotidien, il peut arriver que des informations confidentielles soient partagées avec ces services. 
 
 ### Personnalisation et efficacité
 
