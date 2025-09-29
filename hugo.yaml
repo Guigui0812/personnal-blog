@@ -37,13 +37,17 @@ params:
 
   homeInfoParams:
   
-    Title: "💻 Guillaume ROHEE - Ingénieur Système"
+    Title: "💻 Guillaume - Ingénieur Système Linux & Cloud"
     Content: |
-      - Actuellement en poste chez **Worldline**, je participe au BUILD et au RUN de plateformes à destination des domaines de la finance, du paiement, de la santé ou encore des administrations publiques d'Etat.
+      - Mes missions : participer au BUILD et au RUN de plateformes sur des Clouds Publics ou Privés pour des des domaines variés :  finance, paiement, santé, administrations publiques d'Etat...
       - 
-      - **Quelques autres technologies utilisées** : Docker, Ansible, Terraform, Python, Gitlab CI, Prometheus, Grafana, Puppet...
+      - **Ce que j'utilise au quotidien** : RHEL, GCP, Docker, Ansible, Terraform, Python, Gitlab CI, Prometheus, Grafana, Puppet...
       - 
       - Ce site vise à partager certaines découvertes et réalisations effectuées durant ma veille personnelle.
+      -
+      - Au delà de l'informatique, j'aime la musique, les jeux vidéo, le cinéma, les lego et les mangas/animes.
+
+  footerContent: "Site personnel - Guillaume Rohée - 2024"
 
   socialIcons: 
     - name: github
