@@ -22,31 +22,31 @@ Exécuter un **LLM** localement dans son homelab présente des avantages à plus
 
 ### Vie privée et sécurité
 
-Le premier avantage évident concerne la préservation de la vie privée. En hébergeant une IA localement, les données de l'utilisateur ne sont ni envoyées ni stockées à l'extérieur, ce qui réduit les risques de fuite de données sensibles, de surveillance ou d'usage commercial non désiré. Ces outils prenant en effet une place de plus en plus importante dans notre quotidien, il peut arriver que des informations confidentielles soient partagées avec ces services. 
+Le premier avantage évident concerne la préservation de la vie privée. En hébergeant une IA localement, les données de l'utilisateur ne sont ni envoyées ni stockées à l'extérieur, ce qui réduit les risques de fuite de données sensibles, de surveillance ou d'usage commercial non désiré. Ces outils prenant en effet une place de plus en plus importante dans notre quotidien, et il peut arriver que des informations confidentielles soient partagées avec ces services. 
 
 ### Personnalisation et efficacité
 
-Un LLM local peut être personnalisé pour répondre à des besoins spécifiques. Sans entrer immédiatement dans les détails techniques, il est possible d'effectuer un **fine-tuning** du modèle en utilisant des données spécifiques à un contexte (documentation d'entreprise, FAQ, etc.), ce qui permet d'améliorer la pertinence des réponses fournies par l'IA. De nouvelles technologies appelées **RAG (Retrieval-Augmented Generation)** permettent aussi de combiner un LLM avec une base de connaissances locale, pour des réponses encore plus précises.
+Un LLM local peut être personnalisé pour répondre à des besoins spécifiques. Sans entrer immédiatement dans les détails techniques, il est possible d'effectuer un **fine-tuning** du modèle en utilisant des données spécifiques à un contexte (documentation d'entreprise, FAQ...), ce qui permet d'améliorer la pertinence des réponses fournies par l'IA. De nouvelles technologies appelées **RAG (Retrieval-Augmented Generation)** permettent aussi de combiner un LLM avec une base de connaissances locale, pour des réponses encore plus précises.
 
 ### Coût
 
-Les coûts associés aux outils **IA** peuvent rapidement devenir importants : *ChatGPT* et *Claude* coûtent 24€ par mois, *Gemini Pro* est à 21€ par mois, et le plan *Pro* de *Mistral* est affiché à 17,99€ par mois. Ces tarifs, bien qu'attractifs, peuvent s'additionner rapidement si l'on souhaite bénéficier de plusieurs services en fonction des besoins : *GPT* pour la génération de texte et *Claude* pour la génération de code. L'avantage d'un LLM local est qu'il n'y a pas de coût récurrent, si ce n'est l'électricité consommée par le serveur et le coût initial du matériel. 
+Les coûts associés aux outils **IA** peuvent rapidement devenir importants : *ChatGPT* et *Claude* coûtent 24€ par mois, *Gemini Pro* est à 21€ par mois, et le plan *Pro* de *Mistral* est affiché à 17,99€ par mois. Ces tarifs, bien qu'attractifs, peuvent s'additionner rapidement si l'on souhaite bénéficier de plusieurs services en fonction des besoins : *GPT* pour la génération de texte et *Claude* pour la génération de code par exemple. L'avantage d'un LLM local est qu'il n'y a pas de coût récurrent, si ce n'est l'électricité consommée par le serveur et le coût initial du matériel. C'est même l'occasion de recycler du vieux matériel non utilisé puisque des modèles plus légers peuvent fonctionner sur d'anciens GPU.
 
 ### Expérimentation et liberté
 
-Comme mentionné précédemment, chaque **LLM** a ses forces et ses faiblesses. *GPT* est très performant pour générer du texte et *Claude* excelle dans la génération de code. En déployant une infrastructure permettant d'héberger un modèle, on va pouvoir tester différents modèles, les comparer, et choisir celui qui convient le mieux à chaque tâche. L'utilisateur bénéficie même d'un choix plus large puisqu'il n'est pas limité aux modèles proposés par les grandes entreprises. Il peut ainsi explorer des modèles open-source, parfois plus légers et adaptés à des usages spécifique ou du matériel plus ancien.
+Comme mentionné précédemment, chaque **LLM** a ses forces et ses faiblesses. *GPT* est très performant pour générer du texte et *Claude* excelle dans la génération de code. En déployant une infrastructure permettant d'héberger des **LLMs**, on va pouvoir tester différents modèles, les comparer, et choisir celui qui convient le mieux à chaque tâche. L'utilisateur bénéficie même d'un choix plus large puisqu'il n'est pas limité à ceux proposant un chat en ligne. Il peut ainsi explorer des modèles open-source, parfois plus légers et adaptés à des usages spécifique ou du matériel plus ancien.
 
 ### Bénéficier de la puissance de l’IA
 
-Utiliser l'IA dans un homelab peut débloquer de nouveaux horizons d'automatisation et d'efficacité. Couplé à des outils comme *n8n*, *Node-RED*, ou des scripts personnalisés, un LLM peut permettre un traitement automatisé de tâches complexes, analyser des logs, fournir des rapports, envoyer des notifications personnalisées, effectuer de l'autoremediation, et bien plus encore. De plus, c'est un moyen intelligent d'explorer le mode de **l'AIOps**, c'est à dire l'IA appliqué au domaine des opérations IT (administration système, réseau, sécurité, etc.).
+Utiliser l'IA dans un homelab peut débloquer de nouveaux horizons d'automatisation et d'efficacité. Couplé à des outils comme *n8n*, *Node-RED*, ou des scripts personnalisés, un **LLM** peut permettre un traitement automatisé de tâches complexes, analyser des logs, fournir des rapports, envoyer des notifications personnalisées, effectuer de l'autoremediation, et bien plus encore. De plus, c'est un moyen intelligent d'explorer le monde de **l'AIOps**, c'est à dire l'IA appliqué au domaine des opérations IT (administration système, réseau, sécurité, etc.).
 
-**Remarque** : il est important de ne pas utiliser d'agent IA pouvant faire tout et n'importe quoi sur des serveurs. En effet, un agent mal configuré pourrait supprimer des fichiers importants, modifier des configurations, ou causer des interruptions de service. Il est donc crucial de définir des limites strictes et de surveiller les actions entreprises par l'agent. Cela peut être fait, par exemple, en créant un utilisateur dédié pour l'agent avec des permissions limitées sur les fichierrs et les commandes qu'il peut exécuter (via les `sudoers`).
+**Remarque** : il est important de ne pas utiliser d'agent IA pouvant faire tout et n'importe quoi sur des serveurs. En effet, un agent mal configuré pourrait supprimer des fichiers importants, modifier des configurations, ou causer des interruptions de service. Il est donc crucial de définir des limites strictes et de surveiller les actions de l'agent. Cela peut être fait, par exemple, en créant un utilisateur dédié pour l'agent avec des permissions limitées sur les fichiers et les commandes qu'il peut exécuter (via les `sudoers`).
 
 ## Mettre en place un LLM dans son homelab
 
-L'objet de ce guide est de détailler pas à pas l'installation d'un **LLM** sur une machine virtuelle (VM) *Debian* utilisant une carte graphique *NVIDIA* dans *Proxmox*. Le modèle fonctionnera avec *Ollama*, et une interface graphique sera fournie par **OpenWebUI**, tout deux fonctionnant en tant que conteneurs *Docker*.
+L'objet de ce guide est de détailler pas à pas l'installation d'un **LLM** sur une machine virtuelle (VM) *Debian* utilisant une carte graphique *NVIDIA* dans *Proxmox*. Le modèle fonctionnera avec *Ollama*, et une interface graphique sera fournie par **Open WebUI**, tout deux fonctionnant en tant que conteneurs *Docker*.
 
-*Ollama* est une plateforme qui facilite la gestion et l'exécution de modèles de langage localement. Elle offre une API pour interagir avec les modèles, ainsi qu'une large bibliothèque de modèles pré-entraînés, dont un grand nombre sont open-source. Des modèles pour diverses applications sont disponibles : génération de texte, d'images, de code, etc. 
+*Ollama* est une plateforme qui facilite la gestion et l'exécution locale de **LLMs**. Elle offre une API pour interagir avec les modèles, ainsi qu'une large bibliothèque de modèles pré-entraînés, dont un grand nombre sont open-source. Des modèles pour diverses applications sont disponibles : génération de texte, d'images, de code, etc. 
 
 **Prérequis** :
 
@@ -54,19 +54,19 @@ L'objet de ce guide est de détailler pas à pas l'installation d'un **LLM** sur
 - Une carte graphique compatible *NVIDIA* (comme une *GTX 970*)
 - Une image ISO de la distribution de votre choix (Debian 13 dans cet exemple)
 
-**Remarque** : les commandes à exécuter 
+**Remarque** : les commandes à exécuter nécessitent des privilèges *root*, en utilisant `sudo` ou en se connectant directement en tant que **root**.
 
 ### Création d'une VM Proxmox avec GPU Passthrough
 
-Le **PCI Passthrough** permet à un server virtuel d'accéder directement à un périphérique PCI, dans notre cas il s'agit d'une carte graphique physique connectée physiquement à l'hyperviseur. Les modèles de langage nécessitant de grandes puissances de calculs pour fonctionner efficacement, même pour de la simple inférence, un GPU est donc indispensable pour assurer un fonctionnement optimal de ces outils. On peut évidemment faire du **passthrough** dans d'autres cas : carte réseau, carte graphique pour du jeu, de la 3D ou de la conversion vidéo (pour un serveur *Plex* ou *Jellyfin* par exemple).
+Le **PCI Passthrough** permet à une VM d'accéder directement à un périphérique PCI, dans notre cas il s'agit d'une carte graphique connectée directement à l'hyperviseur. Les modèles de langage nécessitant de grandes puissances de calculs pour fonctionner efficacement, même pour de la simple inférence, un GPU est donc indispensable pour assurer un fonctionnement optimal de ces outils. On peut évidemment faire du **passthrough** dans d'autres cas : carte réseau, carte graphique pour du jeu, de la 3D ou de la conversion vidéo (pour un serveur *Plex* ou *Jellyfin* par exemple).
 
 Cette première étape nécessite des configuration *Proxmox* avancées, qui sont heureusement détaillées dans une [section déidée de la documentation](https://pve.proxmox.com/wiki/PCI_Passthrough) de l'hyperviseur.
 
 #### Vérifier que la fonctionnalité d'IOMMU est activée
 
-**IOMMU** (Input-Output Memory Management Unit) est une technologie qui permet de gérer la mémoire entre les périphériques et le système. Elle est indispensable au fonctionnement du **PCI Passthrough** car elle permet d'isoler les périphériques PCI, assurant donc que chaque VM puisse accéder directement au matériel qui lui est assigné, sans que d'autres VM ou l'hôte n'interfèrent. Pour aller un peu plus loin, chaque périphérique se voit attribuer un **groupe IOMMU**.
+**IOMMU** (Input-Output Memory Management Unit) est une technologie qui permet de gérer la mémoire entre les périphériques et le système. Elle est indispensable au fonctionnement du **PCI Passthrough** car elle permet d'isoler les périphériques PCI, assurant donc que chaque VM puisse accéder directement au matériel qui lui est assigné, sans que d'autres systèmes n'interfèrent. Pour aller un peu plus loin, chaque périphérique se voit attribuer un **groupe IOMMU**.
 
-Pour vérifier que cette fonctionnalité est bien activée, il faut exécuter la commande suivante en tant que **root** dans le shell de *Proxmox* :
+Pour vérifier que cette fonctionnalité est bien activée, il faut exécuter la commande suivante dans le shell de *Proxmox* :
 
 ```bash
 dmesg | grep -e DMAR -e IOMMU
@@ -75,8 +75,8 @@ dmesg | grep -e DMAR -e IOMMU
 Une ligne `DMAR: IOMMU enabled` devrait apparaître. Si ce n'est pas le cas, il faut activer l'IOMMU dans le BIOS de la machine hôte, puis ajouter les options suivantes au fichier `/etc/default/grub` :
 
 ```bash
-GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt" # Intel
-GRUB_CMDLINE_LINUX_DEFAULT="quiet amd_iommu=on iommu=pt" # AMD
+GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt" # CPU Intel
+GRUB_CMDLINE_LINUX_DEFAULT="quiet amd_iommu=on iommu=pt" # CPU AMD
 ```
 
 Une fois ces lignes ajoutées, il faut exécuter la commande `update-grub2` et redémarrer le serveur pour que les modifications soient prises en compte.
@@ -100,13 +100,13 @@ Si ce n'est pas le cas, il faudra ajouter la ligne suivante dans un fichier `/et
 options vfio_iommu_type1 allow_unsafe_interrupts=1
 ```
 
-Enfin, il faut vérifier l'isolation IOMMU des périphériques PCI en listant les groupes IOMMU avec `pvesh get /nodes/{nodename}/hardware/pci --pci-class-blacklist ""`. Le résultat de cette commande est un tableau listant les périphériques PCI et leurs groupes IOMMU. Chaque groupe doit contenir un seul périphérique pour assurer un isolement correct.
+Enfin, il faut **vérifier l'isolation IOMMU des périphériques PCI** en effectuant `pvesh get /nodes/{nodename}/hardware/pci --pci-class-blacklist ""`. Le résultat de cette commande est un tableau listant les périphériques PCI et leurs groupes IOMMU. Chaque groupe doit contenir un seul périphérique pour assurer un isolement correct.
 
 Si la commande ne fonctionne pas, il est possible que l'option **ACS (Access Control Services)** ne soit pas activée dans le BIOS. Cependant, si l'option n'est pas disponible, il faudra passer par l'utilisation du [patch ACS de Alex Williamson](https://lkml.org/lkml/2013/5/30/513). Le guide n'aborde pas cette étape puisqu'elle est optionnelle et dépend du matériel utilisé.
 
 #### Configurer les modules VFIO
 
-**VFIO (Virtual Function I/O)** est un framework du noyau Linux qui permet aux utilisateurs d'accéder directement aux périphériques matériels depuis des environnements virtualisés. Il est utilisé pour le **PCI Passthrough** car il permet de sécuriser l'accès aux périphériques en isolant les ressources matérielles, garantissant ainsi que chaque VM puisse utiliser le matériel qui lui est assigné sans interférence.
+**VFIO (Virtual Function I/O)** est un framework du noyau Linux qui permet aux utilisateurs d'accéder directement aux périphériques matériels depuis des environnements virtualisés. Il est utilisé pour le **PCI Passthrough** car il permet de sécuriser l'accès aux périphériques en isolant les ressources matérielles, garantissant ainsi que chaque **VM** puisse utiliser le matériel qui lui est assigné sans interférence.
 
 Plusieurs modules doivent être ajoutés au noyau pour pouvoir faire du **PCI Passthrough**. Pour cela, il faut ajouer les lignes suivantes dans le fichier `/etc/modules` :
 
@@ -121,7 +121,7 @@ Pour appliquer ces modifications, il faut exécuter la commande `update-initramf
 
 #### Empêcher l'hyperviseur d'utiliser le GPU
 
-Enfin, il faut empêcher l'hôte d'utiliser le GPU puisqu'il sera utilisé par une VM. Pour cela, il faut exclure les pilotes du GPU en ajoutant des exclusions dans un fichier `/etc/modprobe.d/blacklist.conf` :
+Avant de continuer, il faut empêcher l'hôte d'utiliser le GPU puisqu'il sera utilisé par une VM. Pour cela, il faut exclure les pilotes du GPU en ajoutant des exclusions dans un fichier `/etc/modprobe.d/blacklist.conf` :
 
 - **Pour des GPU Nvidia** :
 
@@ -179,9 +179,9 @@ deb http://deb.debian.org/debian/ trixie-updates main non-free-firmware non-free
 deb-src http://deb.debian.org/debian/ trixie-updates main non-free-firmware non-free contrib
 ```
 
-Par défaut, les dépôts `contrib` et `non-free` ne sont pas activés dans *Debian*. Ainsi, si on tente d'installer les drivers *NVIDIA* avec `apt`, le gestionnaire de paquets ne trouvera pas les drivers cherchés.
+Par défaut, les dépôts `contrib` et `non-free` ne sont pas activés dans *Debian*. Ainsi, si on tente d'installer les drivers *NVIDIA* avec `apt`, le gestionnaire de paquets ne trouvera pas les drivers.
 
-Avant d'installer les drivers, il faut aussi installer le paquet `linux-headers`. Pour cela, il faut exécuter la commande suivante :
+Avant d'installer les drivers, il faut aussi installer le paquet `linux-headers` :
 
 ```bash
 apt install linux-headers-amd64 # Choisir en fonction de l'architecture (amd64, arm64...)
@@ -203,7 +203,7 @@ blacklist nouveau
 options nouveau modeset=0
 ```
 
-Cette exclusion est importante car il ne faut pas que le driver libre `nouveau` soit chargé en même temps que les drivers propriétaires *NVIDIA*, au risque de provoquer des conflits.
+Cette exclusion est importante car elle évite que le driver `nouveau` soit chargé en même temps que celui que l'on installe, au risque de provoquer des conflits.
 
 Il reste enfin à installer les drivers recommandés par `nvidia-detect` :
 
@@ -211,16 +211,16 @@ Il reste enfin à installer les drivers recommandés par `nvidia-detect` :
 apt install nvidia-kernel-dkms nvidia-driver firmware-misc-nonfree 
 ```
 
-Il reste alors à redémarrer le serveur puis vérifier l'installation avec la commande `nvidia-smi` ou `dkms status` :
+Une fois le redémarrage terminé, on vérifie l'installation avec la commande `nvidia-smi` ou `dkms status` :
 
 ```bash
 nvidia-smi
 dkms status
 ```
 
-Si la sortie de `nvidia-smi` affiche un tableau avec les informations de la carte graphique, c'est que les drivers sont correctement installés et que le GPU peut être utilisé par la VM. Bravo !
+Si la sortie de `nvidia-smi` affiche un tableau avec les informations du GPU, cela signifie que les drivers sont correctement installés et que le GPU peut être utilisé par la VM. Bravo !
 
-En cas d'échec de `nvidia-smi`, il est possible que le **Secure Boot** soit activé dans le BIOS de la machine hôte. Dans ce cas, il faut le désactiver. Il peut aussi être intéressant de vérifier que le driver `nouveau` n'est pas installé avec la commande `lsmod | grep nouveau`. Si c'est le cas, il faut supprimer les paquets associés à ce driver.
+En cas d'échec, plusieurs pistes peuvent être explorées. Il est possible que le **Secure Boot** soit activé dans le BIOS de la machine hôte. Dans ce cas, il faut le désactiver. Il peut aussi être intéressant de vérifier que le driver `nouveau` n'est pas installé avec la commande `lsmod | grep nouveau`. Si c'est le cas, il faut supprimer les paquets associés à ce driver.
 
 ### Installer le NVIDIA Container Toolkit
 
@@ -228,7 +228,7 @@ Puisque l'on souhaite utiliser *ollama* dans un conteneur *Docker*, il est néce
 
 La procédure abordée ici est issue de la [documentation officielle de NVIDIA](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
 
-Dans un premier temps, il faut ajouter les dépôts du **NVIDIA Container Toolkit** :
+Dans un premier temps, il faut ajouter les dépôts *NVIDIA* :
 
 ```bash
 curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
@@ -248,7 +248,7 @@ sudo apt install -y \
   libnvidia-container1=${NVIDIA_CONTAINER_TOOLKIT_VERSION}
 ```
 
-Configurer le runtime et redémarrer Docker :
+Ensuite, il faut configurer le runtime et redémarrer *Docker* pour que les modifications soient prises en compte :
 
 ```bash
 sudo nvidia-ctk runtime configure --runtime=docker
@@ -261,7 +261,7 @@ Enfin, on peut tester que le GPU est bien accessible depuis un conteneur *Docker
 sudo docker run --rm --runtime=nvidia --gpus all ubuntu nvidia-smi
 ```
 
-Si la sortie de la commande affiche un tableau avec les informations de la carte graphique, cela signifie que le **NVIDIA Container Toolkit** est correctement installé et que les conteneurs *Docker* peuvent utiliser le GPU. *Ollama* pourra dès lors bénéficier de l'accélération matérielle apportée par la carte afin d'exécuter les modèles importés.
+Si la sortie de la commande affiche un tableau avec les informations de la carte graphique, cela signifie que le **NVIDIA Container Toolkit** est correctement installé et que les conteneurs *Docker* peuvent utiliser le GPU. *Ollama* pourra dès lors bénéficier de l'accélération matérielle apportée par la carte afin d'exécuter des **LLMs**.
 
 ### Optionnel : corriger l’erreur `Auto-detected mode as 'legacy'` en créant une configuration CDI
 
@@ -293,7 +293,7 @@ spec-dirs = ["/etc/cdi", "/var/run/cdi"]
 
 Si certaines lignes diffèrent, il faut les modifier en conséquence.
 
-Une fois cette modification effectuée, il faut redémarrer le service *Docker* avec `systemctl restart docker` puis relancer le conteneur. Cette étape terminée, il faut désormais créer une configuration **CDI**.
+Une fois cette modification effectuée, il faut redémarrer le service *Docker* avec `systemctl restart docker` puis relancer le conteneur. Cette étape terminée, on peut désormais créer une configuration **CDI**.
 
 Pour cela, il faut éxécuter les commandes suivantes :
 
@@ -316,7 +316,7 @@ devices:
 - containerEdits:
     deviceNodes:
     - path: /dev/nvidia0
-  name: GPU-98d95580-75e3-336a-bc9a-5300642039d9
+  name: GPU-<xxxx-xxxx-xxxx-xxxxxxxxxxxx>
 - containerEdits:
     deviceNodes:
     - path: /dev/nvidia0
@@ -378,7 +378,7 @@ volumes:
   openwebui:
 ```
 
-Il ne reste qu'à exécuter la commande habituelle `docker compose up -d` pour lancer les services. *Ollama* sera accessible sur le port `11434` (API LLM), et *Open WebUI* sur le port `8080`.
+Il ne reste qu'à exécuter la commande habituelle `docker compose up -d` pour lancer les services. *Ollama* sera accessible sur le port `11434`, et *Open WebUI* sur le port `8080`.
 
 Une fois les conteneurs démarrés, on peut vérifier que tout fonctionne correctement avec `docker ps` et se rendre à l'adresse `http://<ip-de-la-vm>:8080` pour accéder à l'interface web de *Open WebUI*.
 
@@ -386,13 +386,13 @@ Une fois les conteneurs démarrés, on peut vérifier que tout fonctionne correc
 
 *Ollama* ne possède pas de modèle par défaut, il faut importer ceux que l'on souhaite utiliser parmi une [liste de modèles](https://ollama.com/search). Une fois choisi, on peut l'installer en utilisant la **CLI** fournie par l'outil.
 
-Pour cela, on doit d'abord accéder au conteneur *Ollama* avec la commande suivante :
+Pour cela, on doit d'abord accéder au conteneur *Ollama* :
 
 ```bash
 docker exec -it <nom_du_conteneur> /bin/bash
 ```
 
-Une fois dans le conteneur, on peut lister les modèles disponibles avec la commande :
+Une fois dans le conteneur, on peut exécuter un modèle parmi la liste susmentionnée :
 
 ```bash
 ollama run gemma2:2b
@@ -400,7 +400,7 @@ ollama run gemma2:2b
 
 Une fois le modèle téléchargé, on peut l'utiliser directement en ligne de commande ou via l'interface web de *Open WebUI*.
 
-On peut lister les modèles installés avec la commande :
+On peut lister les **LLMs** installés avec la commande :
 
 ```bash
 ollama list
@@ -412,7 +412,7 @@ Il est également possible d'importer un modèle sans l'exécuter :
 ollama pull gemma3
 ```
 
-Pour trouver une large gamme de modèles selon les cas d'usage, je recommande de se rendre sur [Hugging Face](https://huggingface.co/models) qui propose une multitude de modèles open-source, souvent compatibles avec *Ollama*. Certains modèles disponibles sur *Ollama* y sont référencés, avec leurs caractéristiques techniques (taille, nombre de paramètres, type de licence, etc.).
+Pour trouver une large gamme de **LLMs** selon les cas d'usage, je recommande de se rendre sur [Hugging Face](https://huggingface.co/models) qui référence une multitude de modèles open-source. Certains modèles disponibles sur *Ollama* y sont référencés, avec leurs caractéristiques techniques (taille, nombre de paramètres, type de licence...).
 
 **Exemple d'utilisation depuis l'interface web** :
 
@@ -422,11 +422,11 @@ L'exemple ci-dessus démontre avec succès l'utilisation du modèle *gemma2:2b* 
 
 - Agents locaux pour effectuer des diagnostics et de l'autoremediation sur les serveurs du homelab
 - Génération de rapports automatisés sur l'état des services
-- Utilisation d'agents pour la vie quotidienne (assistant personnel, gestion de tâches, etc.) sans que les données ne quittent le domicile
+- Utilisation d'agents pour la vie quotidienne (assistant personnel, gestion de tâches...) sans que les données ne quittent le domicile
 
 ## Conclusion
 
-La mise en place d'un **LLM** auto-hébergé, au-delà de son aspect technique, ouvre la porte à une multitude d'usages. L'utilisation d'une IA locale garantit la confidentialité des données et permet d'expérimenter avec la grande variété de modèles disponibles. Couplée à des outils d'automatisation, comme *n8n* ou *Node-RED*, cette installation peut transformer un homelab en un environnement intelligent et réactif, capable de gérer des tâches complexes de manière autonome. Prochainement, je détaillerai comment j'ai utilisé mon IA locale pour automatiser des tâches à l'aide d'agents via *n8n*.
+La mise en place d'un **LLM** auto-hébergé, au-delà de son aspect technique, ouvre la porte à une multitude d'usages. L'utilisation d'une IA locale garantit la confidentialité des données et permet d'expérimenter avec la grande variété de modèles disponibles. Couplée à des outils d'automatisation, comme *n8n* ou *Node-RED*, **un homelab peut être transformé en un environnement intelligent et réactif**, capable de gérer des tâches de manière autonome. Prochainement, je détaillerai comment j'ai utilisé mon IA locale pour automatiser certaines tâches en liant mes LLMs sur *Ollama* avec *n8n*.
 
 ## Références
 
