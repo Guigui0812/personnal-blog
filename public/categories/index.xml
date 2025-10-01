@@ -6,8 +6,78 @@
     <description>Recent content in Categories on grohee</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>fr</language>
-    <lastBuildDate>Sat, 23 Aug 2025 20:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 28 Sep 2025 00:00:00 +0200</lastBuildDate>
     <atom:link href="https://grohee.fr/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Automatisation</title>
+      <link>https://grohee.fr/categories/automatisation/</link>
+      <pubDate>Sun, 28 Sep 2025 00:00:00 +0200</pubDate>
+      <guid>https://grohee.fr/categories/automatisation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>https://grohee.fr/categories/docker/</link>
+      <pubDate>Sun, 28 Sep 2025 00:00:00 +0200</pubDate>
+      <guid>https://grohee.fr/categories/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gpu</title>
+      <link>https://grohee.fr/categories/gpu/</link>
+      <pubDate>Sun, 28 Sep 2025 00:00:00 +0200</pubDate>
+      <guid>https://grohee.fr/categories/gpu/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Homelab</title>
+      <link>https://grohee.fr/categories/homelab/</link>
+      <pubDate>Sun, 28 Sep 2025 00:00:00 +0200</pubDate>
+      <guid>https://grohee.fr/categories/homelab/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ia</title>
+      <link>https://grohee.fr/categories/ia/</link>
+      <pubDate>Sun, 28 Sep 2025 00:00:00 +0200</pubDate>
+      <guid>https://grohee.fr/categories/ia/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Llm</title>
+      <link>https://grohee.fr/categories/llm/</link>
+      <pubDate>Sun, 28 Sep 2025 00:00:00 +0200</pubDate>
+      <guid>https://grohee.fr/categories/llm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Nvidia</title>
+      <link>https://grohee.fr/categories/nvidia/</link>
+      <pubDate>Sun, 28 Sep 2025 00:00:00 +0200</pubDate>
+      <guid>https://grohee.fr/categories/nvidia/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ollama</title>
+      <link>https://grohee.fr/categories/ollama/</link>
+      <pubDate>Sun, 28 Sep 2025 00:00:00 +0200</pubDate>
+      <guid>https://grohee.fr/categories/ollama/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Openwebui</title>
+      <link>https://grohee.fr/categories/openwebui/</link>
+      <pubDate>Sun, 28 Sep 2025 00:00:00 +0200</pubDate>
+      <guid>https://grohee.fr/categories/openwebui/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Proxmox</title>
+      <link>https://grohee.fr/categories/proxmox/</link>
+      <pubDate>Sun, 28 Sep 2025 00:00:00 +0200</pubDate>
+      <guid>https://grohee.fr/categories/proxmox/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Cloud-Init</title>
       <link>https://grohee.fr/categories/cloud-init/</link>
@@ -20,13 +90,6 @@
       <link>https://grohee.fr/categories/infrastructure-as-code/</link>
       <pubDate>Sat, 23 Aug 2025 20:00:00 +0100</pubDate>
       <guid>https://grohee.fr/categories/infrastructure-as-code/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Proxmox</title>
-      <link>https://grohee.fr/categories/proxmox/</link>
-      <pubDate>Sat, 23 Aug 2025 20:00:00 +0100</pubDate>
-      <guid>https://grohee.fr/categories/proxmox/</guid>
       <description></description>
     </item>
     <item>
@@ -83,13 +146,6 @@
       <link>https://grohee.fr/categories/kubernetes/</link>
       <pubDate>Mon, 26 May 2025 20:00:00 +0100</pubDate>
       <guid>https://grohee.fr/categories/kubernetes/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Docker</title>
-      <link>https://grohee.fr/categories/docker/</link>
-      <pubDate>Fri, 21 Mar 2025 18:00:00 +0100</pubDate>
-      <guid>https://grohee.fr/categories/docker/</guid>
       <description></description>
     </item>
     <item>

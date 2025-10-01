@@ -37,7 +37,7 @@ params:
 
   homeInfoParams:
   
-    Title: "Bienvenue sur mon site personnel ! Je suis Guillaume, Ingénieur Système Linux & Cloud 💻☁️"
+    Title: "Bienvenue sur mon site personnel ! Je suis Guillaume, Ingénieur SysOps 💻☁️"
     Content: |
       - Mes missions : participer au BUILD et au RUN de plateformes sur des Clouds Publics ou Privés pour des des domaines variés :  finance, paiement, santé, administrations publiques d'Etat...
       - 
@@ -54,3 +54,9 @@ params:
       url: "https://github.com/Guigui0812"
     - name: "linkedin"
       url: "https://www.linkedin.com/in/guillaume-rohee0812/"
+
+  assets:
+    favicon: "/static/assets/favicon.ico"
+    favicon16x16: "/assets/favicon-16x16.png"
+    favicon32x32: "/assets/favicon-32x32.png"
+    apple_touch_icon: "/assets/apple-touch-icon.png"

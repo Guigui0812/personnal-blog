@@ -5,8 +5,8 @@ title: 'Héberger un modèle de langage (LLM) afin de bénéficier de la puissan
 categories: ['homelab', 'ia', 'docker', 'proxmox', 'ollama', 'openwebui', 'nvidia', 'gpu', 'llm', 'automatisation']
 cover:
   image: '/images/ai-article-cover.png'
-  alt: 'AI dans un homelab avec Proxmox, Docker, Ollama et OpenWebUI'
-  caption: 'AI dans un homelab avec Proxmox, Docker, Ollama et OpenWebUI'
+  alt: 'AI dans un homelab avec Proxmox, Docker, Ollama et Open WebUI'
+  caption: 'AI dans un homelab avec Proxmox, Docker, Ollama et Open WebUI'
   focalPoint: 'center center'
 ---
 
@@ -34,17 +34,17 @@ Les coûts associés aux outils **IA** peuvent rapidement devenir importants : *
 
 ### Expérimentation et liberté
 
-Comme mentionné précédemment, chaque **LLM** a ses forces et ses faiblesses. *GPT* est très performant pour générer du texte et *Claude* excelle dans la génération de code. En déployant une infrastructure permettant d'héberger des **LLMs**, on va pouvoir tester différents modèles, les comparer, et choisir celui qui convient le mieux à chaque tâche. L'utilisateur bénéficie même d'un choix plus large puisqu'il n'est pas limité à ceux proposant un chat en ligne. Il peut ainsi explorer des modèles open-source, parfois plus légers et adaptés à des usages spécifique ou du matériel plus ancien.
+Comme mentionné précédemment, chaque **LLM** a ses forces et ses faiblesses. *GPT* est très performant pour générer du texte et *Claude* excelle dans la génération de code. En déployant une infrastructure permettant d'héberger des **LLMs**, on va pouvoir tester différents modèles, les comparer, et choisir celui qui convient le mieux à chaque tâche. L'utilisateur bénéficie même d'un choix plus large puisqu'il n'est pas limité à ceux proposant un chat en ligne. Il peut ainsi explorer des modèles open-source, parfois plus légers et adaptés à des usages spécifiques ou du matériel plus ancien.
 
 ### Bénéficier de la puissance de l’IA
 
-Utiliser l'IA dans un homelab peut débloquer de nouveaux horizons d'automatisation et d'efficacité. Couplé à des outils comme *n8n*, *Node-RED*, ou des scripts personnalisés, un **LLM** peut permettre un traitement automatisé de tâches complexes, analyser des logs, fournir des rapports, envoyer des notifications personnalisées, effectuer de l'autoremediation, et bien plus encore. De plus, c'est un moyen intelligent d'explorer le monde de **l'AIOps**, c'est à dire l'IA appliqué au domaine des opérations IT (administration système, réseau, sécurité, etc.).
+Utiliser l'IA dans un homelab peut débloquer de nouveaux horizons d'automatisation et d'efficacité. Couplé à des outils comme *n8n*, *Node-RED*, ou des scripts personnalisés, un **LLM** peut permettre un traitement automatisé de tâches complexes, analyser des logs, fournir des rapports, envoyer des notifications personnalisées, effectuer de l'autoremediation, et bien plus encore. De plus, c'est un moyen intelligent d'explorer le monde de **l'AIOps**, c'est à dire l'IA appliquée au domaine des opérations IT (administration système, réseau, sécurité, etc.).
 
 **Remarque** : il est important de ne pas utiliser d'agent IA pouvant faire tout et n'importe quoi sur des serveurs. En effet, un agent mal configuré pourrait supprimer des fichiers importants, modifier des configurations, ou causer des interruptions de service. Il est donc crucial de définir des limites strictes et de surveiller les actions de l'agent. Cela peut être fait, par exemple, en créant un utilisateur dédié pour l'agent avec des permissions limitées sur les fichiers et les commandes qu'il peut exécuter (via les `sudoers`).
 
 ## Mettre en place un LLM dans son homelab
 
-L'objet de ce guide est de détailler pas à pas l'installation d'un **LLM** sur une machine virtuelle (VM) *Debian* utilisant une carte graphique *NVIDIA* dans *Proxmox*. Le modèle fonctionnera avec *Ollama*, et une interface graphique sera fournie par **Open WebUI**, tout deux fonctionnant en tant que conteneurs *Docker*.
+L'objet de ce guide est de détailler pas à pas l'installation d'un **LLM** sur une machine virtuelle (VM) *Debian* utilisant une carte graphique *NVIDIA* dans *Proxmox*. Le modèle fonctionnera avec *Ollama*, et une interface graphique sera fournie par *Open WebUI*, tous deux fonctionnant en tant que conteneurs *Docker*.
 
 *Ollama* est une plateforme qui facilite la gestion et l'exécution locale de **LLMs**. Elle offre une API pour interagir avec les modèles, ainsi qu'une large bibliothèque de modèles pré-entraînés, dont un grand nombre sont open-source. Des modèles pour diverses applications sont disponibles : génération de texte, d'images, de code, etc. 
 
@@ -60,7 +60,7 @@ L'objet de ce guide est de détailler pas à pas l'installation d'un **LLM** sur
 
 Le **PCI Passthrough** permet à une VM d'accéder directement à un périphérique PCI, dans notre cas il s'agit d'une carte graphique connectée directement à l'hyperviseur. Les modèles de langage nécessitant de grandes puissances de calculs pour fonctionner efficacement, même pour de la simple inférence, un GPU est donc indispensable pour assurer un fonctionnement optimal de ces outils. On peut évidemment faire du **passthrough** dans d'autres cas : carte réseau, carte graphique pour du jeu, de la 3D ou de la conversion vidéo (pour un serveur *Plex* ou *Jellyfin* par exemple).
 
-Cette première étape nécessite des configuration *Proxmox* avancées, qui sont heureusement détaillées dans une [section déidée de la documentation](https://pve.proxmox.com/wiki/PCI_Passthrough) de l'hyperviseur.
+Cette première étape nécessite des configuration *Proxmox* avancées, qui sont heureusement détaillées dans une [section dédiée de la documentation](https://pve.proxmox.com/wiki/PCI_Passthrough) de l'hyperviseur.
 
 #### Vérifier que la fonctionnalité d'IOMMU est activée
 
@@ -108,7 +108,7 @@ Si la commande ne fonctionne pas, il est possible que l'option **ACS (Access Con
 
 **VFIO (Virtual Function I/O)** est un framework du noyau Linux qui permet aux utilisateurs d'accéder directement aux périphériques matériels depuis des environnements virtualisés. Il est utilisé pour le **PCI Passthrough** car il permet de sécuriser l'accès aux périphériques en isolant les ressources matérielles, garantissant ainsi que chaque **VM** puisse utiliser le matériel qui lui est assigné sans interférence.
 
-Plusieurs modules doivent être ajoutés au noyau pour pouvoir faire du **PCI Passthrough**. Pour cela, il faut ajouer les lignes suivantes dans le fichier `/etc/modules` :
+Plusieurs modules doivent être ajoutés au noyau pour pouvoir faire du **PCI Passthrough**. Pour cela, il faut ajouter les lignes suivantes dans le fichier `/etc/modules` :
 
 ```bash
 vfio
@@ -157,7 +157,7 @@ Dans l'interface web de *Proxmox*, il faut créer une nouvelle VM qui aura la co
 
 Une fois la VM créée, il faut ajouter un périphérique PCI dans l'onglet `Hardware` de la VM. La configuration doit être la suivante :
 
-![Proxmox PCI passthrough settings](../images/proxmox-pci-passthrought.png)
+![Proxmox PCI passthrough settings](/images/proxmox-pci-passthrought.png)
 
 Le reste de la configuration de la VM est à faire directement dans l'OS invité. Dans ce guide, on utilise *Debian 13* mais d'autres distributions prennent en charge les GPU *NVIDIA* comme *Ubuntu* ou *Fedora*.
 
@@ -336,14 +336,14 @@ Dans mon cas, j'ai été contraint d'effectuer ces manipulations car ma carte gr
 
 Désormais, la connexion entre le conteneur *Docker* et le GPU est fonctionnelle. *Ollama* peut être installé.
 
-### Déployer Ollama et OpenWebUI avec Docker Compose
+### Déployer Ollama et Open WebUI avec Docker Compose
 
-Pour installer *Ollama* et *OpenWebUI*, il faut d'abord installer *Docker* et *Docker Compose* dans la VM. L'installation des outils est détaillée dans leurs documentations respectives :
+Pour installer *Ollama* et *Open WebUI*, il faut d'abord installer *Docker* et *Docker Compose* dans la VM. L'installation des outils est détaillée dans leurs documentations respectives :
 
 - [Documentation officielle de Docker](https://docs.docker.com/engine/install/debian/)
 - [Documentation officielle de Docker Compose](https://docs.docker.com/compose/install/)
 
-Le fichier `docker compose` suivant permet de déployer *Ollama* et *OpenWebUI* très facilement :
+Le fichier `docker compose` suivant permet de déployer *Ollama* et *Open WebUI* très facilement :
 
 ```yaml
 services:
@@ -416,7 +416,7 @@ Pour trouver une large gamme de **LLMs** selon les cas d'usage, je recommande de
 
 **Exemple d'utilisation depuis l'interface web** :
 
-![Open WebUI example](../images/openwebui-example.png)
+![Open WebUI example](/images/openwebui-example.png)
 
 L'exemple ci-dessus démontre avec succès l'utilisation du modèle *gemma2:2b* au sein de mon homelab personnel. On peut dès lors imaginer pléthore d'usages :
 

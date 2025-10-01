@@ -2,22 +2,52 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://grohee.fr/categories/automatisation/</loc>
+    <lastmod>2025-09-28T00:00:00+02:00</lastmod>
+  </url><url>
     <loc>https://grohee.fr/categories/</loc>
-    <lastmod>2025-08-23T20:00:00+01:00</lastmod>
+    <lastmod>2025-09-28T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://grohee.fr/categories/docker/</loc>
+    <lastmod>2025-09-28T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://grohee.fr/categories/gpu/</loc>
+    <lastmod>2025-09-28T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://grohee.fr/</loc>
+    <lastmod>2025-09-28T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://grohee.fr/posts/homelab-ia/</loc>
+    <lastmod>2025-09-28T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://grohee.fr/categories/homelab/</loc>
+    <lastmod>2025-09-28T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://grohee.fr/categories/ia/</loc>
+    <lastmod>2025-09-28T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://grohee.fr/categories/llm/</loc>
+    <lastmod>2025-09-28T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://grohee.fr/categories/nvidia/</loc>
+    <lastmod>2025-09-28T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://grohee.fr/categories/ollama/</loc>
+    <lastmod>2025-09-28T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://grohee.fr/categories/openwebui/</loc>
+    <lastmod>2025-09-28T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://grohee.fr/posts/</loc>
+    <lastmod>2025-09-28T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://grohee.fr/categories/proxmox/</loc>
+    <lastmod>2025-09-28T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://grohee.fr/categories/cloud-init/</loc>
     <lastmod>2025-08-23T20:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://grohee.fr/</loc>
-    <lastmod>2025-08-23T20:00:00+01:00</lastmod>
-  </url><url>
     <loc>https://grohee.fr/categories/infrastructure-as-code/</loc>
-    <lastmod>2025-08-23T20:00:00+01:00</lastmod>
-  </url><url>
-    <loc>https://grohee.fr/posts/</loc>
-    <lastmod>2025-08-23T20:00:00+01:00</lastmod>
-  </url><url>
-    <loc>https://grohee.fr/categories/proxmox/</loc>
     <lastmod>2025-08-23T20:00:00+01:00</lastmod>
   </url><url>
     <loc>https://grohee.fr/posts/proxmox-cloudinit-terraform/</loc>
@@ -49,9 +79,6 @@
   </url><url>
     <loc>https://grohee.fr/categories/kubernetes/</loc>
     <lastmod>2025-05-26T20:00:00+01:00</lastmod>
-  </url><url>
-    <loc>https://grohee.fr/categories/docker/</loc>
-    <lastmod>2025-03-21T18:00:00+01:00</lastmod>
   </url><url>
     <loc>https://grohee.fr/categories/https/</loc>
     <lastmod>2025-03-21T18:00:00+01:00</lastmod>

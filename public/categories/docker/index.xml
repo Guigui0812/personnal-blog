@@ -6,8 +6,16 @@
     <description>Recent content in Docker on grohee</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>fr</language>
-    <lastBuildDate>Fri, 21 Mar 2025 18:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 28 Sep 2025 00:00:00 +0200</lastBuildDate>
     <atom:link href="https://grohee.fr/categories/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Héberger un modèle de langage (LLM) afin de bénéficier de la puissance de l’IA dans son homelab</title>
+      <link>https://grohee.fr/posts/homelab-ia/</link>
+      <pubDate>Sun, 28 Sep 2025 00:00:00 +0200</pubDate>
+      <guid>https://grohee.fr/posts/homelab-ia/</guid>
+      <description>&lt;p&gt;Un LLM (Large Language Model) est un modèle d’intelligence artificielle (IA) entraîné sur de très grandes quantités de données, ce qui lui permet de comprendre et de générer du langage naturel. Concrètement, il peut résumer des documents, répondre à des questions variées, générer du code, ou agir sous forme d’agent en étant interfacé avec d’autres outils (terminal, navigateur ou des APIs).&lt;/p&gt;
+&lt;p&gt;Sans aborder précisément les aspects techniques, ces modèles fonctionnent en prédisant le mot suivant dans une phrase, en se basant sur le contexte des mots précédents. Le contexte des mots est représenté par un très grand nombre de paramètres aussi appelés &lt;strong&gt;poids&lt;/strong&gt; (weights). Par exemple, GPT-3 de OpenAI possède 175 milliards de paramètres. Plus un modèle a de paramètres, plus il est performant dans la compréhension et la génération de texte. Il est ainsi capable de saisir une plus grande variété de contextes et de nuances dans le langage.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Step CA : devenir sa propre autorité de certification TLS</title>
       <link>https://grohee.fr/posts/step-ca/</link>
