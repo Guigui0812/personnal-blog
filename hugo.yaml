@@ -35,6 +35,7 @@ params:
   tocopen: false
   ShareButtons: ["x", "reddit","linkedin"]
 
+
   homeInfoParams:
   
     Title: "Bienvenue sur mon site personnel ! Je suis Guillaume, Ingénieur SysOps 💻☁️"
