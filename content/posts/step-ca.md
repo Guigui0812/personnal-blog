@@ -25,9 +25,14 @@ sudo mv step*/step /usr/local/bin/
 Télécharger et exécuter l'image :
 
 ```bash
+mkdir /opt/step-ca # OPT car contient des applications tierces non gérées par le système de paquets
+cd /opt/step-ca
+mkdir data
 docker pull smallstep/step-ca
 docker run -it -u <step_ca_user_id> -v ./data:/home/step smallstep/step-ca step ca init
 ```
+
+**Remarque** : il est important de paramétrer les droits des fichiers dans le volume `data` pour l'utilisateur `step-ca` avec le bon **UID**.
 
 Remplir les différents champs proposés :
 
@@ -47,7 +52,7 @@ Explications :
 - Nom de l'admin de la CA
 - Mot de passe
 
-Dans le volume `$PATH/data` monté dans le conteneur `step-ca`, créez le fichier `./data/secrets/password` et ajoutez le mot de passe de la **CA**. Cette étape est obligatoire pour le démarrage du conteneur.
+Dans le volume `<path_to_step_ca_vol>/data` monté dans le conteneur `step-ca`, créez le fichier `<path_to_step_ca_vol>/data/secrets/password` et ajoutez le mot de passe de la **CA**. Cette étape est obligatoire pour le démarrage du conteneur.
 
 Ensuite, il suffira d'exécuter le conteneur de la **CA** :
 
@@ -200,6 +205,23 @@ D'autres techniques seront abordées prochainement pour automatiser le renouvell
 
 - Renouvellement via un **cron**
 - **ACME** (Automated Certificate Management Environment)
+
+#### Renouvellement via **ACME**
+
+**Step CA** intègre un serveur **ACME**. Il est possible d'utiliser des clients comme **Certbot** ou **acme.sh** pour obtenir et renouveler des certificats.
+
+Pour activer le serveur **ACME**, il faut exécuter la commande suivante dans le conteneur **step-ca** :
+
+```bash
+step ca provisioner add acme --type ACME
+```
+
+Une fois le conteneur redémarré, le serveur **ACME** sera disponible selon le pattern suivant : `http(s)://<ca-domain>:<ca-port>/acme/acme/directory`.
+
+##### Exemple **proxmox**
+
+- Ajouter la **Root CA** dans **Proxmox** en suivant la même méthode que pour **Debian/Ubuntu**.
+- Se rendre dans **pve → Certificates** puis **Add → ACME Account**. Configurer le compte avec l'URL du serveur **ACME** et le compte **Step CA**.
 
 ## Références
 
