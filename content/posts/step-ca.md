@@ -167,8 +167,8 @@ Par défaut les certificats ne sont valides que **24 heures**. Pour augmenter la
 	],
 	"claims": {
 		"minTLSCertDuration": "5m",
-		"maxTLSCertDuration": "2190h",
-		"defaultTLSCertDuration": "2190h"
+		"maxTLSCertDuration": "730h",
+		"defaultTLSCertDuration": "730h"
 	}
 }
 ```
@@ -218,10 +218,46 @@ step ca provisioner add acme --type ACME
 
 Une fois le conteneur redémarré, le serveur **ACME** sera disponible selon le pattern suivant : `http(s)://<ca-domain>:<ca-port>/acme/acme/directory`.
 
+
 ##### Exemple **proxmox**
 
 - Ajouter la **Root CA** dans **Proxmox** en suivant la même méthode que pour **Debian/Ubuntu**.
 - Se rendre dans **pve → Certificates** puis **Add → ACME Account**. Configurer le compte avec l'URL du serveur **ACME** et le compte **Step CA**.
+
+##### Exemple avec la CLI **step ca**
+
+Il est possible d'utiliser la CLI `step ca` pour obtenir un certificat via **ACME**. Le prérequis est d'avoir un compte **ACME** dans la **CA** et d'avoir exécuté la commande `step ca bootstrap` avec la **fingerprint** de la **CA**.
+
+```bash
+step ca certificate <cert_domain> <domain_cert_file> <domain_private_key> --provisioner acme
+```
+
+Une fois le certificat obtenu, il est possible de le renouveler avec la commande :
+
+```bash
+step ca renew <domain_cert_file> <domain_private_key> --provisioner acme
+```
+
+On peut également automatiser le renouvellement avec l'option `--daemon` comme vu précédemment.
+
+L'idée est alors de créer un service `systemd` qui exécute la commande de renouvellement en tâche de fond :
+
+```ini
+[Unit]
+Description=Step CA Renew Service for domain.crt
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+ExecStart=/usr/bin/step ca renew --daemon --exec "systemctl reload nginx" /path/to/domain.crt /path/to/domain.key --provisioner acme
+
+[Install]
+WantedBy=multi-user.target
+```
 
 ## Références
 
